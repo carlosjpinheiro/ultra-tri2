@@ -14,7 +14,7 @@ const labels = {
 </script>
 
 <template>
-  <div class="untree_co-section" id="contact-section">
+  <div class="untree_co-section" id="contato">
     <div class="container">
 
       <div class="row mb-4" data-aos="fade-up" data-aos-delay="0">
@@ -62,46 +62,13 @@ const labels = {
               :style="[
                 { backgroundColor: themeColor },
                 { borderColor: themeColor },
+                { color: '#FFF' }
               ]"
             >
               {{ buttonSendMessage }}
             </button>
           </form>
         </div>
-
-        <!-- <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="h5 mb-4">{{ contactInfoHeading }}</h3>
-          <address class="text-black d-flex">
-            <span class="mt-1 icon-room mr-2"></span
-            ><span>{{ contactInfo.address }}</span>
-          </address>
-          <ul class="list-unstyled ul-links mb-4">
-            <li>
-              <a :href="'tel://' + contactInfo.phone1" class="d-flex"
-                ><span class="mt-1 icon-phone mr-2"></span
-                ><span>{{ contactInfo.phone1 }}</span></a
-              >
-            </li>
-            <li>
-              <a :href="'tel://' + contactInfo.phone2" class="d-flex"
-                ><span class="mt-1 icon-phone mr-2"></span
-                ><span>{{ contactInfo.phone2 }}</span></a
-              >
-            </li>
-            <li>
-              <a :href="'mailto:' + contactInfo.email" class="d-flex"
-                ><span class="mt-1 icon-envelope mr-2"></span
-                ><span>{{ contactInfo.email }}</span></a
-              >
-            </li>
-            <li>
-              <a :href="[contactInfo.website]" target="_blank" class="d-flex"
-                ><span class="mt-1 icon-globe mr-2"></span
-                ><span>{{ contactInfo.website }}</span></a
-              >
-            </li>
-          </ul>
-        </div> -->
       
       </div>
     </div>

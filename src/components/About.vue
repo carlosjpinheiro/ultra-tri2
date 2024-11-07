@@ -9,7 +9,7 @@ const totalTeam = "20";
 </script>
 
 <template>
-  <div class="untree_co-section" id="about-section">
+  <div class="untree_co-section" id="sobre">
     <div class="container">
       <div class="row justify-content-between ">
 

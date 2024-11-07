@@ -14,17 +14,16 @@ import Footer from "./components/Footer.vue";
 </script>
 
 <template>
-  <Header />
+  <!-- <Header />
   <Hero />
   <About />
-  <!-- <Service1 /> -->
-  <!-- <Service2 /> -->
-  <!-- <Feature /> -->
-  <!-- <Pricing />
-  <Pricing /> -->
-  <!-- <Advantage /> -->
   <Testimonial />
-  <!-- <Blog /> -->
   <Contact />
-  <Footer />
+  <Footer /> -->
+  <div id="app">
+    <Header />
+    <RouterView />
+    <Footer />
+</div>
+
 </template>

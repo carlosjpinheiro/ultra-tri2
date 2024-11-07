@@ -6,7 +6,7 @@ const anoAtual = new Date().getFullYear()
 const copyrightText = `Copyright ${anoAtual}, Todos direitos reservados.`;
 const column1Heading = "Brasil Ultra Eventos";
 const column1Text =
-  "Promovemos a Brasil Ultra Tri desde .... com tantos participantes de tantos países lalalal ";
+  "";
 const column2Heading = "Projects";
 const column3Heading = "Services";
 const column4Heading = "Contact";
@@ -108,11 +108,6 @@ const socialItems = [
             <h3>Contato</h3>
             <!-- <address>{{ contactInfo.address }}</address> -->
             <ul class="list-unstyled links mb-4">
-              <li>
-                <a :href="'tel://' + contactInfo.phone1">
-                  +55 (47) 99999 9999
-                </a>
-              </li>
               <!-- <li>
                 <a :href="'tel://' + contactInfo.phone2">{{
                   contactInfo.phone2
