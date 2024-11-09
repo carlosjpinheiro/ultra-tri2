@@ -1,4 +1,4 @@
-const themeColor = '#407BFF'
+const themeColor = '#1A9538'
 const siteName = 'Brasil Ultra Tri'
 
 const contactInfo = {

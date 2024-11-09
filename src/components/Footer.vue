@@ -4,14 +4,6 @@ import { contactInfo } from "../data/items";
 const anoAtual = new Date().getFullYear()
 
 const copyrightText = `Copyright ${anoAtual}, Todos direitos reservados.`;
-const column1Heading = "Brasil Ultra Eventos";
-const column1Text =
-  "";
-const column2Heading = "Projects";
-const column3Heading = "Services";
-const column4Heading = "Contact";
-
-const connectHeading = "Connect";
 
 const socialItems = [
   {
@@ -22,18 +14,6 @@ const socialItems = [
     link: "https://www.facebook.com/brasilultratri/",
     icon: "icon-facebook",
   },
-  // {
-  //   link: "https://www.twitter.com/",
-  //   icon: "icon-twitter",
-  // },
-  // {
-  //   link: "https://www.linkedin.com/",
-  //   icon: "icon-linkedin",
-  // },
-  // {
-  //   link: "https://www.pinterest.com/",
-  //   icon: "icon-pinterest",
-  // },
 ];
 </script>
 
@@ -42,11 +22,22 @@ const socialItems = [
     <div class="footer-dots"></div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-4">
-          <div class="widget">
-            <h3>{{ column1Heading }}</h3>
-            <p>{{ column1Text }}</p>
-          </div>
+        <div class="col-lg-6">
+
+            <div class="widget">
+              <h3>Brasil Ultra Eventos</h3>
+              <!-- <address>{{ contactInfo.address }}</address> -->
+              <ul class="list-unstyled links mb-4 w-100">
+                <li>
+                    <a >
+                      <RouterLink :to="{ path: '/cancelamento',}">
+                        Política de reembolso e cancelamento                        
+                      </RouterLink>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          
           <div class="widget">
             <!-- <h3>{{ connectHeading }}</h3> -->
             <ul class="list-unstyled social">
@@ -60,48 +51,11 @@ const socialItems = [
                   ><span :class="socialItems[1].icon"></span
                 ></a>
               </li>
-              <!-- <li style="margin-right: 4px">
-                <a :href="socialItems[2].link"
-                  ><span :class="socialItems[2].icon"></span
-                ></a>
-              </li>
-              <li style="margin-right: 4px">
-                <a :href="socialItems[3].link"
-                  ><span :class="socialItems[3].icon"></span
-                ></a>
-              </li>
-              <li>
-                <a :href="socialItems[4].link"
-                  ><span :class="socialItems[4].icon"></span
-                ></a>
-              </li> -->
             </ul>
           </div>
         </div>
-        <div class="col-lg-2 ml-auto">
-          <!-- <div class="widget">
-            <h3>{{ column2Heading }}</h3>
-            <ul class="list-unstyled float-left links">
-              <li><a href="#">La Lega Stadium</a></li>
-              <li><a href="#">France Building</a></li>
-              <li><a href="#">22 New Homes</a></li>
-              <li><a href="#">Manage Center</a></li>
-              <li><a href="#">Sports Hall</a></li>
-            </ul>
-          </div> -->
-        </div>
 
-        <div class="col-lg-2">
-          <!-- <div class="widget">
-            <h3>{{ column3Heading }}</h3>
-            <ul class="list-unstyled float-left links">
-              <li><a href="#">Architect</a></li>
-              <li><a href="#">Interior Design</a></li>
-              <li><a href="#">Landscape Design</a></li>
-              <li><a href="#">Consultancy</a></li>
-            </ul>
-          </div> -->
-        </div>
+        <div class="col-lg-3"/>
 
         <div class="col-lg-3">
           <div class="widget">
@@ -121,7 +75,9 @@ const socialItems = [
             </ul>
           </div>
         </div>
+
       </div>
+
       <div class="row mt-5">
         <div class="col-12 text-center">
           <p>

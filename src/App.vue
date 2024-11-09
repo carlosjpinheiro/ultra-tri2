@@ -20,10 +20,18 @@ import Footer from "./components/Footer.vue";
   <Testimonial />
   <Contact />
   <Footer /> -->
-  <div id="app">
+  <div id="app" class="site-bg ">
     <Header />
     <RouterView />
     <Footer />
 </div>
 
 </template>
+
+<style>
+.site-bg{
+  background-color: #fffc5b81;
+  color: rgba(0, 0, 0, 0.753);
+}
+
+</style>

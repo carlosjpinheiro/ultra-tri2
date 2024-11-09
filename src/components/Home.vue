@@ -5,6 +5,7 @@ import Hero from "./Hero.vue";
 import Testimonial from "./Testimonial.vue";
 import About from "./About.vue";
 import Contact from "./Contact.vue";
+import Modalidades from "./Modalidades.vue";
 
 </script>
 
@@ -12,7 +13,8 @@ import Contact from "./Contact.vue";
     <!-- <Header /> -->
     <Hero />
     <About />
-    <!-- <Testimonial /> -->
+    <!-- <Testimonial/> -->
+    <Modalidades />
     <Contact />
     <!-- <Footer /> -->
 </template>

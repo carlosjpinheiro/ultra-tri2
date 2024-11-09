@@ -59,8 +59,10 @@ import { themeColor } from "../data/items";
                 > -->
                   
                   <RouterLink 
-                  :style="[{ color: themeColor }, { borderColor: themeColor }]"
-                    class="btn btn-outline-primary smoothscroll pricing"
+                  :style="[
+                    { color: themeColor }, 
+                    { borderColor: themeColor }]"
+                    class="btn smoothscroll pricing"
                     :to="{ name: 'inscricao',  }" 
                     >
                       Inscreva-se
@@ -76,7 +78,5 @@ import { themeColor } from "../data/items";
 </template>
 
 <style scoped>
-.pricing:hover {
-  color: #fff !important;
-}
+
 </style>

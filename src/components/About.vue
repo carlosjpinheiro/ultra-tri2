@@ -46,29 +46,16 @@ const totalTeam = "20";
             </p>
             <p>
               Quer saber mais sobre o trabalho e credibilidade da Associação Internacional de Ultra Triathon? 
-              <a target="_blank" href="https://www.iutasport.com/">
+              <a 
+              target="_blank" 
+              href="https://www.iutasport.com/"
+              :style="[{ color: themeColor }]" 
+              >
                 Saiba mais aqui
 
               </a>
             </p>
           </div>
-<!-- 
-          <div class="row count-numbers">
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="0">
-              <span class="counter d-block"
-                ><span :data-number="totalMembers">{{ totalMembers }}</span
-                ><span>M</span></span
-              >
-              <span class="caption-2">Members</span>
-            </div>
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-              <span class="counter d-block"
-                ><span :data-number="totalTeam">{{ totalTeam }}</span
-                ><span></span
-              ></span>
-              <span class="caption-2">Team</span>
-            </div>
-          </div> -->
 
         </div>
 

@@ -1,5 +1,7 @@
 import Inscricao from './components/Inscricao.vue'
 import Regulamentos from './components/Regulamentos.vue'
+import Cancelamento from './components/Cancelamento.vue'
+import Modalidades from './components/Modalidades.vue'
 
 import Home from './components/Home.vue'
 import { createRouter, createWebHistory } from 'vue-router';
@@ -7,8 +9,10 @@ import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
     { name: 'home', path: '/', meta: { name: 'home' }, component: Home, },
     { name: 'sobre', path: '/sobre', meta: { name: 'Sobre'} , redirect: { name: 'home', hash: '#sobre' }},
+    { name: 'modalidades', path: '/modalidades', meta: { name: 'Modalidades'} , redirect: { name: 'home', hash: '#modalidades' }},
     { name: 'contato', path: '/contato', meta: { name: 'Contato'} , redirect: { name: 'home', hash: '#contato' }},
-
+    
+    { name: 'cancelamento', path: '/cancelamento', component: Cancelamento},
     { name: 'regulamentos', path: '/regulamentos', component: Regulamentos },
     { name: 'inscricao', path: '/inscricao', component: Inscricao },
 ]

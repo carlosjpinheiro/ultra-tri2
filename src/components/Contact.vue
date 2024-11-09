@@ -19,8 +19,8 @@ const labels = {
 
       <div class="row mb-4" data-aos="fade-up" data-aos-delay="0">
         <div class="col-12 text-center">
-          <h2 class="heading">{{ heading }}</h2>
-          <p>{{ subHeading }}</p>
+          <h2 class="heading">Fale conosco</h2>
+          <p>Tire suas dúvidas, faça um elogio ou reclamação.</p>
         </div>
       </div>
       
