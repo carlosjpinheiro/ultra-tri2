@@ -4,6 +4,7 @@ import { VForm, VTextField, VBtn } from "vuetify/lib/components/index.mjs";
 import Loading from './Loading.vue'
 import axios from 'axios';
 import getDataAtual from '../utils/utils'
+import { contactInfo } from "../data/items";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../data/firebase";
 import { getFirestore, collection, getDocs, addDoc, setDoc, doc, deleteDoc } from 'firebase/firestore/lite';
@@ -26,7 +27,8 @@ const formulario = ref({
     tamanhoCamiseta: '',
     modalidade: '',
     concordaRegulamento: '',
-    dataInscricao: ''
+    dataInscricao: '',
+    _subject: 'Nova inscrição Brasil Ultra Tri'
 })
 
 const submitForm = async() => {
@@ -38,7 +40,7 @@ const submitForm = async() => {
             
             // console.log('form', formulario.value);
             carregando.value = true
-            const response = await axios.post('https://formsubmit.co/ajax/carlos.pnx@gmail.com', formulario.value);
+            const response = await axios.post(`https://formsubmit.co/ajax/${contactInfo.email}`, formulario.value);
             enviaFirebase()
 
             alert('Inscrição enviada com sucesso!')
