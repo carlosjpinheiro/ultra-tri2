@@ -1,7 +1,6 @@
 import Inscricao from './components/Inscricao.vue'
 import Regulamentos from './components/Regulamentos.vue'
 import Cancelamento from './components/Cancelamento.vue'
-import Modalidades from './components/Modalidades.vue'
 
 import Home from './components/Home.vue'
 import { createRouter, createWebHistory } from 'vue-router';

@@ -17,7 +17,7 @@
             <div class="row justify-content-between ">
 
 
-                <div class="card-group d-flex text-center">
+                <div class="card-group d-flex text-center row justify-content-center ">
 
                     <div class="card col-lg-4">
                         <img class="card-img-top" src="..." alt="Card image cap">
@@ -57,8 +57,6 @@
                             <small class="text-muted">Tempo limite de prova: 36 horas</small>
                         </div>
                     </div>
-
-
 
                     <div class="card col-lg-4">
                         <img class="card-img-top" src="..." alt="Card image cap">
