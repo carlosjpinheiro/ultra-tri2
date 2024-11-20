@@ -25,9 +25,10 @@ const labels = {
       </div>
       
       <div class="row">
+        
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
-          <form class="contact-form" data-aos="fade-up" data-aos-delay="100">
+          <form class="contact-form" data-aos="fade-up" data-aos-delay="100" :action="`mailto:${contactInfo.email}`" method="GET">
             <div class="row">
               <div class="col-6">
                 <div class="form-group">

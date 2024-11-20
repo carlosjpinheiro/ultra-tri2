@@ -7,9 +7,8 @@ import { themeColor} from "../data/items";
 <template>
     <div class="untree_co-section" >
         
-        <div class="container">
-            <div class="row justify-content-between mt-8">
-
+        <div class="container" style="margin-top: 80px;">
+            <div class="row mt-8">
                 <div class="col-lg-8">
                     <div class="mb-4" data-aos="fade-up" data-aos-delay="0">
                         <h2 class="heading">

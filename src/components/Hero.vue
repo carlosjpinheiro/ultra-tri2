@@ -25,7 +25,7 @@ import { themeColor } from "../data/items";
             <div class="col-lg-6">
               <div>02 de maio de 2025 | Búzios/RJ</div>
               <br>
-              <h1 class="heading" data-aos="fade-up" data-aos-delay="0">
+              <h1 class="heading " data-aos="fade-up" data-aos-delay="0">
                 Brasil Ultra Tri 2025
               </h1>
               <div class="excerpt text-align-center" data-aos="fade-up" data-aos-delay="100">
@@ -41,31 +41,18 @@ import { themeColor } from "../data/items";
                 </h4>
               </div>
               <p data-aos="fade-up" data-aos-delay="200">
-                <!-- <a
-                  href="#features-section"
-                  class="btn btn-primary smoothscroll"
-                  style="margin-right: 5px"
-                  :style="[
-                    { background: themeColor },
-                    { borderColor: themeColor },
-                  ]"
-                  >{{ buttonSeeFeature }}</a
-                > -->
-                <!-- <a
-                  href="#pricing-section"
-                  class="btn btn-outline-primary smoothscroll pricing"
-                  :style="[{ color: themeColor }, { borderColor: themeColor }]"
-                  >Inscreva-se!</a
-                > -->
                   
                   <RouterLink 
                   :style="[
                     { color: themeColor }, 
                     { borderColor: themeColor }]"
-                    class="btn smoothscroll pricing"
+                    class="btn smoothscroll pricing "
                     :to="{ name: 'inscricao',  }" 
                     >
+                    <span style="font-size: 14px;">
                       Inscreva-se
+
+                    </span>
                     </RouterLink>
                   
               </p>

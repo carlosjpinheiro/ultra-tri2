@@ -46,6 +46,7 @@ const totalTeam = "20";
             </p>
             <p>
               Quer saber mais sobre o trabalho e credibilidade da Associação Internacional de Ultra Triathon? 
+              <br>
               <a 
               target="_blank" 
               href="https://www.iutasport.com/"
