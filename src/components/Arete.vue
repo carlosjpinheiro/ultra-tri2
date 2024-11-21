@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="untree_co-section" id="valores">
+    <div class="untree_co-section" id="arete">
         <div class="row mb-4" data-aos="fade-up" data-aos-delay="0">
 
             <div class="col-12 text-center">

@@ -30,35 +30,32 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
           <li><a class="nav-link"><RouterLink :to="{ path: '/regulamentos',  }" class="nav-link">Regulamentos</RouterLink></a></li>
           <li><a class="nav-link"><RouterLink :to="{ path: '/alojamento',  }" class="nav-link">Alojamento</RouterLink></a></li>
           <!-- <li><a class="nav-link"><RouterLink :to="{ path: '/contato',  }" class="nav-link">Contato</RouterLink></a></li> -->
-          
-        
+                  
           <li class="dropdown">
-            <a class="nav-link dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle hide-expanded" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Mais
             </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <!-- backgroundColor: themeColor, -->
+            <div 
+            style="background-color: #f0b905;"
+              :style="[
+                {
+                  borderRadius: '10px'
+                }
+              ]" 
+              class="dropdown-menu" 
+              aria-labelledby="dropdownMenu2">
 
 
               <ul class="js-clone-nav d-none d-lg-inline-block site-menu float-left">
-                <li><a class="nav-link"><RouterLink :to="{ path: '/cronograma',  }" class="nav-link">Cronograma</RouterLink></a></li>
-
-                <!-- <li><a class="nav-link"><RouterLink :to="{ path: '/sobre',  }" class="nav-link">Sobre</RouterLink></a></li> -->
-
-                <li><a class="nav-link"><RouterLink :to="{ path: '/modalidades',  }" class="nav-link">Modalidades</RouterLink></a></li>
-                <li><a class="nav-link"><RouterLink :to="{ path: '/valores',  }" class="nav-link">Valores</RouterLink></a></li>
-              
-                <li><a class="nav-link"><RouterLink :to="{ path: '/regulamentos',  }" class="nav-link">Regulamentos</RouterLink></a></li>
-                <li><a class="nav-link"><RouterLink :to="{ path: '/alojamento',  }" class="nav-link">Alojamento</RouterLink></a></li>
-                <li><a class="nav-link"><RouterLink :to="{ path: '/contato',  }" class="nav-link">Contato</RouterLink></a></li>
                 
-              
+                <li><a class="nav-link"><RouterLink :to="{ path: '/comochegar',  }" class="nav-link">Como chegar</RouterLink></a></li>
+                <li><a class="nav-link"><RouterLink :to="{ path: '/organizacao',  }" class="nav-link">Organização</RouterLink></a></li>
+                <li><a class="nav-link"><RouterLink :to="{ path: '/sobre',  }" class="nav-link">Sobre</RouterLink></a></li>
+                <li><a class="nav-link"><RouterLink :to="{ path: '/contato',  }" class="nav-link">Contato</RouterLink></a></li>
 
               </ul>
 
-
-              <!-- <button class="dropdown-item" type="button">Action</button>
-              <button class="dropdown-item" type="button">Another action</button>
-              <button class="dropdown-item" type="button">Something else here</button> -->
             </div>
           </li>
 
@@ -67,9 +64,9 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
           class="js-clone-nav d-none mt-1 d-lg-inline-block site-menu float-right"
         >
           <li class="cta-primary nav-link ml-2">
+            <!-- style="border-radius: 15;" -->
             <RouterLink 
               id="inscricao-link"
-              style="border-radius: 15;"
               :style="[
                 { backgroundColor: themeColor },
                 {borderRadius: '15px'}
@@ -106,5 +103,15 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
 
 #header .dropdown {
   /* color: black !important; */
+}
+
+.dropdown .nav-link:hover{
+  opacity: 0.7;
+}
+
+.site-mobile-menu .hide-expanded{
+  
+  display: none !important;
+/* background-color: red; */
 }
 </style>

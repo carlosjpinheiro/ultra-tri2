@@ -3,6 +3,9 @@ import Regulamentos from './components/Regulamentos.vue'
 import Cancelamento from './components/Cancelamento.vue'
 import Alojamento from './components/Alojamento.vue'
 import Cronograma from './components/Cronograma.vue'
+import ComoChegar from './components/ComoChegar.vue'
+import Organizacao from './components/Organizacao.vue'
+
 
 import Home from './components/Home.vue'
 import { createRouter, createWebHistory } from 'vue-router';
@@ -15,7 +18,8 @@ const routes = [
     { name: 'contato', path: '/contato', meta: { name: 'Contato'} , redirect: { name: 'home', hash: '#contato' }},
     { name: 'valores', path: '/valores', meta: { name: 'Valores'} , redirect: { name: 'home', hash: '#valores' }},
     
-    
+    { name: 'organizacao', path: '/Organizacao', component: Organizacao},
+    { name: 'comoChegar', path: '/comochegar', component: ComoChegar},
     { name: 'cronograma', path: '/cronograma', component: Cronograma},
     { name: 'alojamento', path: '/alojamento', component: Alojamento},
     { name: 'cancelamento', path: '/cancelamento', component: Cancelamento},

@@ -13,15 +13,15 @@ const totalTeam = "20";
     <div class="container">
       <div class="row justify-content-between ">
 
-        <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
           <img :src="iutaLogo" alt="Image" class="img-fluid" />
         </div>
 
         <div class="col-lg-8">
           <div class="mb-4" data-aos="fade-up" data-aos-delay="0">
-            <span class="caption" :style="[{ color: themeColor }]">
+            <!-- <span class="caption" :style="[{ color: themeColor }]">
             Sobre
-          </span>
+            </span> -->
             <h2 class="heading">
               Ultra Triathlon no Brasil  
             </h2>
