@@ -22,20 +22,16 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
         <ul class="js-clone-nav d-none d-lg-inline-block site-menu float-left">
           <li><a class="nav-link"><RouterLink :to="{ path: '/cronograma',  }" class="nav-link">Cronograma</RouterLink></a></li>
 
-          <!-- <li><a class="nav-link"><RouterLink :to="{ path: '/sobre',  }" class="nav-link">Sobre</RouterLink></a></li> -->
-
           <li><a class="nav-link"><RouterLink :to="{ path: '/modalidades',  }" class="nav-link">Modalidades</RouterLink></a></li>
           <li><a class="nav-link"><RouterLink :to="{ path: '/valores',  }" class="nav-link">Valores</RouterLink></a></li>
         
           <li><a class="nav-link"><RouterLink :to="{ path: '/regulamentos',  }" class="nav-link">Regulamentos</RouterLink></a></li>
           <li><a class="nav-link"><RouterLink :to="{ path: '/alojamento',  }" class="nav-link">Alojamento</RouterLink></a></li>
-          <!-- <li><a class="nav-link"><RouterLink :to="{ path: '/contato',  }" class="nav-link">Contato</RouterLink></a></li> -->
-                  
+                
           <li class="dropdown">
             <a class="nav-link dropdown-toggle hide-expanded" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Mais
             </a>
-            <!-- backgroundColor: themeColor, -->
             <div 
             style="background-color: #f0b905;"
               :style="[
