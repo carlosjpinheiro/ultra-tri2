@@ -25,7 +25,7 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
           <li><a class="nav-link"><RouterLink :to="{ path: '/modalidades',  }" class="nav-link">Modalidades</RouterLink></a></li>
           <li><a class="nav-link"><RouterLink :to="{ path: '/valores',  }" class="nav-link">Valores</RouterLink></a></li>
         
-          <li><a class="nav-link"><RouterLink :to="{ path: '/regulamentos',  }" class="nav-link">Regulamentos</RouterLink></a></li>
+          <li><a class="nav-link"><RouterLink :to="{ name: 'regulamentos'  }" class="nav-link">Regulamentos</RouterLink></a></li>
           <li><a class="nav-link"><RouterLink :to="{ path: '/alojamento',  }" class="nav-link">Alojamento</RouterLink></a></li>
                 
           <li class="dropdown">
