@@ -36,6 +36,7 @@ import IUTAWaiver from "../assets/pdf/IUTAWaiver.pdf";
 
                         <div class="card-body">
                             <h5 class="card-title font-weight-bold">Regulamento geral</h5>
+                            <p class="card-text">Documento de conhecimento obrigatório para todos participantes</p>
                         </div>
                     </div>
 
@@ -51,6 +52,8 @@ import IUTAWaiver from "../assets/pdf/IUTAWaiver.pdf";
                         </div>
                         <div class="card-body">
                             <h5 class="card-title font-weight-bold">Regulamento das corridas</h5>
+                            <p class="card-text">Regras para as modalidades de corrida</p>
+                            
                         </div>
                     </div>
 

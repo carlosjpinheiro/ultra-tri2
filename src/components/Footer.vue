@@ -19,7 +19,7 @@ const socialItems = [
 
 <template>
   <div class="site-footer">
-    <div class="footer-dots"></div>
+    <!-- <div class="footer-dots"></div> -->
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
@@ -38,8 +38,7 @@ const socialItems = [
               </ul>
             </div>
           
-          <div class="widget">
-            <!-- <h3>{{ connectHeading }}</h3> -->
+          <div >
             <ul class="list-unstyled social">
               <li style="margin-right: 4px">
                 <a :href="socialItems[0].link"
@@ -78,7 +77,7 @@ const socialItems = [
 
       </div>
 
-      <div class="row mt-5">
+      <div class="row ">
         <div class="col-12 text-center">
           <p>
             {{ copyrightText }}
