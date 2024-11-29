@@ -20,7 +20,7 @@ jobs:
         with:
           server: 108.167.151.65
           username: ultrat09
-          password: Ultratribrasil2025* #  ${{ secrets.FTP_PASS }}
+          password: ${{ secrets.FTP_PASS }}
           port: 21
           protocol: ftp
           local-dir: dist/
