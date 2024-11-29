@@ -18,17 +18,10 @@ jobs:
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          # ftp server
           server: 108.167.151.65
-          # ftp username
           username: ultrat09
-          # ftp password
-          password: Ultratribrasil2025*
-          # Server port to connect to (read your web hosts docs)
+          password: Ultratribrasil2025* #  ${{ secrets.FTP_PASS }}
           port: 21
-          # protocol to deploy with - ftp, ftps, or ftps-legacy
           protocol: ftp
-          # Folder to upload from, must end with trailing slash /
           local-dir: dist/
-          # Path to upload to on the server. Must end with trailing slash /
           server-dir: public_html/
