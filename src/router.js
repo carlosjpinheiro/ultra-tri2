@@ -10,7 +10,11 @@ import Home from './components/Home.vue'
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
-    { name: 'home', path: '/', meta: { name: 'home' }, component: Home, },
+
+    { name: 'index', path: '/~ultrat09', meta: { name: 'index' }, component: Home, },
+    { name: 'home', path: '/', meta: { name: 'home'} , redirect: { path: '/~ultrat09',  }},
+    
+
     { name: 'sobre', path: '/sobre', meta: { name: 'Sobre'} , redirect: { name: 'home', hash: '#sobre' }},
     { name: 'modalidades', path: '/modalidades', meta: { name: 'Modalidades'} , redirect: { name: 'home', hash: '#modalidades' }},
     { name: 'arete', path: '/arete', meta: { name: 'Arete'} , redirect: { name: 'home', hash: '#arete' }},
