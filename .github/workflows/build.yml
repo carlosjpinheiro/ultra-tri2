@@ -32,8 +32,3 @@ jobs:
           local-dir: dist/
           # Path to upload to on the server. Must end with trailing slash /
           server-dir: public_html/
-          # Prints which modifications will be made with current config options, but doesnt actually make any changes
-          dry-run: true
-          # Deletes ALL contents of server-dir, even items in excluded with exclude argument
-          
-          
