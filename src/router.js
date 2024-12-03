@@ -27,7 +27,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory('~ultrat09'),
+    history: createWebHistory('/~ultrat09/'),
     routes,
     scrollBehavior(to, from, savedPosition) {
         if (to.hash) {
