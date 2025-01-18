@@ -19,9 +19,7 @@ const totalTeam = "20";
 
         <div class="col-lg-8">
           <div class="mb-4" data-aos="fade-up" data-aos-delay="0">
-            <!-- <span class="caption" :style="[{ color: themeColor }]">
-            Sobre
-            </span> -->
+            
             <h2 class="heading">
               Ultra Triathlon no Brasil  
             </h2>
