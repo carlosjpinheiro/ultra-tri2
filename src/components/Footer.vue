@@ -3,7 +3,7 @@ import { contactInfo } from "../data/items";
 
 const anoAtual = new Date().getFullYear()
 
-const copyrightText = `Copyright ${anoAtual}, Todos direitos reservados.`;
+const copyrightText = `Copyright ${anoAtual}. Todos direitos reservados.`;
 
 const socialItems = [
   {
@@ -21,16 +21,16 @@ const socialItems = [
   <div class="site-footer">
     <!-- <div class="footer-dots"></div> -->
     <div class="container">
-      <div class="row">
+      <div class="row mt-n4">
         <div class="col-lg-6">
 
-            <div class="widget">
-              <h3>Brasil Ultra Eventos</h3>
+            <div class="">
+              <h4>Brasil Ultra Eventos</h4>
               <!-- <address>{{ contactInfo.address }}</address> -->
               <ul class="list-unstyled links mb-4 w-100">
                 <li>
                     <a >
-                      <RouterLink :to="{ path: '/cancelamento',}">
+                      <RouterLink :to="{ path: '/cancelamento',}" style="color: black;">
                         Política de reembolso e cancelamento                        
                       </RouterLink>
                   </a>
@@ -41,12 +41,12 @@ const socialItems = [
           <div >
             <ul class="list-unstyled social">
               <li style="margin-right: 4px">
-                <a :href="socialItems[0].link"
+                <a :href="socialItems[0].link" target="_blank"
                   ><span :class="socialItems[0].icon"></span
                 ></a>
               </li>
               <li style="margin-right: 4px">
-                <a :href="socialItems[1].link"
+                <a :href="socialItems[1].link" target="_blank"
                   ><span :class="socialItems[1].icon"></span
                 ></a>
               </li>
@@ -57,19 +57,19 @@ const socialItems = [
         <div class="col-lg-3"/>
 
         <div class="col-lg-3">
-          <div class="widget">
-            <h3>Contato</h3>
-            <!-- <address>{{ contactInfo.address }}</address> -->
+          <div class="">
+            <h4>Contato</h4>
             <ul class="list-unstyled links mb-4">
-              <!-- <li>
-                <a :href="'tel://' + contactInfo.phone2">{{
-                  contactInfo.phone2
-                }}</a>
-              </li> -->
               <li>
-                <a :href="'mailto:' + contactInfo.email"
-                  ><span>{{ contactInfo.email }}</span></a
-                >
+                <a :href="'mailto:' + contactInfo.email" style="color: black;"
+                ><span>{{ contactInfo.email }}</span></a>
+              </li>
+              <li>
+                <a href="https://wa.me/5547992357774" target="_blank" style="color: black;">
+                  <span class="icon-whatsapp" style="color: green;"/>                  
+                  (47) 99235-7774
+
+                </a>
               </li>
             </ul>
           </div>
@@ -77,7 +77,7 @@ const socialItems = [
 
       </div>
 
-      <div class="row ">
+      <div class="row mb-n8">
         <div class="col-12 text-center">
           <p>
             {{ copyrightText }}
@@ -87,3 +87,10 @@ const socialItems = [
     </div>
   </div>
 </template>
+
+<style>
+.site-footer {
+  background-color: #fcb603;
+}
+
+</style>
