@@ -225,7 +225,6 @@ const submitForm = async() => {
                                 <VRadio label="Single" value="single"></VRadio>
                                 <VRadio label="Corrida: 5 maratonas" value="corridacincomaratonas"></VRadio>
                                 <VRadio label="Corrida: 100km" value="corridacemkm"></VRadio>
-                                <VRadio label="Corrida: Maratona" value="corridamaratona"></VRadio>
                             </VRadioGroup>
 
                             <VCheckbox
