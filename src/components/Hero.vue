@@ -71,7 +71,7 @@ const diasRestantes = diasAteData()
 
               <div >02 a 16 de maio de 2025 | Clube Aretê Búzios, RJ</div>
               <br>
-              <h1 style="font-size: 55px;" data-aos="fade-up" data-aos-delay="0">
+              <h1 class="text-uppercase" style="font-size: 47px; background-color: #fcb603; border-radius: 10px;" data-aos="fade-up" data-aos-delay="0">
                 Brasil Ultra Tri 2025
               </h1>
               <div class="excerpt text-align-center" data-aos="fade-up" data-aos-delay="100">
@@ -84,10 +84,7 @@ const diasRestantes = diasAteData()
 
                   </p>
                   
-                <h4>
-                  VAGAS LIMITADAS!
-
-                </h4>
+                
               </div>
               <p data-aos="fade-up" data-aos-delay="200">
                   

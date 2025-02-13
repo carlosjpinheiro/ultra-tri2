@@ -21,10 +21,16 @@ import alojamento3 from "../assets/images/alojamento3.webp";
 
                     <div class="mb-4" data-aos="fade-up" data-aos-delay="100">
                         <p>
-                            Os atletas podem optar por usar o alojamento da prova, alugar por conta própria um motorhome ou escolher o hotel de sua preferência para hospedagem durante o evento.
+                            Os atletas podem optar por usar o alojamento da prova, alugar por conta própria um motorhome ou hospedar-se em hotel ou pousada de
+                            sua preferência. Indicamos o <strong>Hotel Aretê</strong> como
+                            acomodação mais próxima do local da prova. Atletas
+                            possuem 10% desconto utilizando o cupom <strong>brasilultra25</strong>.
+                            Reservas podem ser feitas através do e-mail:
+                            <a :href="'mailto:reservas@hotelarete.com.br'" style="color: black;">
+                                <span>reservas@hotelarete.com.br</span>
+                            </a>.
                         </p>
                         <p>
-                            <!-- Para aqueles que desejarem, estarão disponíveis para locação barracas iglús equipadas com colchão inflável, oferecendo um local confortável para descanso conforme o cronograma de pausas. Os membros da equipe de apoio (staff) também poderão utilizá-las. -->
                             Para aqueles que desejarem, estarão disponíveis para locação tendas no formato 3x3 com fechamento lateral (imagem ilustrada
 abaixo) equipadas com colchão inflável de casal, 1 mesa e 2 cadeiras, oferecendo um local confortável para descanso conforme o
 cronograma de pausas de cada atleta
