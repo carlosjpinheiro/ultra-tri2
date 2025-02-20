@@ -2,6 +2,7 @@
 import { themeColor } from "../data/items";
 import daniel1 from '../assets/images/daniel1.webp'
 import jessica1 from '../assets/images/jessica1.png'
+import { VDivider } from "vuetify/components";
 
 const socialDaniel = [
   {
