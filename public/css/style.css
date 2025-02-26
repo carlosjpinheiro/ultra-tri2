@@ -2,7 +2,12 @@ body {
   font-family: "Nunito", sans-serif;
   line-height: 1.6;
   /* background: #fff; */
-  background: #fcb603;
+
+  /* #F0EFEB cor de fundo nova 
+  #fcb603 amarelo do fundo
+  */ 
+
+  background: #F0EFEB;
   overflow-x: hidden;
   font-size: 16px;
   /* color: #939393;  */

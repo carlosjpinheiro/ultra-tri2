@@ -13,8 +13,8 @@ import IUTAWaiver from "../assets/pdf/IUTAWaiver.pdf";
 
             <div class="row mt-8 mx-1">
                 <div class="col-lg-12">
-                    <h2 class="heading">
-                        Regulamentos da prova
+                    <h2 class="heading text-uppercase negrito">
+                        Regulamentos - BRASIL ULTRA TRI
                     </h2>
 
                 </div>
@@ -35,7 +35,7 @@ import IUTAWaiver from "../assets/pdf/IUTAWaiver.pdf";
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title font-weight-bold">Regulamento geral</h5>
+                            <h5 class="card-title font-weight-bold text-uppercase">Regulamento geral</h5>
                             <p class="card-text">Documento de conhecimento obrigatório para todos participantes</p>
                         </div>
                     </div>
@@ -51,7 +51,7 @@ import IUTAWaiver from "../assets/pdf/IUTAWaiver.pdf";
 
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title font-weight-bold">Regulamento das corridas</h5>
+                            <h5 class="card-title font-weight-bold text-uppercase">Regulamento das corridas</h5>
                             <p class="card-text">Regras para as modalidades de corrida</p>
                             
                         </div>
@@ -70,7 +70,7 @@ import IUTAWaiver from "../assets/pdf/IUTAWaiver.pdf";
                         </div>
                         
                         <div class="card-body">
-                            <h5 class="card-title font-weight-bold">IUTA Waiver</h5>
+                            <h5 class="card-title font-weight-bold text-uppercase">IUTA Waiver</h5>
                             <p class="card-text">Documento obrigatório de assinatura dos atletas do ultra triathlon</p>
                             
                         </div>

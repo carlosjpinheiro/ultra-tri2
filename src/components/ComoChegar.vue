@@ -1,6 +1,5 @@
 <script setup>
 import clubePiscina from '../assets/images/clube_piscina.jpg'
-import areteSedeEsportiva from '../assets/images/arete-Sede-Esportiva.jpg'
 import hotel1 from '../assets/images/hotel_1.jpg'
 
 
@@ -11,10 +10,10 @@ import hotel1 from '../assets/images/hotel_1.jpg'
     <div class="untree_co-section" >
         <div class="container" id="comochegar" style="margin-top: 80px;">
         
-            <div class="row mt-8 text-justify">
+            <div class="row mt-8 mx-1 text-justify">
                 <div class="col-lg-10">
                     <div class="mb-4" data-aos="fade-up" data-aos-delay="0">
-                        <h2 class="heading">
+                        <h2 class="heading text-uppercase negrito">
                             Como chegar?
                         </h2>
                     </div>
@@ -31,22 +30,7 @@ import hotel1 from '../assets/images/hotel_1.jpg'
                                     O Clube Esportivo Aretê fica a aproximadamente 170km de distância do aeroporto Santos Dumont (RJ).
                                 </p>
                             </div>
-                            <div class="col-lg-6">                                                               
-                                
-                                <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                        <img class="d-block w-100" :src="clubePiscina" alt="First slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                        <img class="d-block w-100" :src="areteSedeEsportiva" alt="Second slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                        <img class="d-block w-100" :src="clubePiscina" alt="Third slide">
-                                        </div>
-                                    </div>
-                                </div> -->
-                                                
+                            <div class="col-lg-6">                                                
                                 
                                 <img :src="clubePiscina" alt="Clube Aretê Búzios" class="img-fluid rounded">
                             </div>
@@ -62,7 +46,7 @@ import hotel1 from '../assets/images/hotel_1.jpg'
                             <ul>
                                 <li class="ml-8">
                                     <div class="">
-                                        <h4>Alugando um Carro</h4>
+                                        <h4 class="text-left">Alugando um Carro</h4>
                                         <p>Ao redor dos principais aeroportos do Rio de Janeiro existem várias empresas de aluguel de carro. A viagem até o local da prova leva em média 2 horas. Há pedágio pelo caminho.</p>
                                     </div>
 
@@ -70,7 +54,7 @@ import hotel1 from '../assets/images/hotel_1.jpg'
 
                                 <li class="ml-8">
                                     <div class="">
-                                        <h4>Contratação de Transfer/Translado</h4>
+                                        <h4 class="text-left">Contratação de Transfer/Translado</h4>
                                         <p>Existem diversas empresas que realizam o translado do Aeroporto até Búzios e de Búzios até o aeroporto, que você pode contratar com antecedência. É importante confirmar com a empresa se todo seu equipamento (mala-bike, malas) cabe no ônibus ou van.</p>
                                         <p>Eles possuem diversos horários de acordo com o horário do seu vôo. A viagem até o local da prova leva em média 3:30h, com pausa no caminho para lanche. O horário pode variar de uma empresa para outra. Indicamos a empresa <strong>INN Búzios</strong>, que realizou todo transporte da primeira edição.</p>
                                     </div>
