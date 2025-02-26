@@ -11,19 +11,18 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
     <div class="container" id="header">
       <div class="site-navigation">
         <a class="logo m-0 float-left">
-          <RouterLink :to="{ path: '/',  }"  class="nav-link">
+          <RouterLink :to="{ name: 'home',  }"  class="nav-link">
             <img class="mt-n2 ml-n4" :src="ultraTriImg" style="max-width: 100px; ;" >
-            <!-- {{ siteName }} -->
-
+            
           </RouterLink>
         </a
         >
         <ul class="js-clone-nav d-none d-lg-inline-block site-menu float-left">
-          <li><a class="nav-link"><RouterLink :to="{ path: '/cronograma',  }" class="nav-link">Cronograma</RouterLink></a></li>
-          <li><a class="nav-link"><RouterLink :to="{ path: '/modalidades',  }" class="nav-link">Modalidades</RouterLink></a></li>
-          <li><a class="nav-link"><RouterLink :to="{ path: '/valores',  }" class="nav-link">Valores</RouterLink></a></li>
-          <li><a class="nav-link"><RouterLink :to="{ path: '/regulamentos',  }" class="nav-link">Regulamentos</RouterLink></a></li>
-          <li><a class="nav-link"><RouterLink :to="{ path: '/alojamento',  }" class="nav-link">Alojamento</RouterLink></a></li>
+          <li><a class="nav-link"><RouterLink :to="{ name: 'cronograma',  }" class="nav-link">Cronograma</RouterLink></a></li>
+          <li><a class="nav-link"><RouterLink :to="{ name: 'modalidades',  }" class="nav-link">Modalidades</RouterLink></a></li>
+          <li><a class="nav-link"><RouterLink :to="{ name: 'valores',  }" class="nav-link">Valores</RouterLink></a></li>
+          <li><a class="nav-link"><RouterLink :to="{ name: 'regulamentos',  }" class="nav-link">Regulamentos</RouterLink></a></li>
+          <li><a class="nav-link"><RouterLink :to="{ name: 'alojamento',  }" class="nav-link">Alojamento</RouterLink></a></li>
                 
           <li class="dropdown">
             <a class="nav-link dropdown-toggle hide-expanded" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -40,10 +39,10 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
               aria-labelledby="dropdownMenu2">
 
               <ul class="js-clone-nav d-none d-lg-inline-block site-menu float-left">                
-                <li><a class="nav-link"><RouterLink :to="{ path: '/comochegar',  }" class="nav-link">Como chegar</RouterLink></a></li>
-                <li><a class="nav-link"><RouterLink :to="{ path: '/organizacao',  }" class="nav-link">Organização</RouterLink></a></li>
-                <li><a class="nav-link"><RouterLink :to="{ path: '/sobre',  }" class="nav-link">Sobre</RouterLink></a></li>
-                <li><a class="nav-link"><RouterLink :to="{ path: '/contato',  }" class="nav-link">Contato</RouterLink></a></li>                
+                <li><a class="nav-link"><RouterLink :to="{ name: 'comochegar',  }" class="nav-link">Como chegar</RouterLink></a></li>
+                <li><a class="nav-link"><RouterLink :to="{ name: 'organizacao',  }" class="nav-link">Organização</RouterLink></a></li>
+                <li><a class="nav-link"><RouterLink :to="{ name: 'sobre',  }" class="nav-link">Sobre</RouterLink></a></li>
+                <li><a class="nav-link"><RouterLink :to="{ name: 'contato',  }" class="nav-link">Contato</RouterLink></a></li>                
               </ul>
             </div>
           </li>
@@ -60,7 +59,7 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
                 { backgroundColor: themeColor },
                 {borderRadius: '15px'}
                 ]" 
-              :to="{ path: '/inscricao',  }"  
+              :to="{ name: 'inscricao',  }"  
               class="nav-link"
             >
               Inscreva-se
