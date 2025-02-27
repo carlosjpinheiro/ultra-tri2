@@ -3,7 +3,7 @@ import { contactInfo } from "../data/items";
 
 const anoAtual = new Date().getFullYear()
 
-const copyrightText = `Copyright ${anoAtual}. Todos direitos reservados. 1.2`;
+const copyrightText = `Copyright ${anoAtual}. Todos direitos reservados. 1.3`;
 
 const socialItems = [
   {

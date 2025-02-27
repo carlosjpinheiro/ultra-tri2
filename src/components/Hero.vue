@@ -23,8 +23,8 @@ const fotosCarousel = [
   carousel9,
 ]
 
-// 02 de maio de 2025
-const diaEvento = new Date(2025, 4, 2)
+// 01 de maio de 2025
+const diaEvento = new Date(2025, 4, 1)
 const hoje = new Date(); 
 
 const diasAteData = () => { 
@@ -69,7 +69,7 @@ const diasRestantes = diasAteData()
             <div class="col-lg-6 text-center">
               <div v-if="diasRestantes > 0"><strong>{{ diasRestantes }} DIAS PARA O EVENTO</strong></div>
 
-              <div >02 a 16 de maio de 2025 | Clube Aretê Búzios, RJ</div>
+              <div >01 a 15 de maio de 2025 | Clube Aretê Búzios, RJ</div>
               <br>
               <h1 class="text-uppercase" style="font-size: 47px; background-color: #fcb603; border-radius: 10px;" data-aos="fade-up" data-aos-delay="0">
                 Brasil Ultra Tri 2025

@@ -14,39 +14,35 @@
                     <ul class="list-group">
                         <li class="list-group-item">
                             <strong>02 de maio</strong><br>
-                            Início: 9:00 h<br>
+                            Início: 9h00<br>
                             - Largada do DECA CONTÍNUO
                         </li>
                         <li class="list-group-item">
                             <strong>04 de maio</strong><br>
-                            Início: 9:00 h<br>
+                            Início: 9h00<br>
                             - Largada do QUINTUPLO CONTÍNUO
                         </li>
                         <li class="list-group-item">
                             <strong>05 de maio</strong><br>
-                            Início: 8:00 h<br>
+                            Início: 8h00<br>
                             - Largada do TRIPLO CONTÍNUO
                         </li>
                         <li class="list-group-item">
                             <strong>06 de maio</strong><br>
-                            Início: 8:00 h<br>
+                            Início: 8h00<br>
                             - Largada do DUPLO CONTÍNUO
                         </li>
                         <li class="list-group-item">
-                            <strong>07 de maio</strong><br>
-                            Início: 7:00 h<br>
-                            - Largada do TRIATHLON TRADICIONAL
+                            <strong>09 de maio</strong><br>
+                            Início: 6h30<br>
+                            - Largada 5 MARATONAS - 5 dias (demais dias 10, 11, 12 e 13)
                         </li>
                         <li class="list-group-item">
                             <strong>10 de maio</strong><br>
-                            Início: 7:00 h<br>
-                            - Largada dos 100 km Corrida
-                        </li>
-                        <li class="list-group-item">
-                            <strong>11 de maio</strong><br>
-                            Início: 7:00 h<br>
-                            - Largada 5 MARATONAS - 5 DIAS (dias 12, 13, 14 e 15)
-                            <br>- Largada MARATONA
+                            Início: 7h00<br>
+                            - Largada Triathlon Tradicional<br>
+                            Início: 19h00<br>
+                            - Largada 100km
                         </li>
                     </ul>
                 </div>
@@ -56,16 +52,21 @@
                     <h3 class="mb-4">Informações</h3>
                     <h5>Entrega de Kit</h5>
                     <p><strong>01 de maio:</strong> Somente para os atletas do DECA CONTÍNUO<br>
-                    Horário: 10:00 h</p>
+                    Horário: 10h00</p>
                     <p><strong>03 de maio:</strong> Para os demais atletas<br>
-                    Horário: 15:00 h<br>
+                    Horário: 15h00<br>
                     Atletas que não conseguirem comparecer no dia 03, podem retirar antes de suas largadas.<br>
                     <strong>Local:</strong> Clube Esportivo Aretê Búzios. 
                     <br>Falar com organização previamente.</p>
                     <br>
                     <h5>Premiação</h5>
-                    <p><strong>16 de maio:</strong> Início: 15:00 h<br>
-                    Local da premiação a confirmar (imedições do clube Aretê Búzios).</p>
+                    <p><strong>11 de maio:</strong> 18h00<br>
+                    Modalidades: Single Triathlon e 100km<br>
+                    Local Clube Aretê Búzios<br></p>
+
+                    <p><strong>14 de maio:</strong> 18h00<br>
+                    Demais modalidades<br>
+                    Local a definir (imediações do Clube Aretê)<br></p>
                     <p>Todas as informações serão disponibilizadas previamente.</p>
                 </div>
             </div>

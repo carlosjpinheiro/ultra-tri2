@@ -105,7 +105,7 @@
                 <ul class="ml-8 float-left links w-100">
                     <li>Kit do atleta</li>
                     <li>Passe livre no Clube Aretê para atleta e staff durante os seus dias de prova</li>
-                    <li>Alimentação (3 refeições livres por dia) e hidratação para o atleta durante seus dias de prova</li>                            
+                    <li>Alimentação (4 refeições quentes por dia) e hidratação para o atleta durante seus dias de prova</li>                            
                 </ul>                       
             </p>
 

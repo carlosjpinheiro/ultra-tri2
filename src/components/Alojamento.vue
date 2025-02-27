@@ -51,14 +51,14 @@ cronograma de pausas de cada atleta
                         <p>
                             <div class="mb-4" data-aos="fade-up" data-aos-delay="0">
                                 <h4 class="">
-                                    Valores para locação:
+                                    Valores de locação:
                                 </h4>
                             </div>
                             <ul class="ml-4 float-left links w-100">
-                                <li>Duplo Contínuo: $70 – disponível para 3 dias de uso</li>
-                                <li>Triplo Contínuo: $120 – disponível para 4 dias de uso</li>
-                                <li>Quíntuplo Contínuo: $150 – disponível para 6 dias de uso</li>
-                                <li>Deca Contínuo: $200 – disponível para 14 dias de uso</li>                                
+                                <li>Duplo Contínuo: R$400,00</li>
+                                <li>Triplo Contínuo: R$600,00</li>
+                                <li>Quíntuplo Contínuo: R$900,00</li>
+                                <li>Deca Contínuo: R$1.300,00</li>                                
                             </ul>
                         </p>
                         <p>O pagamento deve ser realizado antecipadamente até o dia 05/04/2025, pois o serviço é fornecido por uma empresa terceirizada.</p>
