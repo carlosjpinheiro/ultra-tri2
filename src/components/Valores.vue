@@ -41,7 +41,7 @@
                         <div class="card-body pt-2">
                             <h4 class="card-title text-center">Segundo lote</h4>
                             <p class="card-text text-center">
-                                Disponível até 28/02/2025
+                                Disponível até 28/02/2025 - ENCERRADO!
                             </p>
                             <ul class="ml-6 float-left links w-100">
                                 <li><span class="font-weight-bold">DECA</span> | $2.200,00</li>
