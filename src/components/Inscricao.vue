@@ -18,7 +18,7 @@ const getNewForm = () => {
         telefone: '',
         nacionalidade: '',
         idade: '',
-        dataNascimento: null,
+        dataNascimento: '',
         provasAnteriores: '',
         restricaoAlimentar: '',
         tamanhoCamiseta: '',
@@ -44,7 +44,7 @@ const submitForm = async() => {
     if (validation.valid) {    
         
         formData.value.dataInscricao = getDataFormatada(new Date());
-        formData.value.dataNascimento = getDataFormatada(dataNascimento.value);
+        // formData.value.dataNascimento = getDataFormatada(dataNascimento.value);
         
         try {
             carregando.value = true
@@ -54,7 +54,7 @@ const submitForm = async() => {
             alert('Pré-inscrição enviada com sucesso! Aguarde o e-mail da organização do evento para efetivar a inscrição')
             
             formInstance.value.reset()
-            dataNascimento.value = null
+            // dataNascimento.value = null
         } catch (error) {
             alert('Erro ao enviar o formulário!')
             console.error('Erro ao enviar o formulário:', error);
@@ -159,7 +159,14 @@ const submitForm = async() => {
 
                             <VRow>
                                 <VCol>
-                                    <VDateInput
+                                    <VTextField
+                                        v-model="formData.dataNascimento"
+                                        label="*Data de nascimento (mm/dd/aaaa)"
+                                        variant="outlined"
+                                        validate-on="input"
+                                        :rules="[requiredRule]"
+                                    />
+                                    <!-- <VDateInput
                                         v-model="dataNascimento"
                                         label="*Data de nascimento (mm/dd/aaaa)"
                                         variant="outlined"
@@ -167,7 +174,7 @@ const submitForm = async() => {
                                         validate-on="input"
                                         prepend-icon=""
                                         prepend-inner-icon="$calendar"
-                                        />
+                                        /> -->
                                     </VCol>
                             </VRow>
 
