@@ -60,7 +60,7 @@
                     <br>Falar com organização previamente.</p>
                     <br>
                     <h5>Premiação</h5>
-                    <p><strong>11 de maio:</strong> 18h00<br>
+                    <p><strong>11 de maio:</strong> 12h00<br>
                     Modalidades: Single Triathlon e 100km<br>
                     Local Clube Aretê Búzios<br></p>
 

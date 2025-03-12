@@ -50,7 +50,7 @@ const fotosCarousel = [
                         <li >Piscina Olímpica (50 m)</li>
                         <li>Lago (500 m)</li>
                         <li>Pista para Ciclismo (7,560 km)</li>
-                        <li>Pista para Corrida (2,00 km)</li>
+                        <li>Pista para Corrida (1,00 km)</li>
                         <li>Banheiros</li>
                         <li>Área para Camping</li>                    
                     </ul>
