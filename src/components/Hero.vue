@@ -2,20 +2,17 @@
 import carousel1 from "../assets/images/carousel1.jpg";
 import carousel2 from "../assets/images/carousel2.png";
 import carousel3 from "../assets/images/carousel3.jpg";
-import carousel4 from "../assets/images/carousel4.jpg";
 import carousel5 from "../assets/images/carousel5.jpg";
 import carousel6 from "../assets/images/carousel6.jpg";
 import carousel7 from "../assets/images/carousel7.jpg";
 import carousel8 from "../assets/images/carousel8.jpg";
 import carousel9 from "../assets/images/carousel9.jpg";
 
-import { themeColor } from "../data/items";
 
 const fotosCarousel = [
   carousel1,
   carousel2,
   carousel3,
-  carousel4,
   carousel5,
   carousel6,
   carousel7,
@@ -86,7 +83,7 @@ const diasRestantes = diasAteData()
                   
                 
               </div>
-              <p data-aos="fade-up" data-aos-delay="200">
+              <!-- <p data-aos="fade-up" data-aos-delay="200">
                   
                   <RouterLink 
                   :style="[
@@ -101,7 +98,7 @@ const diasRestantes = diasAteData()
                     </span>
                     </RouterLink>
                   
-              </p>
+              </p> -->
             </div>
           </div>
         </div>

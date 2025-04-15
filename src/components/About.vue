@@ -1,6 +1,6 @@
 <script setup>
 import { themeColor } from "../data/items";
-import sobreImg from "../assets/images/sobre.jpg";
+import sobreImg from "../assets/images/sobre.png";
 
 
 </script>
@@ -11,14 +11,14 @@ import sobreImg from "../assets/images/sobre.jpg";
       <div class="row justify-content-between ">
 
         <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-          <img :src="sobreImg" alt="Image" class="img-fluid img-border" />
+          <img :src="sobreImg" alt="Image" class="img-fluid" />
         </div>
 
         <div class="col-lg-8">
           <div class="mb-4" data-aos="fade-up" data-aos-delay="0">
             
             <h2 class="heading">
-              Ultra Triathlon no Brasil  
+              2025 IUTA WORLD CUP
             </h2>
           </div>
           <div class="mb-4" data-aos="fade-up" data-aos-delay="100">

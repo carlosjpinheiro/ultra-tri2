@@ -8,6 +8,7 @@ import Organizacao from './components/Organizacao.vue'
 import Home from './components/Home.vue'
 
 import { createRouter, createWebHistory } from 'vue-router';
+import StartList from './components/StartList.vue'
 
 const routes = [
     { name: 'home', path: '/', meta: { name: 'home' }, component: Home, },
@@ -17,6 +18,7 @@ const routes = [
     { name: 'contato', path: '/contato', meta: { name: 'Contato' }, redirect: { name: 'home', hash: '#contato' } },
     { name: 'valores', path: '/valores', meta: { name: 'Valores' }, redirect: { name: 'home', hash: '#valores' } },
 
+    { name: 'startlist', path: '/startlist', component: StartList },
     { name: 'organizacao', path: '/organizacao', component: Organizacao },
     { name: 'comochegar', path: '/comochegar', component: ComoChegar },
     { name: 'cronograma', path: '/cronograma', component: Cronograma },
