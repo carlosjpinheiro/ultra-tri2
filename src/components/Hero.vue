@@ -64,7 +64,7 @@ const diasRestantes = diasAteData()
             </div>
             
             <div class="col-lg-6 text-center">
-              <div v-if="diasRestantes > 0"><strong>{{ diasRestantes }} DIAS PARA O EVENTO</strong></div>
+              <div v-if="diasRestantes > 0"><strong>{{ diasRestantes }} {{ diasRestantes == 1 ? 'DIA' : 'DIAS' }} PARA O EVENTO</strong></div>
 
               <div >01 a 15 de maio de 2025 | Clube Aretê Búzios, RJ</div>
               <br>
@@ -83,22 +83,20 @@ const diasRestantes = diasAteData()
                   
                 
               </div>
-              <!-- <p data-aos="fade-up" data-aos-delay="200">
-                  
-                  <RouterLink 
-                  :style="[
-                    { color: themeColor }, 
-                    { borderColor: themeColor }]"
-                    class="btn smoothscroll pricing "
-                    :to="{ name: 'inscricao',  }" 
-                    >
-                    <span style="font-size: 14px;">
-                      Inscreva-se
+              <p data-aos="fade-up" data-aos-delay="200">
 
-                    </span>
-                    </RouterLink>
+                    <a href="https://www.ultratribrasil.com/resultados/g-live.html?f=eventos/2025/ultratri2025/brasil-ultra-tri-2025.clax" target="_blank">
+              
+                      <span style="font-size: 18px; color: green; border-color: green;" 
+                      class="btn smoothscroll pricing "
+                      >
+                        RESULTADO AO VIVO
+  
+                      </span>
+
+                    </a>
                   
-              </p> -->
+              </p>
             </div>
           </div>
         </div>

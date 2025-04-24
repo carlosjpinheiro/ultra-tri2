@@ -6,9 +6,9 @@ import Cronograma from './components/Cronograma.vue'
 import ComoChegar from './components/ComoChegar.vue'
 import Organizacao from './components/Organizacao.vue'
 import Home from './components/Home.vue'
-
-import { createRouter, createWebHistory } from 'vue-router';
 import StartList from './components/StartList.vue'
+import Percurso from './components/Percurso.vue'
+import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
     { name: 'home', path: '/', meta: { name: 'home' }, component: Home, },
@@ -18,6 +18,7 @@ const routes = [
     { name: 'contato', path: '/contato', meta: { name: 'Contato' }, redirect: { name: 'home', hash: '#contato' } },
     { name: 'valores', path: '/valores', meta: { name: 'Valores' }, redirect: { name: 'home', hash: '#valores' } },
 
+    { name: 'percurso', path: '/percurso', component: Percurso },
     { name: 'startlist', path: '/startlist', component: StartList },
     { name: 'organizacao', path: '/organizacao', component: Organizacao },
     { name: 'comochegar', path: '/comochegar', component: ComoChegar },
@@ -25,7 +26,7 @@ const routes = [
     { name: 'alojamento', path: '/alojamento', component: Alojamento },
     { name: 'cancelamento', path: '/cancelamento', component: Cancelamento },
     { name: 'regulamentos', path: '/regulamentos', component: Regulamentos },
-    { name: 'inscricao', path: '/inscricao', component: Inscricao },
+    // { name: 'inscricao', path: '/inscricao', component: Inscricao },
 ]
 
 const router = createRouter({
