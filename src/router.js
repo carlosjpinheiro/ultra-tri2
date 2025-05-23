@@ -26,7 +26,7 @@ const routes = [
     { name: 'alojamento', path: '/alojamento', component: Alojamento },
     { name: 'cancelamento', path: '/cancelamento', component: Cancelamento },
     { name: 'regulamentos', path: '/regulamentos', component: Regulamentos },
-    // { name: 'inscricao', path: '/inscricao', component: Inscricao },
+    { name: 'inscricao', path: '/inscricao', component: Inscricao },
 ]
 
 const router = createRouter({

@@ -26,7 +26,7 @@
                     quanto para competições de grande porte.</p>
                 <p>É o tipo de estrutura que eleva o nível do ciclismo e valoriza o atleta!</p>
                 <p style="font-weight: 600;">Confira no vídeo:</p>
-                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/lJIrF4YjHfQ?si=oV4gxwGYq6dQcI2l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+                
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/IfhVpCM2NRA?si=qDN66jg5odcIS6wc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
@@ -48,7 +48,6 @@
                     fator estratégico que pode fazer toda a diferença no rendimento dos competidores.</p>
                 <p>Trata-se de um circuito pensado nos mínimos detalhes para otimizar a experiência do atleta, tanto na performance quanto na logística do evento.</p>
                 <p style="font-weight: 600;">Confira no vídeo:</p>
-                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/lJIrF4YjHfQ?si=oV4gxwGYq6dQcI2l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/YPWp44vry08?si=7UdATBHb6TSdXOIH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             

@@ -25,7 +25,7 @@ const getNewForm = () => {
         modalidade: '',
         concordaRegulamento: '',
         dataInscricao: '',
-        _subject: 'Nova inscrição Brasil Ultra Tri'
+        _subject: 'Nova inscrição Brasil Ultra Tri 2026'
     }
 }
 const app = initializeApp(firebaseConfig);
@@ -75,7 +75,7 @@ const submitForm = async() => {
         <div class="container" style="margin-top: 80px;">
             <div class="row mb-4 mt-8" data-aos="fade-up" data-aos-delay="0">
                 <div class="col-12 text-center">
-                    <h2 class="heading">Pré-inscrição Brasil Ultra Tri 2025</h2>
+                    <h2 class="heading">Pré-inscrição Brasil Ultra Tri 2026</h2>
                 </div>
             </div>
 
@@ -166,15 +166,6 @@ const submitForm = async() => {
                                         validate-on="input"
                                         :rules="[requiredRule]"
                                     />
-                                    <!-- <VDateInput
-                                        v-model="dataNascimento"
-                                        label="*Data de nascimento (mm/dd/aaaa)"
-                                        variant="outlined"
-                                        :rules="[requiredRule]"
-                                        validate-on="input"
-                                        prepend-icon=""
-                                        prepend-inner-icon="$calendar"
-                                        /> -->
                                     </VCol>
                             </VRow>
 

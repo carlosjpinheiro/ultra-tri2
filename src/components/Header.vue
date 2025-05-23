@@ -51,7 +51,7 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
           </li>
 
         </ul>
-        <!-- <ul
+        <ul
           class="js-clone-nav d-none mt-1 d-lg-inline-block site-menu float-right"
         >
           <li class="cta-primary nav-link ml-2">
@@ -67,7 +67,7 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
               Inscreva-se
             </RouterLink>
           </li>
-        </ul> -->
+        </ul>
         <a
           href="#"
           class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block dark d-lg-none"
