@@ -221,8 +221,8 @@ const submitForm = async() => {
                                 <VRadio label="Triplo continuous" value="triplo"></VRadio>
                                 <VRadio label="Duplo continuous" value="duplo"></VRadio>
                                 <VRadio label="Single" value="single"></VRadio>
-                                <VRadio label="Corrida: 5 maratonas" value="corridacincomaratonas"></VRadio>
-                                <VRadio label="Corrida: 100km" value="corridacemkm"></VRadio>
+                                <VRadio label="Corrida 24 horas" value="corrida24horas"></VRadio>
+                                <VRadio label="Corrida 100km" value="corridacemkm"></VRadio>
                             </VRadioGroup>
 
                             <VCheckbox
