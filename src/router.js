@@ -1,3 +1,4 @@
+import { createRouter, createWebHistory } from 'vue-router';
 import Inscricao from './components/Inscricao.vue'
 import Regulamentos from './components/Regulamentos.vue'
 import Cancelamento from './components/Cancelamento.vue'
@@ -8,7 +9,8 @@ import Organizacao from './components/Organizacao.vue'
 import Home from './components/Home.vue'
 import StartList from './components/StartList.vue'
 import Percurso from './components/Percurso.vue'
-import { createRouter, createWebHistory } from 'vue-router';
+import TriOpen from './components/TriOpen.vue'
+import InscricaoTriOpen from './components/InscricaoTriOpen.vue'
 
 const routes = [
     { name: 'home', path: '/', meta: { name: 'home' }, component: Home, },
@@ -18,6 +20,8 @@ const routes = [
     { name: 'contato', path: '/contato', meta: { name: 'Contato' }, redirect: { name: 'home', hash: '#contato' } },
     { name: 'valores', path: '/valores', meta: { name: 'Valores' }, redirect: { name: 'home', hash: '#valores' } },
 
+    { name: 'inscricaotriopen', path: '/inscricaotriopen', component: InscricaoTriOpen },
+    { name: 'triopen', path: '/triopen', component: TriOpen },
     { name: 'percurso', path: '/percurso', component: Percurso },
     { name: 'startlist', path: '/startlist', component: StartList },
     { name: 'organizacao', path: '/organizacao', component: Organizacao },

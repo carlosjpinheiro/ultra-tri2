@@ -81,9 +81,9 @@ const socialItems = [
         <div class="col-12 text-center">
           <p>
             {{ copyrightText }}
-            <a style="cursor: default; color: rgb(120, 120, 120);" href="https://www.ultratribrasil.com/resultados/g-live.html?f=eventos/2025/ultratri2025/brasil-ultra-tri-2025.clax" target="_blank">
+            <!-- <a style="cursor: default; color: rgb(120, 120, 120);" href="https://www.ultratribrasil.com/resultados/g-live.html?f=eventos/2025/ultratri2025/brasil-ultra-tri-2025.clax" target="_blank">
               v1.4
-            </a>
+            </a> -->
           </p>
         </div>
       </div>
