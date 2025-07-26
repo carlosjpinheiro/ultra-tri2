@@ -66,14 +66,14 @@ const diasRestantes = diasAteData()
             <div class="col-lg-6 text-center">
               <div v-if="diasRestantes > 0"><strong>{{ diasRestantes }} {{ diasRestantes == 1 ? 'DIA' : 'DIAS' }} PARA O EVENTO</strong></div>
 
-              <div >01 a 15 de maio de 2025 | Clube Aretê Búzios, RJ</div>
+              <div >01 a 15 de maio de 2026 | Clube Aretê Búzios, RJ</div>
               <br>
               <h1 class="text-uppercase" style="font-size: 47px; background-color: #fcb603; border-radius: 10px;" data-aos="fade-up" data-aos-delay="0">
-                Brasil Ultra Tri 2025
+                Brasil Ultra Tri 2026
               </h1>
               <div class="excerpt text-align-center" data-aos="fade-up" data-aos-delay="100">
                 <p class="mb-5">
-                  A Copa do Mundo de Ultra Triathlon volta ao Brasil em 2025, trazendo clima perfeito e cenário deslumbrante. 
+                  A Copa do Mundo de Ultra Triathlon volta ao Brasil em 2026, trazendo clima perfeito e cenário deslumbrante. 
                 </p>
                   <p>
                     Realizada no melhor clube esportivo da América Latina, a competição promete uma experiência inesquecível, 

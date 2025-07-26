@@ -10,7 +10,10 @@
             <div class="row">
                 <!-- Coluna do Cronograma -->
                 <div class="col-md-6 mb-4 mb-sm-0">
-                    <h3 class="mb-4">Cronograma</h3>
+                    <h3 class="mb-4">Cronograma 2026</h3>
+
+                    <h4 class="mb-4">*Em caso de alterações no cronograma, o atleta será avisado</h4>
+
                     <ul class="list-group">
                         <li class="list-group-item">
                             <strong>02 de maio</strong><br>
@@ -32,11 +35,11 @@
                             Início: 8h00<br>
                             - Largada do DUPLO CONTÍNUO
                         </li>
-                        <li class="list-group-item">
+                        <!-- <li class="list-group-item">
                             <strong>09 de maio</strong><br>
                             Início: 6h30<br>
                             - Largada 5 MARATONAS - 5 dias (demais dias 10, 11, 12 e 13)
-                        </li>
+                        </li> -->
                         <li class="list-group-item">
                             <strong>10 de maio</strong><br>
                             Início: 7h00<br>

@@ -90,10 +90,10 @@ import corridas from "../assets/images/mod-corridas.png";
                     <div class="card col-lg-4">
                         <img class="card-img-top" :src="corridas" style="max-width: 40%;" alt="Card image cap">
                         <div class="card-body fundo-claro">
-                            <h5 class="card-title text-uppercase negrito">Corridas</h5>
+                            <h5 class="card-title text-uppercase negrito">Corrida</h5>
                             <p class="card-text">
-                                5 Maratonas | 5 Dias seguidos
-                                <br><small class="text-muted">Tempo limite diário: 7hrs</small>
+                                Corrida 24 Horas
+                                <br><small class="text-muted">Tempo limite: 24hrs</small>
                                 <br>100km
                                 <br><small class="text-muted">Tempo limite: 14 hrs</small>
 

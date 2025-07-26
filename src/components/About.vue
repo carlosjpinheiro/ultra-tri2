@@ -18,7 +18,7 @@ import sobreImg from "../assets/images/sobre.png";
           <div class="mb-4" data-aos="fade-up" data-aos-delay="0">
             
             <h2 class="heading">
-              2025 IUTA WORLD CUP
+              2026 IUTA WORLD CUP
             </h2>
           </div>
           <div class="mb-4" data-aos="fade-up" data-aos-delay="100">
@@ -28,7 +28,7 @@ import sobreImg from "../assets/images/sobre.png";
               trazendo ao país um evento inesquecível!
             </p>
             <p class="mb-5">
-              Com o sucesso das edições anteriores, amplamente elogiadas por atletas ao redor do mundo, retornamos com a mesma excelência para a edição 2025.
+              Com o sucesso das edições anteriores, amplamente elogiadas por atletas ao redor do mundo, retornamos com a mesma excelência para a edição 2026.
             </p>
             <p class="mb-5">
               Novamente, com a maior modalidade de triathlon da América Latina: o DECA ULTRA TRI. Sendo 38 km de natação, 1.800 km de ciclismo e 422 km de corrida — tudo de forma contínua!
