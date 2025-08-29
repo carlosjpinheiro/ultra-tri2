@@ -1,9 +1,8 @@
 <script setup>
 import { VIcon } from "vuetify/lib/components/index.mjs";
-import RegulamentoGeral from "../assets/pdf/RegulamentoGeral.pdf";
 import RegulamentoCorridas from "../assets/pdf/RegulamentoCorridas.pdf";
 import IUTAWaiver from "../assets/pdf/IUTAWaiver.pdf";
-import RegulamentoTriOpen2025 from "../assets/pdf/RegulamentoTriOpen2025.pdf";
+import RegulamentoBrasil2026 from "../assets/pdf/RegulamentoBrasil2026.pdf";
 
 
 
@@ -26,10 +25,10 @@ import RegulamentoTriOpen2025 from "../assets/pdf/RegulamentoTriOpen2025.pdf";
             <div class="row mx-1" data-aos="fade-up" data-aos-delay="100">
 
                 <div class="card-group text-center row mt-4" style="margin: 0 auto;">
-                    <div class="card col-lg-12">
+                    <div class="card col-lg-12" style="margin-right: 100px !important;">
 
                         <div >
-                            <a :href="RegulamentoTriOpen2025" download>
+                            <a :href="RegulamentoCorridas" download>
                                 <VIcon
                                     style="font-size: 150px; color: rgba(255, 0, 0, 0.6);"
                                     icon="mdi-file-pdf-box"
@@ -38,8 +37,26 @@ import RegulamentoTriOpen2025 from "../assets/pdf/RegulamentoTriOpen2025.pdf";
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title font-weight-bold text-uppercase">Brasil Tri Open 2025 - Outubro</h5>
-                            <p class="card-text">Documento de conhecimento obrigatório para todos participantes</p>
+                            <h5 class="card-title font-weight-bold text-uppercase">Regulamento das corridas</h5>
+                            <p class="card-text">Regulamento das corridas</p>
+                        </div>
+                    </div>
+
+                    <div class="card col-lg-12">
+
+                        <div >
+                            <a :href="RegulamentoBrasil2026" download>
+                                <VIcon
+                                    style="font-size: 150px; color: rgba(255, 0, 0, 0.6);"
+                                    icon="mdi-file-pdf-box"
+                                />
+                            </a>
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title font-weight-bold text-uppercase">Brasil Ultra Tri 2026</h5>
+                            <p class="card-text">Documento de conhecimento obrigatório </p>
+                            <p class="card-text">para todos participantes</p>
                         </div>
                     </div>
 

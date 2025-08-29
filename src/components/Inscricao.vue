@@ -216,6 +216,7 @@ const submitForm = async() => {
                                     <div>Qual modalidade de interesse:</div>
                                 </template>
 
+                                <VRadio label="Double Deca continuous" value="doubleDeca"></VRadio>
                                 <VRadio label="Deca continuous" value="deca"></VRadio>
                                 <VRadio label="Quintuplo continuous" value="quintuplo"></VRadio>
                                 <VRadio label="Triplo continuous" value="triplo"></VRadio>
