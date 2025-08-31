@@ -24,7 +24,8 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
           <li><a class="nav-link"><RouterLink :to="{ name: 'percurso',  }" class="nav-link">Percurso</RouterLink></a></li>
           <li><a class="nav-link"><RouterLink :to="{ name: 'regulamentos',  }" class="nav-link">Regulamentos</RouterLink></a></li>
           <!-- <li><a class="nav-link" href="https://www.ultratribrasil.com/resultados/g-live.html?f=eventos/2025/ultratri2025/brasil-ultra-tri-2025.clax" target="_blank" style="color: black;"><span  class="nav-link ml-1">Resultados</span></a></li> -->
-          <li><a class="nav-link"><RouterLink :to="{ name: 'startlist',  }" class="nav-link">Start List</RouterLink></a></li>
+          <!-- <li><a class="nav-link"><RouterLink :to="{ name: 'startlist',  }" class="nav-link">Start List</RouterLink></a></li> -->
+           <li style="text-wrap: nowrap;"><a class="nav-link"><RouterLink :to="{ name: 'resultados2025',  }" class="nav-link">Resultados 2025</RouterLink></a></li>  
                 
           <li class="dropdown">
             <a class="nav-link dropdown-toggle hide-expanded" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,7 +43,8 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
               
               <ul class="js-clone-nav d-none d-lg-inline-block site-menu float-left">
                 <!-- <li><a class="nav-link"><RouterLink :to="{ name: 'regulamentos',  }" class="nav-link">Regulamentos</RouterLink></a></li> -->
-                <li><a class="nav-link"><RouterLink :to="{ name: 'valores',  }" class="nav-link">Valores</RouterLink></a></li>             
+                
+                <li><a class="nav-link"><RouterLink :to="{ name: 'valores',  }" class="nav-link">Valores</RouterLink></a></li>
                 <li><a class="nav-link"><RouterLink :to="{ name: 'alojamento',  }" class="nav-link">Alojamento</RouterLink></a></li>
                 <li><a class="nav-link"><RouterLink :to="{ name: 'comochegar',  }" class="nav-link">Como chegar</RouterLink></a></li>
                 <li><a class="nav-link"><RouterLink :to="{ name: 'organizacao',  }" class="nav-link">Organização</RouterLink></a></li>

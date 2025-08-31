@@ -5,6 +5,9 @@ import triplo from "../assets/images/mod-triplo.png";
 import duplo from "../assets/images/mod-duplo.png";
 import single from "../assets/images/mod-single.png";
 import corridas from "../assets/images/mod-corridas.png";
+import doubledeca from "../assets/images/mod-doubledeca.png"
+import meiotriathlon from "../assets/images/mod-meio-triathlon.png"
+
 
 </script>
 
@@ -23,15 +26,28 @@ import corridas from "../assets/images/mod-corridas.png";
                 <div class="card-group d-flex text-center row justify-content-center mx-1">
 
                     <div class="card col-lg-4">
+                        <img class="card-img-top" :src="doubledeca" style="max-width: 40%;" alt="Card image cap">
+                        <div class="card-body fundo-claro">
+                            <h5 class="card-title text-uppercase negrito">Double Deca contínuo</h5>
+                            <p class="card-text">76 km natação | 3.600 km ciclismo | 844 km corrida</p>
+                            <!-- <small class="text-muted">Tempo limite de prova: 324 horas</small> -->
+                            <p class="card-text">TEMPO DE CORTE:</p>
+                            <p><small class="text-muted">Natação: 60 horas</small></p>
+                            <p><small class="text-muted">Natação + T1 + Bike: 384 horas</small></p>
+                            <p><small class="text-muted">Total: 672 horas</small></p>
+                        </div>
+                    </div>
+
+                    <div class="card col-lg-4">
                         <img class="card-img-top" :src="deca" style="max-width: 40%;" alt="Card image cap">
                         <div class="card-body fundo-claro">
                             <h5 class="card-title text-uppercase negrito">Deca contínuo</h5>
                             <p class="card-text">38 km natação | 1.800 km ciclismo | 422 km corrida</p>
                             <!-- <small class="text-muted">Tempo limite de prova: 324 horas</small> -->
                             <p class="card-text">TEMPO DE CORTE:</p>
-                            <p><small class="text-muted">Natação: 26 horas</small></p>
+                            <p><small class="text-muted">Natação: 24 horas</small></p>
                             <p><small class="text-muted">Natação + T1 + Bike: 180 horas</small></p>
-                            <p><small class="text-muted">Total: 336 horas</small></p>
+                            <p><small class="text-muted">Total: 312 horas</small></p>
                         </div>
                     </div>
 
@@ -82,8 +98,21 @@ import corridas from "../assets/images/mod-corridas.png";
                             <!-- <small class="text-muted">Tempo limite de prova: 20 horas</small> -->
                             <p class="card-text">TEMPO DE CORTE:</p>
                             <p><small class="text-muted">Natação: 2,5 horas</small></p>
-                            <p><small class="text-muted">Natação + T1 + Bike: 17 horas</small></p>
-                            <p><small class="text-muted">Total: 23 horas</small></p>
+                            <p><small class="text-muted">Natação + T1 + Bike: 10 horas</small></p>
+                            <p><small class="text-muted">Total: 18 horas</small></p>
+                        </div>
+                    </div>
+
+                    <div class="card col-lg-4">
+                        <img class="card-img-top" :src="meiotriathlon" style="max-width: 40%;" alt="Card image cap">
+                        <div class="card-body fundo-claro">
+                            <h5 class="card-title text-uppercase negrito">Meio Triathlon</h5>
+                            <p class="card-text">1,9 km natação | 90 km ciclismo | 21 km corrida</p>
+                            <!-- <small class="text-muted">Tempo limite de prova: 20 horas</small> -->
+                            <p class="card-text">TEMPO DE CORTE:</p>
+                            <p><small class="text-muted">Natação: 1,5 horas</small></p>
+                            <p><small class="text-muted">Natação + T1 + Bike: 5 horas</small></p>
+                            <p><small class="text-muted">Total: 8 horas</small></p>
                         </div>
                     </div>
 

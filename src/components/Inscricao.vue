@@ -218,10 +218,11 @@ const submitForm = async() => {
 
                                 <VRadio label="Double Deca continuous" value="doubleDeca"></VRadio>
                                 <VRadio label="Deca continuous" value="deca"></VRadio>
-                                <VRadio label="Quintuplo continuous" value="quintuplo"></VRadio>
+                                <VRadio label="Quíntuplo continuous" value="quintuplo"></VRadio>
                                 <VRadio label="Triplo continuous" value="triplo"></VRadio>
                                 <VRadio label="Duplo continuous" value="duplo"></VRadio>
-                                <VRadio label="Single" value="single"></VRadio>
+                                <VRadio label="Triathlon tradicional" value="single"></VRadio>
+                                <VRadio label="Meio Triathlon" value="meioTriathlon"></VRadio>
                                 <VRadio label="Corrida 24 horas" value="corrida24horas"></VRadio>
                                 <VRadio label="Corrida 100km" value="corridacemkm"></VRadio>
                             </VRadioGroup>

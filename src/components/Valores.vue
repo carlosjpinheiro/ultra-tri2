@@ -23,12 +23,14 @@
                                 Disponível até 30/09/2025
                             </p>
                             <ul class="ml-6 float-left links w-100">
+                                <li><span class="font-weight-bold">DOUBLE DECA</span> | $4.500,00</li>
                                 <li><span class="font-weight-bold">DECA</span> | $2.250,00</li>
                                 <li><span class="font-weight-bold">QUINTUPLO</span> | $1.250,00</li>
                                 <li><span class="font-weight-bold">TRIPLO</span> | $750,00</li>
                                 <li><span class="font-weight-bold">DUPLO</span> | $650,00</li>
                                 <hr class="solid mr-8">
                                 <li><span class="font-weight-bold">TRIATHLON SINGLE</span> | $400,00</li>
+                                <li><span class="font-weight-bold">MEIO TRIATHLON</span> | $300,00</li>
                                 <li><span class="font-weight-bold">100KM</span> | $150,00</li>
                                 <li><span class="font-weight-bold">24 Horas</span> | $200,00</li>
                             </ul>
@@ -44,12 +46,14 @@
                                 01/10/2025 até 31/12/2025
                             </p>
                             <ul class="ml-6 float-left links w-100">
+                                <li><span class="font-weight-bold">DOUBLE DECA</span> | $5.000,00</li>
                                 <li><span class="font-weight-bold">DECA</span> | $2.500,00</li>
                                 <li><span class="font-weight-bold">QUINTUPLO</span> | $1.400,00</li>
                                 <li><span class="font-weight-bold">TRIPLO</span> | $900,00</li>
                                 <li><span class="font-weight-bold">DUPLO</span> | $800,00</li>
                                 <hr class="solid mr-8">
                                 <li><span class="font-weight-bold">TRIATHLON SINGLE</span> | $500,00</li>
+                                <li><span class="font-weight-bold">MEIO TRIATHLON</span> | $350,00</li>
                                 <li><span class="font-weight-bold">100KM</span> | $200,00</li>
                                 <li><span class="font-weight-bold">24 Horas</span> | $250,00</li>
                             </ul>
@@ -65,12 +69,14 @@
                                 01/01/2026 até 10/04/2026 se ainda houver vagas
                             </p>
                             <ul class="ml-6 float-left links w-100">
+                                <li><span class="font-weight-bold">DOUBLE DECA</span> | $6.000,00</li>
                                 <li><span class="font-weight-bold">DECA</span> | $2.750,00</li>
                                 <li><span class="font-weight-bold">QUINTUPLO</span> | $1.550,00</li>
                                 <li><span class="font-weight-bold">TRIPLO</span> | $1.050,00</li>
                                 <li><span class="font-weight-bold">DUPLO</span> | $950,00</li>
                                 <hr class="solid mr-8">
                                 <li><span class="font-weight-bold">TRIATHLON SINGLE</span> | $600,00</li>
+                                <li><span class="font-weight-bold">MEIO TRIATHLON</span> | $400,00</li>
                                 <li><span class="font-weight-bold">100KM</span> | $250,00</li>
                                 <li><span class="font-weight-bold">24 Horas</span> | $300,00</li>
                             </ul>
@@ -89,7 +95,7 @@
                 </div>
                 <ul class="ml-8 float-left links w-100">
                     <li>A vista, via transferência (Pix)</li>
-                    <li>Parcelado em até 10 vezes: Transferência ou Pix mensal, boleto ou cartão de crédito (consultar taxa do cartão)</li>
+                    <li>Parcelado no cartão de crédito (consultar taxa do cartão)</li>
                     
                 </ul>                       
             </p>

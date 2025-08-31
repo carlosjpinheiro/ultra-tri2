@@ -1,27 +1,47 @@
 <script setup>
-import carousel1 from "../assets/images/carousel1.jpg";
-import carousel2 from "../assets/images/carousel2.png";
-import carousel3 from "../assets/images/carousel3.jpg";
-import carousel5 from "../assets/images/carousel5.jpg";
-import carousel6 from "../assets/images/carousel6.jpg";
-import carousel7 from "../assets/images/carousel7.jpg";
-import carousel8 from "../assets/images/carousel8.jpg";
-import carousel9 from "../assets/images/carousel9.jpg";
+import carousel1 from "../assets/images/carousel01.jpg";
+import carousel2 from "../assets/images/carousel02.jpg";
+import carousel3 from "../assets/images/carousel03.jpg";
+import carousel4 from "../assets/images/carousel04.jpg";
+import carousel5 from "../assets/images/carousel05.jpg";
+import carousel6 from "../assets/images/carousel06.jpg";
+import carousel7 from "../assets/images/carousel07.jpg";
+import carousel8 from "../assets/images/carousel08.jpg";
+import carousel9 from "../assets/images/carousel09.jpg";
+import carousel10 from "../assets/images/carousel10.jpg";
+import carousel11 from "../assets/images/carousel11.jpg";
+import carousel12 from "../assets/images/carousel12.jpg";
+import carousel13 from "../assets/images/carousel13.jpg";
+import carousel14 from "../assets/images/carousel14.jpg";
+import carousel15 from "../assets/images/carousel15.jpg";
+import carousel16 from "../assets/images/carousel16.jpg";
+import carousel17 from "../assets/images/carousel17.jpg";
+import carousel18 from "../assets/images/carousel18.jpg";
 import { themeColor } from "../data/items";
 
 const fotosCarousel = [
   carousel1,
   carousel2,
   carousel3,
+  carousel4,
   carousel5,
   carousel6,
   carousel7,
   carousel8,
   carousel9,
+  carousel10,
+  carousel11,
+  carousel12,
+  carousel13,
+  carousel14,
+  carousel15,
+  carousel16,
+  carousel17,
+  carousel18,
 ]
 
-// 01 de maio de 2025
-const diaEvento = new Date(2025, 4, 1)
+// 01 de maio de 2026
+const diaEvento = new Date(2026, 4, 1)
 const hoje = new Date(); 
 
 const diasAteData = () => { 

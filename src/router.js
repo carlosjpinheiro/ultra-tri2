@@ -11,6 +11,7 @@ import StartList from './components/StartList.vue'
 import Percurso from './components/Percurso.vue'
 import TriOpen from './components/TriOpen.vue'
 import InscricaoTriOpen from './components/InscricaoTriOpen.vue'
+import Resultados2025 from './components/Resultados2025.vue';
 
 const routes = [
     { name: 'home', path: '/', meta: { name: 'home' }, component: Home, },
@@ -31,6 +32,7 @@ const routes = [
     { name: 'cancelamento', path: '/cancelamento', component: Cancelamento },
     { name: 'regulamentos', path: '/regulamentos', component: Regulamentos },
     { name: 'inscricao', path: '/inscricao', component: Inscricao },
+    { name: 'resultados2025', path: '/resultados2025', component: Resultados2025 },
 ]
 
 const router = createRouter({
