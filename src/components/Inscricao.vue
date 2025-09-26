@@ -8,7 +8,6 @@ import {requiredRule, emailRule} from '../utils/validators'
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../data/firebase";
 import { getFirestore, collection, addDoc } from 'firebase/firestore/lite';
-import { VDateInput } from "vuetify/lib/labs/components.mjs";
 
 const getNewForm = () => {
     return {
@@ -25,6 +24,7 @@ const getNewForm = () => {
         modalidade: '',
         concordaRegulamento: '',
         dataInscricao: '',
+        cupomDesconto: '',
         _subject: 'Nova inscrição Brasil Ultra Tri 2026'
     }
 }
@@ -43,13 +43,15 @@ const submitForm = async() => {
 
     if (validation.valid) {    
         
-        formData.value.dataInscricao = getDataFormatada(new Date());
+        // formData.value.dataInscricao = getDataFormatada(new Date());
+        formData.value.dataInscricao = new Date()
+
         // formData.value.dataNascimento = getDataFormatada(dataNascimento.value);
         
         try {
             carregando.value = true
             
-            await addDoc(collection(db, "inscricoes"), formData.value);
+            await addDoc(collection(db, "ultratri2026"), formData.value);
 
             alert('Pré-inscrição enviada com sucesso! Aguarde o e-mail da organização do evento para efetivar a inscrição')
             
@@ -203,6 +205,16 @@ const submitForm = async() => {
                                         variant="outlined"
                                         :rules="[requiredRule]"
                                         validate-on="input"
+                                    />
+                                </VCol>
+                            </VRow>
+
+                            <VRow>
+                                <VCol>
+                                    <VTextField
+                                        v-model="formData.cupomDesconto"
+                                        label="Cupom de desconto:"
+                                        variant="outlined"
                                     />
                                 </VCol>
                             </VRow>
