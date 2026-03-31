@@ -43,7 +43,10 @@
                         <li class="list-group-item">
                             <strong>16 de maio - Sábado</strong><br>
                             Início: 7h00<br>
-                            - Largada Triathlon Tradicional
+                            - Largada Triathlon Tradicional<br>
+                            Início: 7h00<br>
+                            - Largada Deca um por dia<br>
+                            <small class="ml-2">*Demais dias: 17, 18, 19, 20, 21, 22, 23, 24 e 25 de maio</small>
                         </li>
                         <li class="list-group-item">
                             <strong>17 de maio - Domingo</strong><br>

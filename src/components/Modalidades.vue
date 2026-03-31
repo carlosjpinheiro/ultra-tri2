@@ -52,6 +52,19 @@ import meiotriathlon from "../assets/images/mod-meio-triathlon.png"
                     </div>
 
                     <div class="card col-lg-4">
+                        <img class="card-img-top" :src="deca" style="max-width: 40%;" alt="Card image cap">
+                        <div class="card-body fundo-claro">
+                            <h5 class="card-title text-uppercase negrito">Deca um por dia</h5>
+                            <p class="card-text">3,8 km natação | 180 km ciclismo | 42 km corrida</p>
+                            <!-- <small class="text-muted">Tempo limite de prova: 324 horas</small> -->
+                            <p class="card-text">TEMPO DE CORTE:</p>
+                            <p><small class="text-muted">Total: 23:30h</small></p>
+                            <p><small class="text-muted">&nbsp;</small></p>
+                            <p><small class="text-muted">*por dia</small></p>
+                        </div>
+                    </div>
+
+                    <div class="card col-lg-4">
                         <img class="card-img-top" :src="quintuplo" style="max-width: 40%;" alt="Card image cap">
                         <div class="card-body fundo-claro">
                             <h5 class="card-title text-uppercase negrito">Quintuplo contínuo</h5>
@@ -125,8 +138,10 @@ import meiotriathlon from "../assets/images/mod-meio-triathlon.png"
                                 <br><small class="text-muted">Tempo limite: 24hrs</small>
                                 <br>100km
                                 <br><small class="text-muted">Tempo limite: 14 hrs</small>
-
+                                
                             </p>                            
+                            <p><small class="text-muted">&nbsp;</small></p>
+                            <p><small class="text-muted">&nbsp;</small></p>
                         </div>
                         <div class="card-footer">
                             <small class="text-muted"></small>
