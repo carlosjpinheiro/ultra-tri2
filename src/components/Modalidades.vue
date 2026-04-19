@@ -45,9 +45,9 @@ import meiotriathlon from "../assets/images/mod-meio-triathlon.png"
                             <p class="card-text">38 km natação | 1.800 km ciclismo | 422 km corrida</p>
                             <!-- <small class="text-muted">Tempo limite de prova: 324 horas</small> -->
                             <p class="card-text">TEMPO DE CORTE:</p>
-                            <p><small class="text-muted">Natação: 24 horas</small></p>
-                            <p><small class="text-muted">Natação + T1 + Bike: 180 horas</small></p>
-                            <p><small class="text-muted">Total: 312 horas</small></p>
+                            <p><small class="text-muted">Natação: 26 horas</small></p>
+                            <p><small class="text-muted">Natação + T1 + Bike: 192 horas</small></p>
+                            <p><small class="text-muted">Total: 336 horas</small></p>
                         </div>
                     </div>
 
