@@ -9,4 +9,8 @@ const contactInfo = {
     website: ''
 }
 
-export { themeColor, siteName, contactInfo }
+const challengeInfo = {
+    areteCupom: 'BRASILULTRA26'
+}
+
+export { themeColor, siteName, contactInfo, challengeInfo }

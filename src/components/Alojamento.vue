@@ -4,6 +4,8 @@ import { themeColor} from "../data/items";
 import alojamento1 from "../assets/images/tenda_aluguel.webp";
 import alojamento2 from "../assets/images/alojamento2.webp";
 import alojamento3 from "../assets/images/alojamento3.webp";
+import { challengeInfo } from "../data/items";
+
 
 </script>
 
@@ -24,7 +26,7 @@ import alojamento3 from "../assets/images/alojamento3.webp";
                             Os atletas podem optar por usar o alojamento da prova, alugar por conta própria um motorhome ou hospedar-se em hotel ou pousada de
                             sua preferência. Indicamos o <strong>Hotel Aretê</strong> como
                             acomodação mais próxima do local da prova. Atletas
-                            possuem 10% desconto utilizando o cupom <strong>brasilultra25</strong>.
+                            possuem 10% desconto utilizando o cupom <strong>{{ challengeInfo.areteCupom }}</strong>.
                             Reservas podem ser feitas através do e-mail:
                             <a :href="'mailto:reservas@hotelarete.com.br'" style="color: black;">
                                 <span>reservas@hotelarete.com.br</span>

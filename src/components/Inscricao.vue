@@ -250,6 +250,7 @@ const submitForm = async() => {
                             <div style="width: 150px; margin: 0 auto;" class="">
 
                                 <VBtn
+                                disabled
                                     :loading="loading"
                                     class="mt-2 px-6 "
                                     text="Enviar"
