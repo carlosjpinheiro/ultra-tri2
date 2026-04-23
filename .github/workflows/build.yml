@@ -19,7 +19,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: 108.167.151.65
-          username: ultrat09
+          username: pipeline@ultratribrasil.com
           password: ${{ secrets.FTP_PASS }}
           port: 21
           protocol: ftp
