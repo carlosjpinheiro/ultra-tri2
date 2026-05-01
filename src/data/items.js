@@ -10,7 +10,8 @@ const contactInfo = {
 }
 
 const challengeInfo = {
-    areteCupom: 'BRASILULTRA26'
+    areteCupom: 'BRASILULTRA26',
+    resultPage: 'https://www.ultratribrasil.com/resultados/ultra-2026/#/brasil-ultra-tri-2026'
 }
 
 export { themeColor, siteName, contactInfo, challengeInfo }

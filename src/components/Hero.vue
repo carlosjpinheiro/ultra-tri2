@@ -18,6 +18,7 @@ import carousel16 from "../assets/images/carousel16.jpg";
 import carousel17 from "../assets/images/carousel17.jpg";
 import carousel18 from "../assets/images/carousel18.jpg";
 import { themeColor } from "../data/items";
+import { challengeInfo } from '../data/items';
 
 const fotosCarousel = [
   carousel1,
@@ -104,7 +105,7 @@ const diasRestantes = diasAteData()
                 
               </div>
 
-              <p data-aos="fade-up" data-aos-delay="200">
+              <!-- <p data-aos="fade-up" data-aos-delay="200">
                   
                 <RouterLink 
                   :style="[
@@ -117,10 +118,10 @@ const diasRestantes = diasAteData()
                     Inscreva-se
                   </span>
                 </RouterLink>
-              </p>
-              <!-- <p data-aos="fade-up" data-aos-delay="200">
+              </p> -->
+              <p data-aos="fade-up" data-aos-delay="200">
 
-                    <a href="https://www.ultratribrasil.com/resultados/g-live.html?f=eventos/2025/ultratri2025/brasil-ultra-tri-2025.clax" target="_blank">
+                    <a :href="challengeInfo.resultPage" target="_blank">
               
                       <span style="font-size: 18px; color: green; border-color: green;" 
                       class="btn smoothscroll pricing "
@@ -131,7 +132,7 @@ const diasRestantes = diasAteData()
 
                     </a>
                   
-              </p> -->
+              </p> 
             </div>
           </div>
         </div>
