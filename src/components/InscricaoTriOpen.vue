@@ -3,7 +3,6 @@ import { ref } from "vue";
 import { VForm, VTextField, VBtn } from "vuetify/lib/components/index.mjs";
 import Loading from './Loading.vue'
 import axios from 'axios';
-import getDataFormatada from '../utils/utils'
 import {requiredRule, emailRule} from '../utils/validators'
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../data/firebase";

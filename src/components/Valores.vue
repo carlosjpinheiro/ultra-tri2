@@ -1,121 +1,224 @@
 <script setup>
+import { formatarValor } from "../utils/utils";
+import { lotes } from "../data/lotes";
+import { modalidadesValores } from "../data/modalidades";
 
+const formatarPeriodo = (lote) => {
+  const formatar = (data) =>
+    new Date(`${data}T00:00:00`).toLocaleDateString("pt-BR");
+
+  if (!lote.dataInicio) {
+    return `Disponível até ${formatar(lote.dataFim)}`;
+  }
+
+  return `Início: ${formatar(lote.dataInicio)} até ${formatar(lote.dataFim)}`;
+};
+
+const loteEncerrado = (lote) => {
+    const hoje = new Date();
+    hoje.setHours(0, 0, 0, 0);
+
+    const dataFim = new Date(`${lote.dataFim}T23:59:59`);
+
+    return hoje > dataFim;
+};
 </script>
 
 <template>
-    <div class="untree_co-section" id="valores">
+  <div class="untree_co-section" id="valores">
+    <div class="container">
 
-        <div class="container">
-                
-            <div class="row mb-4" data-aos="fade-up" data-aos-delay="0">
-                <div class="col-12 text-center">
-                    <h2 class="heading text-uppercase negrito">Valores de inscrição</h2>
+      <div class="row mb-4" data-aos="fade-up">
+        <div class="col-12 text-center">
+          <h2 class="heading text-uppercase negrito">
+            Valores de inscrição
+          </h2>
+        </div>
+      </div>
+
+      <div class="row g-4">
+
+        <div v-for="lote in lotes" :key="lote.chave" :class="[
+          lote.destaque
+            ? 'col-12 mb-5'
+            : 'col-lg-4 col-md-6 col-12 mb-2'
+        ]">
+          <!-- :class="{ destaque: lote.destaque }" -->
+          <div class="card h-100 fundo-claro borda-preta" 
+          :class="{
+            destaque: lote.destaque,
+            encerrado: loteEncerrado(lote)
+          }"
+          >
+            <div class="card-body">
+              <h3 v-if="lote.destaque" 
+                class="text-center text-warning font-weight-bold mb-3" 
+                :class="{ 'titulo-encerrado': loteEncerrado(lote) }">
+                {{ lote.titulo }}
+              </h3>
+
+              <h4 v-else class="text-center"
+                :class="{ 'titulo-encerrado': loteEncerrado(lote) }"
+              >
+                {{ lote.titulo }}
+              </h4>
+
+              <p class="text-center">
+                {{ formatarPeriodo(lote) }}
+              </p>
+
+              <!-- Card promocional -->
+              <template v-if="lote.destaque">
+
+                <div class="row">
+
+                  <div class="col-md-6">
+
+                    <ul class="mb-0 lista-modalidades">
+                      <li v-for="modalidade in modalidadesValores.filter(m => m.moeda === 'USD')" :key="modalidade.nome">
+                        <strong>{{ modalidade.nome }}</strong>
+                        |
+                        {{ formatarValor(modalidade.valores[lote.chave], modalidade.moeda) }}
+                      </li>
+                    </ul>
+
+                    <small class="observacao-moeda">
+                      Valores em dólar americano, conforme padrão do circuito mundial.
+                    </small>
+
+                  </div>
+
+                  <div class="col-md-6">
+
+                    <ul class="mb-0 lista-modalidades">
+                      <li v-for="modalidade in modalidadesValores.filter(m => m.moeda === 'BRL')" :key="modalidade.nome">
+                        <strong>{{ modalidade.nome }}</strong>
+                        |
+                        {{ formatarValor(modalidade.valores[lote.chave], modalidade.moeda) }}
+                      </li>
+                    </ul>
+
+                    <small class="observacao-moeda">
+                      Valores em real brasileiro.
+                    </small>
+
+                  </div>
+
                 </div>
-            </div>                
 
-            <div class="row justify-content-between g-4 mx-1">
-                <div class="col-lg-4 col-md-6 col-12 mb-2">
+              </template>
 
-                    <div class="card fundo-claro borda-preta h-100 " data-aos="fade-up" data-aos-delay="100">
-                        <div class="card-body pt-2">
-                            <h4 class="card-title text-center">Primeiro lote</h4>
-                            <p class="card-text text-center">
-                                Disponível até 30/09/2025
-                            </p>
-                            <ul class="ml-6 float-left links w-100">
-                                <li><span class="font-weight-bold">DOUBLE DECA</span> | $4.500,00</li>
-                                <li><span class="font-weight-bold">DECA</span> | $2.250,00</li>
-                                <li><span class="font-weight-bold">QUINTUPLO</span> | $1.250,00</li>
-                                <li><span class="font-weight-bold">TRIPLO</span> | $750,00</li>
-                                <li><span class="font-weight-bold">DUPLO</span> | $650,00</li>
-                                <hr class="solid mr-8">
-                                <li><span class="font-weight-bold">TRIATHLON SINGLE</span> | $400,00</li>
-                                <li><span class="font-weight-bold">MEIO TRIATHLON</span> | $300,00</li>
-                                <li><span class="font-weight-bold">100KM</span> | $150,00</li>
-                                <li><span class="font-weight-bold">24 Horas</span> | $200,00</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+              <!-- Demais cards -->
+              <template v-else>
 
-                <div class="col-lg-4 col-md-6 col-12 mb-2">
-                    <div class="card borda-preta fundo-claro h-100" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-body pt-2">
-                            <h4 class="card-title text-center">Segundo lote</h4>
-                            <p class="card-text text-center">
-                                01/10/2025 até 31/12/2025
-                            </p>
-                            <ul class="ml-6 float-left links w-100">
-                                <li><span class="font-weight-bold">DOUBLE DECA</span> | $5.000,00</li>
-                                <li><span class="font-weight-bold">DECA</span> | $2.500,00</li>
-                                <li><span class="font-weight-bold">QUINTUPLO</span> | $1.400,00</li>
-                                <li><span class="font-weight-bold">TRIPLO</span> | $900,00</li>
-                                <li><span class="font-weight-bold">DUPLO</span> | $800,00</li>
-                                <hr class="solid mr-8">
-                                <li><span class="font-weight-bold">TRIATHLON SINGLE</span> | $500,00</li>
-                                <li><span class="font-weight-bold">MEIO TRIATHLON</span> | $350,00</li>
-                                <li><span class="font-weight-bold">100KM</span> | $200,00</li>
-                                <li><span class="font-weight-bold">24 Horas</span> | $250,00</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <ul class="mb-0 lista-modalidades">
+                  <li v-for="modalidade in modalidadesValores.filter(m => m.moeda === 'USD')" :key="modalidade.nome">
+                    <strong>{{ modalidade.nome }}</strong>
+                    |
+                    {{ formatarValor(modalidade.valores[lote.chave], modalidade.moeda) }}
+                  </li>
+                </ul>
 
-                <div class="col-lg-4 col-md-6 col-12 ">
-                    <div class="card borda-preta fundo-claro h-100" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card-body pt-2">
-                            <h4 class="card-title text-center">Último lote</h4>
-                            <p class="card-text text-center">
-                                01/01/2026 até 10/04/2026 se ainda houver vagas
-                            </p>
-                            <ul class="ml-6 float-left links w-100">
-                                <li><span class="font-weight-bold">DOUBLE DECA</span> | $6.000,00</li>
-                                <li><span class="font-weight-bold">DECA</span> | $2.750,00</li>
-                                <li><span class="font-weight-bold">QUINTUPLO</span> | $1.550,00</li>
-                                <li><span class="font-weight-bold">TRIPLO</span> | $1.050,00</li>
-                                <li><span class="font-weight-bold">DUPLO</span> | $950,00</li>
-                                <hr class="solid mr-8">
-                                <li><span class="font-weight-bold">TRIATHLON SINGLE</span> | $600,00</li>
-                                <li><span class="font-weight-bold">MEIO TRIATHLON</span> | $400,00</li>
-                                <li><span class="font-weight-bold">100KM</span> | $250,00</li>
-                                <li><span class="font-weight-bold">24 Horas</span> | $300,00</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <small class="observacao-moeda">
+                  Valores em dólar americano, conforme padrão do circuito mundial.
+                </small>
+
+                <hr class="separador-moeda">
+
+                <ul class="mb-0 lista-modalidades">
+                  <li v-for="modalidade in modalidadesValores.filter(m => m.moeda === 'BRL')" :key="modalidade.nome">
+                    <strong>{{ modalidade.nome }}</strong>
+                    |
+                    {{ formatarValor(modalidade.valores[lote.chave], modalidade.moeda) }}
+                  </li>
+                </ul>
+
+                <small class="observacao-moeda">
+                  Valores em real brasileiro.
+                </small>
+
+              </template>
+
             </div>
-
-            <small>*Dólares americanos, padrão circuito mundial</small>
-            
-            <p>
-                <div class="mb-4">
-                    <h4 class="">
-                        Formas de pagamento:
-                    </h4>
-                </div>
-                <ul class="ml-8 float-left links w-100">
-                    <li>A vista, via transferência (Pix)</li>
-                    <li>Parcelado no cartão de crédito (consultar taxa do cartão)</li>
-                    
-                </ul>                       
-            </p>
-        
-            <p>
-                <div class="mb-4">
-                    <h4 class="">
-                        Está incluso na inscrição:
-                    </h4>
-                </div>
-                <ul class="ml-8 float-left links w-100">
-                    <li>Kit do atleta</li>
-                    <li>Passe livre no Clube Aretê para atleta e staff durante os seus dias de prova</li>
-                    <li>Alimentação (4 refeições quentes por dia) e hidratação para o atleta durante seus dias de prova</li>                            
-                </ul>                       
-            </p>
-
-            <p class="font-weight-bold">Será realizado teste anti-dopping durante a competição, conforme regulamento da IUTA.</p>
-                
+          </div>
         </div>
 
+      </div>
+
+      <div class="mt-5">
+        <div class="mb-4">
+          <h4>
+            Formas de pagamento:
+          </h4>
+        </div>
+
+        <ul class="ml-8 float-left links w-100">
+          <li>À vista via Pix</li>
+          <li>Parcelado no cartão de crédito (consultar taxa da operadora)</li>
+        </ul>
+      </div>
+
+      <div class="mt-5">
+        <div class="mb-4">
+          <h4>
+            Está incluso na inscrição:
+          </h4>
+        </div>
+
+        <ul class="ml-8 float-left links w-100">
+          <li>Kit do atleta</li>
+          <li>
+            Passe livre no Clube Aretê para atleta e staff durante os dias de prova
+          </li>
+          <li>
+            Alimentação (4 refeições quentes por dia) e hidratação para o atleta
+            durante seus dias de prova
+          </li>
+        </ul>
+      </div>
+
+      <p class="font-weight-bold mt-4">
+        Será realizado teste antidoping durante a competição, conforme regulamento da IUTA.
+      </p>
+
     </div>
+  </div>
 </template>
+
+<style>
+.destaque {
+  background-color: #1A9538;
+  color: rgb(255, 249, 221);
+}
+
+.lista-modalidades {
+  padding-left: 1.5rem;
+  margin-bottom: 0;
+}
+
+.lista-modalidades li {
+  margin-bottom: 0.25rem;
+}
+
+.observacao-moeda {
+  display: block;
+  margin-top: 0.75rem;
+  padding-left: 1.5rem;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.separador-moeda {
+  margin: 1rem 0;
+  opacity: 0.3;
+}
+
+.titulo-encerrado {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.encerrado {
+    opacity: 0.75;
+}
+</style>

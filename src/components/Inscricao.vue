@@ -3,11 +3,11 @@ import { ref } from "vue";
 import { VForm, VTextField, VBtn } from "vuetify/lib/components/index.mjs";
 import Loading from './Loading.vue'
 import axios from 'axios';
-import getDataFormatada from '../utils/utils'
-import {requiredRule, emailRule} from '../utils/validators'
+import {requiredRule, emailRule, dataNascimentoRule} from '../utils/validators'
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../data/firebase";
 import { getFirestore, collection, addDoc } from 'firebase/firestore/lite';
+import { modalidadesValores } from "../data/modalidades";
 
 const getNewForm = () => {
     return {
@@ -25,7 +25,7 @@ const getNewForm = () => {
         concordaRegulamento: '',
         dataInscricao: '',
         cupomDesconto: '',
-        _subject: 'Nova inscrição Brasil Ultra Tri 2026'
+        _subject: 'Nova inscrição Brasil Ultra Tri 2027'
     }
 }
 const app = initializeApp(firebaseConfig);
@@ -35,6 +35,22 @@ const carregando = ref(false)
 const formData = ref(getNewForm())
 const formInstance = ref(null)
 const dataNascimento = ref(null)
+
+const mascaraDataNascimento = (event) => {
+    let valor = event.target.value.replace(/\D/g, '');
+
+    if (valor.length > 8) {
+        valor = valor.slice(0, 8);
+    }
+
+    if (valor.length > 4) {
+        valor = valor.replace(/(\d{2})(\d{2})(\d{1,4})/, '$1/$2/$3');
+    } else if (valor.length > 2) {
+        valor = valor.replace(/(\d{2})(\d{1,2})/, '$1/$2');
+    }
+
+    formData.value.dataNascimento = valor;
+};
 
 const submitForm = async() => {
     axios.defaults.headers.post['Content-Type'] = 'application/json';   
@@ -51,7 +67,7 @@ const submitForm = async() => {
         try {
             carregando.value = true
             
-            await addDoc(collection(db, "ultratri2026"), formData.value);
+            await addDoc(collection(db, "ultratri2027"), formData.value);
 
             alert('Pré-inscrição enviada com sucesso! Aguarde o e-mail da organização do evento para efetivar a inscrição')
             
@@ -77,7 +93,7 @@ const submitForm = async() => {
         <div class="container" style="margin-top: 80px;">
             <div class="row mb-4 mt-8" data-aos="fade-up" data-aos-delay="0">
                 <div class="col-12 text-center">
-                    <h2 class="heading">Pré-inscrição Brasil Ultra Tri 2026</h2>
+                    <h2 class="heading">Pré-inscrição Brasil Ultra Tri 2027</h2>
                 </div>
             </div>
 
@@ -163,10 +179,12 @@ const submitForm = async() => {
                                 <VCol>
                                     <VTextField
                                         v-model="formData.dataNascimento"
-                                        label="*Data de nascimento (mm/dd/aaaa)"
+                                        label="*Data de nascimento (dd/mm/aaaa)"
                                         variant="outlined"
                                         validate-on="input"
-                                        :rules="[requiredRule]"
+                                        :rules="[requiredRule, dataNascimentoRule]"
+                                        maxlength="10"
+                                        @input="mascaraDataNascimento"
                                     />
                                     </VCol>
                             </VRow>
@@ -218,39 +236,39 @@ const submitForm = async() => {
                                     />
                                 </VCol>
                             </VRow>
-
-                            <VRadioGroup 
+                            <VSelect
                                 v-model="formData.modalidade"
+                                :items="modalidadesValores"
+                                item-title="nome"
+                                item-value="nome"
+                                label="*Modalidade de interesse"
+                                variant="outlined"
                                 :rules="[requiredRule]"
                                 validate-on="input"
-                            >
-                                <template v-slot:label>
-                                    <div>Qual modalidade de interesse:</div>
-                                </template>
-
-                                <VRadio label="Double Deca continuous" value="doubleDeca"></VRadio>
-                                <VRadio label="Deca continuous" value="deca"></VRadio>
-                                <VRadio label="Quíntuplo continuous" value="quintuplo"></VRadio>
-                                <VRadio label="Triplo continuous" value="triplo"></VRadio>
-                                <VRadio label="Duplo continuous" value="duplo"></VRadio>
-                                <VRadio label="Triathlon tradicional" value="single"></VRadio>
-                                <VRadio label="Meio Triathlon" value="meioTriathlon"></VRadio>
-                                <VRadio label="Corrida 24 horas" value="corrida24horas"></VRadio>
-                                <VRadio label="Corrida 100km" value="corridacemkm"></VRadio>
-                                <VRadio label="Deca 1 por dia" value="decaUmPorDia"></VRadio>
-                            </VRadioGroup>
+                            />
 
                             <VCheckbox
                                 v-model="formData.concordaRegulamento"
-                                label="Concordo com o regulamento completo disponível no site"
                                 :rules="[v => !!v || 'Você deve concordar para continuar!']"
                                 validate-on="input"
-                            />
+                            >
+                                <template #label>
+                                    <span>
+                                        Concordo com os
+                                        <RouterLink
+                                            :to="{ name: 'regulamentos' }"
+                                            target="_blank"
+                                            @click.stop
+                                        >
+                                            Regulamentos
+                                        </RouterLink>
+                                    </span>
+                                </template>
+                            </VCheckbox>
 
                             <div style="width: 150px; margin: 0 auto;" class="">
 
                                 <VBtn
-                                disabled
                                     :loading="loading"
                                     class="mt-2 px-6 "
                                     text="Enviar"

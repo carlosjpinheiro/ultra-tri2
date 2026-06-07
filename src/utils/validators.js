@@ -8,3 +8,9 @@ export const emailRule = (value) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(value) || 'Digite um email válido';
 };
+
+export const dataNascimentoRule = (value) => {
+    if (!value || value.length != 10) return 'Preencha a data de nascimento completa';
+
+    return true;
+};

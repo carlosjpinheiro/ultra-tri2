@@ -2,7 +2,7 @@
 import { VIcon } from "vuetify/lib/components/index.mjs";
 import RegulamentoCorridas from "../assets/pdf/RegulamentoCorridas.pdf";
 import IUTAWaiver from "../assets/pdf/IUTAWaiver.pdf";
-import RegulamentoBrasil2026 from "../assets/pdf/RegulamentoBrasil2026.pdf";
+import RegulamentoGeral from "../assets/pdf/RegulamentoGeral.pdf";
 
 
 
@@ -45,7 +45,7 @@ import RegulamentoBrasil2026 from "../assets/pdf/RegulamentoBrasil2026.pdf";
                     <div class="card col-lg-12">
 
                         <div >
-                            <a :href="RegulamentoBrasil2026" download>
+                            <a :href="RegulamentoGeral" download>
                                 <VIcon
                                     style="font-size: 150px; color: rgba(255, 0, 0, 0.6);"
                                     icon="mdi-file-pdf-box"
@@ -54,9 +54,8 @@ import RegulamentoBrasil2026 from "../assets/pdf/RegulamentoBrasil2026.pdf";
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title font-weight-bold text-uppercase">Brasil Ultra Tri 2026</h5>
-                            <p class="card-text">Documento de conhecimento obrigatório </p>
-                            <p class="card-text">para todos participantes</p>
+                            <h5 class="card-title font-weight-bold text-uppercase">Brasil Ultra Tri 2027</h5>
+                            <p class="card-text">Regulamento geral Brasil Ultra Tri</p>
                         </div>
                     </div>
 

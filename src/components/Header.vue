@@ -23,7 +23,7 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
           <li><a class="nav-link"><RouterLink :to="{ name: 'modalidades',  }" class="nav-link">Modalidades</RouterLink></a></li>
           <li><a class="nav-link"><RouterLink :to="{ name: 'percurso',  }" class="nav-link">Percurso</RouterLink></a></li>
           <li><a class="nav-link"><RouterLink :to="{ name: 'regulamentos',  }" class="nav-link">Regulamentos</RouterLink></a></li>
-          <li><a class="nav-link" :href="challengeInfo.resultPage" target="_blank" style="color: black;"><span  class="nav-link ml-1">Resultados</span></a></li>
+          <!-- <li><a class="nav-link" :href="challengeInfo.resultPage" target="_blank" style="color: black;"><span  class="nav-link ml-1">Resultados</span></a></li> -->
           <!-- <li><a class="nav-link"><RouterLink :to="{ name: 'startlist',  }" class="nav-link">Start List</RouterLink></a></li> -->
           <li class="dropdown">
             <a class="nav-link dropdown-toggle hide-expanded" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,7 +54,7 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
           </li>
 
         </ul>
-        <!-- <ul
+        <ul
           class="js-clone-nav d-none mt-1 d-lg-inline-block site-menu float-right"
         >
           <li class="cta-primary nav-link ml-2">
@@ -70,7 +70,7 @@ import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
               Inscreva-se
             </RouterLink>
           </li>
-        </ul> -->
+        </ul>
         <a
           href="#"
           class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block dark d-lg-none"

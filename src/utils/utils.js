@@ -1,6 +1,4 @@
-export default function getDataFormatada(data) {
-    // const data = new Date();
-
+const getDataFormatada = (data) => {
     const dia = String(data.getDate()).padStart(2, '0');
     const mes = String(data.getMonth() + 1).padStart(2, '0'); // Meses começam do 0
     const ano = data.getFullYear();
@@ -10,4 +8,18 @@ export default function getDataFormatada(data) {
     const segundos = String(data.getSeconds()).padStart(2, '0');
 
     return `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`;
+}
+
+const formatarValor = (valor, moeda) =>
+    new Intl.NumberFormat(
+        moeda === 'USD' ? 'en-US' : 'pt-BR',
+        {
+            style: 'currency',
+            currency: moeda
+        }
+    ).format(valor)
+
+export {
+    getDataFormatada,
+    formatarValor
 }

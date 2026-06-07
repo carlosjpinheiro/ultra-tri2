@@ -41,8 +41,8 @@ const fotosCarousel = [
   carousel18,
 ]
 
-// 01 de maio de 2026
-const diaEvento = new Date(2026, 4, 1)
+// 01 de maio de 2027
+const diaEvento = new Date(2027, 4, 1)
 const hoje = new Date(); 
 
 const diasAteData = () => { 
@@ -87,25 +87,29 @@ const diasRestantes = diasAteData()
             <div class="col-lg-6 text-center">
               <div v-if="diasRestantes > 0"><strong>{{ diasRestantes }} {{ diasRestantes == 1 ? 'DIA' : 'DIAS' }} PARA O EVENTO</strong></div>
 
-              <div >01 a 28 de maio de 2026 | Clube Aretê Búzios, RJ</div>
+              <div >01 a 15 de maio de 2027 | Clube Aretê Búzios, RJ</div>
               <br>
               <h1 class="text-uppercase" style="font-size: 47px; background-color: #fcb603; border-radius: 10px;" data-aos="fade-up" data-aos-delay="0">
-                Brasil Ultra Tri 2026
+                Brasil Ultra Tri 2027
               </h1>
               <div class="excerpt text-align-center" data-aos="fade-up" data-aos-delay="100">
-                <p class="mb-5">
-                  A Copa do Mundo de Ultra Triathlon volta ao Brasil em 2026, trazendo clima perfeito e cenário deslumbrante. 
-                </p>
+                <b><p class="mb-2">
+                  Edições inesquecíveis. Cenário incrível. 
+                  <br>Atmosfera ULTRA 24 horas por dia.
+                </p></b> 
                   <p>
-                    Realizada no melhor clube esportivo da América Latina, a competição promete uma experiência inesquecível, 
-                    unindo resistência, superação e infraestrutura de ponta!
+                    O Brasil Ultra Tri retorna em 2027, reunindo atletas de diferentes partes do mundo em uma
+                    experiência que vai muito além do esporte.</p>
+                    <p>Realizado no Clube Aretê Búzios, considerado um dos melhores complexos esportivos da
+                    América Latina, o evento entrega estrutura, segurança, natureza exuberante e uma
+                    atmosfera única de superação, convivência e endurance extremo.</p>
+                    <p>Dias e noites de prova. Emoção constante. Uma comunidade unida pela coragem de ir além.
+                    Mais do que uma competição: <b>uma experiência ULTRA!</b>
 
-                  </p>
-                  
-                
+                  </p>                
               </div>
 
-              <!-- <p data-aos="fade-up" data-aos-delay="200">
+              <p data-aos="fade-up" data-aos-delay="200">
                   
                 <RouterLink 
                   :style="[
@@ -118,8 +122,8 @@ const diasRestantes = diasAteData()
                     Inscreva-se
                   </span>
                 </RouterLink>
-              </p> -->
-              <p data-aos="fade-up" data-aos-delay="200">
+              </p>
+              <!-- <p data-aos="fade-up" data-aos-delay="200">
 
                     <a :href="challengeInfo.resultPage" target="_blank">
               
@@ -132,7 +136,7 @@ const diasRestantes = diasAteData()
 
                     </a>
                   
-              </p> 
+              </p>  -->
             </div>
           </div>
         </div>
