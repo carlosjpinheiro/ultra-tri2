@@ -1,5 +1,6 @@
 <script setup>
 import { contactInfo } from "../data/items";
+import { formatPhone } from "../utils/utils";
 
 const anoAtual = new Date().getFullYear()
 
@@ -65,9 +66,9 @@ const socialItems = [
                 ><span>{{ contactInfo.email }}</span></a>
               </li>
               <li>
-                <a href="https://wa.me/5547992357774" target="_blank" style="color: black;">
+                <a :href="`https://wa.me/${contactInfo.phone}`" target="_blank" style="color: black;">
                   <span class="icon-whatsapp" style="color: green;"/>                  
-                  (47) 99235-7774
+                  {{ formatPhone(contactInfo.phone) }}
 
                 </a>
               </li>
