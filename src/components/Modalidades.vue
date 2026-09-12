@@ -79,6 +79,13 @@ const modalidades = [
     ativo: true,
   },
   {
+    img: duplo,
+    titulo: "Duplo um por dia",
+    provas: "3,8 km natação | 180 km ciclismo | 42 km corrida",
+    cortes: [ "Total: 23:30 horas", "*por dia" ],
+    ativo: true,
+  },
+  {
     img: single,
     titulo: "Single Triathlon",
     provas: "3,8 km natação | 180 km ciclismo | 42 km corrida",

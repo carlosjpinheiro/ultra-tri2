@@ -60,6 +60,16 @@ const modalidadesValores = [
         }
     },
     {
+        nome: 'DUPLO UM POR DIA',
+        moeda: 'USD',
+        valores: {
+            preAbertura: 600,
+            primeiroLote: 700,
+            segundoLote: 850,
+            ultimoLote: 1000
+        }
+    },
+    {
         nome: 'TRIATHLON TRADICIONAL',
         moeda: 'BRL',
         valores: {
