@@ -3,6 +3,11 @@ import { formatarValor } from "../utils/utils";
 import { lotes } from "../data/lotes";
 import { modalidadesValores } from "../data/modalidades";
 
+const valorInscricao = (modalidade, lote) => {
+  const valor = modalidade.valores[lote.chave];
+  return valor == null ? "-" : formatarValor(valor, modalidade.moeda);
+};
+
 const formatarPeriodo = (lote) => {
   const formatar = (data) =>
     new Date(`${data}T00:00:00`).toLocaleDateString("pt-BR");
@@ -78,7 +83,7 @@ const loteEncerrado = (lote) => {
                       <li v-for="modalidade in modalidadesValores.filter(m => m.moeda === 'USD')" :key="modalidade.nome">
                         <strong>{{ modalidade.nome }}</strong>
                         |
-                        {{ formatarValor(modalidade.valores[lote.chave], modalidade.moeda) }}
+                        {{ valorInscricao(modalidade, lote) }}
                       </li>
                     </ul>
 
@@ -91,10 +96,10 @@ const loteEncerrado = (lote) => {
                   <div class="col-md-6">
 
                     <ul class="mb-0 lista-modalidades">
-                      <li v-for="modalidade in modalidadesValores.filter(m => m.moeda === 'BRL')" :key="modalidade.nome">
+                      <li v-for="modalidade in modalidadesValores.filter(m => m.moeda === 'BRL' && valorInscricao(m, lote) != '-')" :key="modalidade.nome">
                         <strong>{{ modalidade.nome }}</strong>
                         |
-                        {{ formatarValor(modalidade.valores[lote.chave], modalidade.moeda) }}
+                        {{ valorInscricao(modalidade, lote) }}
                       </li>
                     </ul>
 
@@ -115,7 +120,7 @@ const loteEncerrado = (lote) => {
                   <li v-for="modalidade in modalidadesValores.filter(m => m.moeda === 'USD')" :key="modalidade.nome">
                     <strong>{{ modalidade.nome }}</strong>
                     |
-                    {{ formatarValor(modalidade.valores[lote.chave], modalidade.moeda) }}
+                    {{ valorInscricao(modalidade, lote) }}
                   </li>
                 </ul>
 
@@ -129,7 +134,7 @@ const loteEncerrado = (lote) => {
                   <li v-for="modalidade in modalidadesValores.filter(m => m.moeda === 'BRL')" :key="modalidade.nome">
                     <strong>{{ modalidade.nome }}</strong>
                     |
-                    {{ formatarValor(modalidade.valores[lote.chave], modalidade.moeda) }}
+                    {{ valorInscricao(modalidade, lote) }}
                   </li>
                 </ul>
 
