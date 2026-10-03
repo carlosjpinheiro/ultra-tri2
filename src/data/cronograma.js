@@ -21,7 +21,7 @@ const cronograma = [
         data: '05 de maio - Quarta-feira',
         atividades: [
             {
-                horario: '09h30',
+                horario: '09h00',
                 descricao: 'Largada QUINTUPLO CONTÍNUO'
             }
         ]
@@ -36,6 +36,15 @@ const cronograma = [
         ]
     },
     {
+        data: '08 de maio - Sexta-feira',
+        atividades: [
+            {
+                horario: '07h00',
+                descricao: 'Largada DUPLO UM POR DIA'
+            }
+        ]
+    },
+    {
         data: '09 de maio - Sábado',
         atividades: [
             {
@@ -45,11 +54,28 @@ const cronograma = [
         ]
     },
     {
+        data: '14 de maio - Sexta-feira',
+        atividades: [
+            {
+                horario: '10h00',
+                descricao: 'Largada Pedal 1.000KM'
+            }
+        ]
+    },
+    {
         data: '15 de maio - Sábado',
         atividades: [
             {
                 horario: '07h00',
                 descricao: 'Largada Triathlon Tradicional e Meio Triathlon'
+            },
+            {
+                horario: '09h00',
+                descricao: 'Largada Pedal 100KM'
+            },
+            {
+                horario: '09h00',
+                descricao: 'Largada Pedal 500KM'
             },
             {
                 horario: '10h00',
@@ -91,7 +117,25 @@ const entregaKit = [
         eventos: [
             {
                 horario: '15h00',
-                descricao: 'Para os atletas do Deca Um por Dia, Quíntuplo Um por Dia, Quíntuplo Contínuo, Triplo Contínuo e Duplo Contínuo'
+                descricao: 'Para os atletas do Deca Um por Dia, Quíntuplo Um por Dia, Quíntuplo Contínuo'
+            }
+        ]
+    },
+    {
+        titulo: '06 de maio',
+        eventos: [
+            {
+                horario: '15h00',
+                descricao: 'Para os atletas do Triplo Contínuo, Duplo Contínuo e Duplo Um por Dia'
+            }
+        ]
+    },
+    {
+        titulo: '13 de maio',
+        eventos: [
+            {
+                horario: '15h00',
+                descricao: 'Para os atletas do Ultra Ciclismo.'
             }
         ]
     },
@@ -100,7 +144,7 @@ const entregaKit = [
         eventos: [
             {
                 horario: '15h00',
-                descricao: 'Para os atletas do Triathlon Tradicional, Meio Triathlon e Corridas'
+                descricao: 'Para os atletas do Triathlon Tradicional, Meio Triathlon e Ultra Corridas.'
             }
         ],
         observacao: 'Atletas que não conseguirem comparecer no dia da entrega do seu kit poderão retirá-lo qualquer outro dia antes da sua largada com nossa equipe.'
@@ -113,16 +157,16 @@ const premiacao = [
         eventos: [
             {
                 horario: '11h00',
-                descricao: 'Para atletas do Quíntuplo Contínuo, Quíntuplo Um por Dia, Triplo Contínuo e Duplo Contínuo'
+                descricao: 'Para atletas do Quíntuplo Contínuo, Quíntuplo Um por Dia, Triplo Contínuo, Duplo Contínuo e Duplo Um por Dia.'
             }
         ]
     },
     {
-        titulo: '15 de maio',
+        titulo: '16 de maio',
         eventos: [
             {
                 horario: '11h00',
-                descricao: 'Para atletas do Triathlon Tradicional, Meio Triathlon e Corridas'
+                descricao: 'Para atletas do Triathlon Tradicional, Meio Triathlon, Corridas e Ciclismos.'
             }
         ]
     }
