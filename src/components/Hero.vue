@@ -1,45 +1,18 @@
 <script setup>
-import carousel1 from "../assets/images/carousel01.jpg";
-import carousel2 from "../assets/images/carousel02.jpg";
-import carousel3 from "../assets/images/carousel03.jpg";
-import carousel4 from "../assets/images/carousel04.jpg";
-import carousel5 from "../assets/images/carousel05.jpg";
-import carousel6 from "../assets/images/carousel06.jpg";
-import carousel7 from "../assets/images/carousel07.jpg";
-import carousel8 from "../assets/images/carousel08.jpg";
-import carousel9 from "../assets/images/carousel09.jpg";
-import carousel10 from "../assets/images/carousel10.jpg";
-import carousel11 from "../assets/images/carousel11.jpg";
-import carousel12 from "../assets/images/carousel12.jpg";
-import carousel13 from "../assets/images/carousel13.jpg";
-import carousel14 from "../assets/images/carousel14.jpg";
-import carousel15 from "../assets/images/carousel15.jpg";
-import carousel16 from "../assets/images/carousel16.jpg";
-import carousel17 from "../assets/images/carousel17.jpg";
-import carousel18 from "../assets/images/carousel18.jpg";
 import { themeColor } from "../data/items";
 import { challengeInfo } from '../data/items';
 
-const fotosCarousel = [
-  carousel1,
-  carousel2,
-  carousel3,
-  carousel4,
-  carousel5,
-  carousel6,
-  carousel7,
-  carousel8,
-  carousel9,
-  carousel10,
-  carousel11,
-  carousel12,
-  carousel13,
-  carousel14,
-  carousel15,
-  carousel16,
-  carousel17,
-  carousel18,
-]
+// Todas as fotos desta pasta entram no carrossel, em ordem de nome.
+const imagensCarousel = import.meta.glob('../assets/images/hero/*', {
+  eager: true,
+  import: 'default',
+  as: 'url',
+})
+
+const fotosCarousel = Object.entries(imagensCarousel)
+  .filter(([caminho]) => /\.(jpe?g|png|webp|avif|gif)$/i.test(caminho))
+  .sort(([a], [b]) => a.localeCompare(b, 'pt-BR', { numeric: true }))
+  .map(([, url]) => url)
 
 // 01 de maio de 2027
 const diaEvento = new Date(2027, 4, 1)
@@ -77,6 +50,7 @@ const diasRestantes = diasAteData()
               >
                 <VCarouselItem
                   v-for="foto in fotosCarousel"
+                  :key="foto"
                   :src="foto"
                   cover
                 />

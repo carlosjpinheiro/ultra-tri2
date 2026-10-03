@@ -34,7 +34,7 @@ import sobreImg from "../assets/images/sobre.png";
               Novamente, com a maior modalidade de triathlon da América Latina: o DECA ULTRA TRI. Sendo 38 km de natação, 1.800 km de ciclismo e 422 km de corrida — tudo de forma contínua!
             </p>
             <p class="mb-5">
-              Além do DECA, outras modalidades já conhecidas pelos nossos atletas estarão disponíveis, como o Quintuplo Contínuo, Triplo Contínuo e Duplo Contínuo.
+              Além do DECA, outras modalidades já conhecidas pelos nossos atletas: Quintuplo, Triplo e Duplo (Contínuo ou Um por Dia). Nesta edição também daremos foco as ultramaratonas e ultraciclismos.
             </p>
             <p class="mb-5">
               Esta é a única competição no Brasil credenciada pela IUTA e a única prova oficial de Ultra Triathlon na América Latina atualmente, fazendo parte do calendário anual da instituição internacional.
