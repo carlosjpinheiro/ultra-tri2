@@ -1,31 +1,28 @@
 <script setup>
-import { modalidadesAtivas } from "../data/modalidades";
+import { computed, ref } from 'vue';
+import { modalidadesAtivas } from '../data/modalidades';
+import HomeSectionHeading from './HomeSectionHeading.vue';
+const categoria = ref('todas');
+const grupos = [{id:'todas',nome:'Todas'}, {id:'triathlon',nome:'Ultra Triathlon'}, {id:'corrida',nome:'Ultra Corridas'}, {id:'pedal',nome:'Ultra Ciclismo'}];
+const grupoModalidade = modalidade => modalidade.id.startsWith('corrida-') ? 'corrida' : modalidade.id.startsWith('pedal-') ? 'pedal' : 'triathlon';
+const modalidadesVisiveis = computed(() => modalidadesAtivas.filter(m => categoria.value === 'todas' || grupoModalidade(m) === categoria.value));
+const quantidade = grupo => modalidadesAtivas.filter(m => grupo === 'todas' || grupoModalidade(m) === grupo).length;
 </script>
-
 <template>
-  <div class="untree_co-section" id="modalidades">
-    <div class="container">
-      <div class="row mb-4" data-aos="fade-up" data-aos-delay="0">
-        <div class="col-12 text-center">
-          <h2 class="heading text-uppercase negrito">Modalidades e tempos de corte</h2>
-        </div>
+  <section id="modalidades" class="ultra-section ultra-modalidades">
+    <div class="ultra-container">
+      <HomeSectionHeading eyebrow="Qual é o seu próximo limite?" title="Um desafio do seu tamanho." description="Do Meio Triathlon ao Deca. Da corrida de 3 horas ao pedal de 1.000 km. Escolha a sua experiência." />
+      <div class="ultra-filters" role="group" aria-label="Filtrar modalidades"><button v-for="grupo in grupos" :key="grupo.id" type="button" :aria-pressed="categoria === grupo.id" class="ultra-filter" @click="categoria = grupo.id">{{ grupo.nome }} <span>{{ quantidade(grupo.id) }}</span></button></div>
+      <div class="ultra-modalidade-grid" aria-live="polite">
+        <article v-for="modalidade in modalidadesVisiveis" :key="modalidade.id" class="ultra-modalidade-card">
+          <div class="ultra-card-top"><span class="ultra-eyebrow">{{ grupos.find(g => g.id === grupoModalidade(modalidade)).nome }}</span><img :src="modalidade.img" alt="" loading="lazy" /></div>
+          <h3>{{ modalidade.titulo === 'Corrida' || modalidade.titulo === 'Ciclismo' ? modalidade.provas : modalidade.titulo }}</h3>
+          <p v-if="modalidade.titulo !== 'Corrida' && modalidade.titulo !== 'Ciclismo'" class="ultra-distancias">{{ modalidade.provas }}</p>
+          <div class="ultra-cortes"><span>Tempos de corte</span><ul><li v-for="corte in modalidade.cortes" :key="corte">{{ corte }}</li></ul></div>
+          <RouterLink :to="{name:'inscricao'}" class="ultra-card-link" :aria-label="`Inscreva-se em ${modalidade.nome}`">Aceite o desafio <span aria-hidden="true">↗</span></RouterLink>
+        </article>
       </div>
-
-      <div class="row justify-content-between">
-        <div class="card-group d-flex text-center row justify-content-center mx-1">
-          <div v-for="modalidade in modalidadesAtivas" :key="modalidade.id" class="card col-lg-4">
-            <img class="card-img-top" :src="modalidade.img" style="max-width: 40%;" alt="Card image cap" />
-            <div class="card-body fundo-claro">
-              <h5 class="card-title text-uppercase negrito">{{ modalidade.titulo }}</h5>
-              <p class="card-text">{{ modalidade.provas }}</p>
-              <p class="card-text">TEMPO DE CORTE:</p>
-              <p v-for="(corte, i) in modalidade.cortes" :key="i">
-                <small class="text-muted">{{ corte }}</small>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <RouterLink :to="{name:'regulamentos'}" class="ultra-text-link ultra-section-link">Consulte os regulamentos completos ↗</RouterLink>
     </div>
-  </div>
+  </section>
 </template>

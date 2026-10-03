@@ -5,22 +5,20 @@ import { themeColor } from "../data/items";
 
 <template>
 
-  <div class="untree_co-section">
+  <div class="ultra-page-body page-triopen">
 
-    <div class="container" style="margin-top: 80px;">
+    <div class="container" >
 
       <div class="mt-12 my-8">
         <div class="col-lg-12 my-2">
-          <h1 style="text-align: center;" class="text-uppercase negrito">
-            BRASIL TRI OPEN 2025
-          </h1>
-          <h1 style="text-align: center;" class="text-uppercase negrito">
+
+          <h2 style="text-align: center;" class="text-uppercase negrito">
             O PREVIEW DO BRASIL ULTRA TRI
-          </h1>
+          </h2>
         </div>
       </div>
 
-      <div class="my-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="my-4"  >
 
         <h2 class="my-4">BRASIL TRI OPEN – 18 e 19 de Outubro</h2>
         <h3 class="my-4">No Clube Aretê - Búzios</h3>
@@ -44,23 +42,23 @@ import { themeColor } from "../data/items";
 
         <p class="my-4 justificado">
           Seja você um <em>estreante</em> ou alguém em busca de novos limites, o <strong> Brasil Tri Open é o seu ponto de partida.</strong>
-          
+
         </p>
 
         <p class="my-4 justificado">
             Prepare-se para viver o triathlon em sua essência!
         </p>
 
-        <div class="row mb-6 mt-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="row mb-6 mt-6"  >
           <div class="col-12 text-start">
               <h2 class="heading text-uppercase negrito">LOTES DISPONÍVEIS:</h2>
           </div>
-        </div>                
+        </div>
 
         <div class="row justify-content-between g-4 mx-1">
             <div class="col-lg-4 col-md-6 col-12 mb-2">
 
-                <div class="card fundo-claro borda-preta h-100 " data-aos="fade-up" data-aos-delay="100">
+                <div class="card fundo-claro borda-preta h-100 "  >
                     <div class="card-body pt-2">
                         <h4 class="card-title text-center">Primeiro lote (promocional)</h4>
                         <p class="card-text text-center">
@@ -75,7 +73,7 @@ import { themeColor } from "../data/items";
             </div>
 
             <div class="col-lg-4 col-md-6 col-12 mb-2">
-                <div class="card borda-preta fundo-claro h-100" data-aos="fade-up" data-aos-delay="200">
+                <div class="card borda-preta fundo-claro h-100"  >
                     <div class="card-body pt-2">
                         <h4 class="card-title text-center">Segundo lote</h4>
                         <p class="card-text text-center">
@@ -90,7 +88,7 @@ import { themeColor } from "../data/items";
             </div>
 
             <div class="col-lg-4 col-md-6 col-12 ">
-                <div class="card borda-preta fundo-claro h-100" data-aos="fade-up" data-aos-delay="300">
+                <div class="card borda-preta fundo-claro h-100"  >
                     <div class="card-body pt-2">
                         <h4 class="card-title text-center">Terceiro lote</h4>
                         <p class="card-text text-center">
@@ -113,14 +111,14 @@ import { themeColor } from "../data/items";
         </div>
 
 
-        <p style="text-align: center;" data-aos="fade-up" data-aos-delay="200">
-                  
-            <RouterLink 
+        <p style="text-align: center;"  >
+
+            <RouterLink
             :style="[
-                { color: themeColor }, 
+                { color: themeColor },
                 { borderColor: themeColor }]"
             class="btn smoothscroll pricing "
-            :to="{ name: 'inscricaotriopen',  }" 
+            :to="{ name: 'inscricaotriopen',  }"
             >
             <span style="font-size: 14px;">
                 Inscreva-se

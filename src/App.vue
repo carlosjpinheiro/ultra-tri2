@@ -1,4 +1,13 @@
 <script setup>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+const route = useRoute();
+const isHome = computed(() => route.name === 'home');
+
+import SitePage from './components/SitePage.vue';
+import './styles/theme.css';
+import './styles/pages.css';
+
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 
@@ -17,16 +26,13 @@ window.gtranslateSettings = {
 </script>
 
 <template>
-  <!-- <Header />
-  <Hero />
-  <About />
-  <Testimonial />
-  <Contact />
-  <Footer /> -->
-  <div id="app">
+  <div id="app" class="ultra-theme">
     <div class="gtranslate_wrapper"/>
     <Header />
-    <RouterView />
+    <RouterView v-slot="{ Component }">
+      <component :is="Component" v-if="isHome" />
+      <SitePage v-else><component :is="Component" /></SitePage>
+    </RouterView>
     <Footer />
 </div>
 

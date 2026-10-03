@@ -8,20 +8,16 @@ import { challengeInfo } from '../data/items';
 
 <template>
 
-    <div class="untree_co-section" >
-        <div class="container" id="comochegar" style="margin-top: 80px;">
-        
+    <div class="ultra-page-body page-comochegar" >
+        <div class="container" id="comochegar" >
+
             <div class="row mt-8 mx-1 text-justify">
                 <div class="col-lg-10">
-                    <div class="mb-4" data-aos="fade-up" data-aos-delay="0">
-                        <h2 class="heading text-uppercase negrito">
-                            Como chegar?
-                        </h2>
-                    </div>
+
 
                         <div class="row mb-5">
 
-                            
+
                             <div class="col-lg-6 ">
                                 <h3 >Clube</h3>
                                 <p>
@@ -31,8 +27,8 @@ import { challengeInfo } from '../data/items';
                                     O Clube Esportivo Aretê fica a aproximadamente 170km de distância do aeroporto Santos Dumont (RJ).
                                 </p>
                             </div>
-                            <div class="col-lg-6">                                                
-                                
+                            <div class="col-lg-6">
+
                                 <img :src="clubePiscina" alt="Clube Aretê Búzios" class="img-fluid rounded">
                             </div>
                         </div>
@@ -43,7 +39,7 @@ import { challengeInfo } from '../data/items';
                                 <h3>Opções de Transporte</h3>
                                 <p>Para chegar até o local da prova, existem duas opções partindo do Rio de Janeiro:</p>
                             </div>
-                            
+
                             <ul>
                                 <li class="ml-8">
                                     <div class="">
@@ -121,7 +117,6 @@ import { challengeInfo } from '../data/items';
             </div>
         </div>
 
-    </div>    
+    </div>
 
 </template>
-

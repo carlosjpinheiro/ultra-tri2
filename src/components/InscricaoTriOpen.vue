@@ -35,22 +35,22 @@ const formInstance = ref(null)
 const dataNascimento = ref(null)
 
 const submitForm = async() => {
-    axios.defaults.headers.post['Content-Type'] = 'application/json';   
+    axios.defaults.headers.post['Content-Type'] = 'application/json';
 
     const validation = await formInstance.value.validate()
 
-    if (validation.valid) {    
-        
+    if (validation.valid) {
+
         // formData.value.dataInscricao = getDataFormatada(new Date());
-        formData.value.dataInscricao = new Date()        
+        formData.value.dataInscricao = new Date()
 
         try {
             carregando.value = true
-            
+
             await addDoc(collection(db, "triopen2025"), formData.value);
 
             alert('Pré-inscrição enviada com sucesso! Aguarde o e-mail da organização do evento para efetivar a inscrição')
-            
+
             formInstance.value.reset()
             // dataNascimento.value = null
         } catch (error) {
@@ -58,30 +58,26 @@ const submitForm = async() => {
             console.error('Erro ao enviar o formulário:', error);
         } finally {
             carregando.value = false
-        }     
+        }
     }
 }
 
 </script>
 
 <template>
-    <div class="untree_co-section" >
+    <div class="ultra-page-body page-inscricaotriopen" >
         <Loading
             :carregando="carregando"
         />
 
-        <div class="container" style="margin-top: 80px;">
-            <div class="row mb-4 mt-8" data-aos="fade-up" data-aos-delay="0">
-                <div class="col-12 text-center">
-                    <h2 class="heading">Pré-inscrição Brasil Tri Open - Outubro 2025</h2>
-                </div>
-            </div>
+        <div class="container" >
+
 
             <br>
 
             <div>
                 <div class="row">
-                    <div class="col-lg-2"></div>
+
                     <div class="col-lg-8 form">
 
                         <VForm validate-on="submit lazy" v-model="valid" ref="formInstance" @submit.prevent>
@@ -94,7 +90,7 @@ const submitForm = async() => {
                                         variant="outlined"
                                         :rules="[requiredRule]"
                                         validate-on="input"
-                                    />                                    
+                                    />
                                 </VCol>
                                 <VCol>
                                     <VTextField
@@ -103,7 +99,7 @@ const submitForm = async() => {
                                         variant="outlined"
                                         :rules="[requiredRule]"
                                         validate-on="input"
-                                    />                                    
+                                    />
                                 </VCol>
 
                             </VRow>
@@ -125,7 +121,7 @@ const submitForm = async() => {
                                     <VTextField
                                         v-model="formData.telefone"
                                         label="Telefone"
-                                        variant="outlined"                           
+                                        variant="outlined"
                                     />
                                 </VCol>
                             </VRow>
@@ -192,7 +188,7 @@ const submitForm = async() => {
                                 </VCol>
                             </VRow>
 
-                            <VRadioGroup 
+                            <VRadioGroup
                                 v-model="formData.modalidade"
                                 :rules="[requiredRule]"
                                 validate-on="input"
@@ -232,7 +228,7 @@ const submitForm = async() => {
                     </div>
                 </div>
             </div>
-        </div>      
+        </div>
     </div>
 </template>
 

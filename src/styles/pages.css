@@ -1,0 +1,93 @@
+/* Páginas internas: mesmas variáveis e componentes do tema aprovado. */
+.ultra-page { min-height: calc(100vh - 147px); }
+.ultra-page-heading { padding: 126px 0 44px; background: var(--ultra-forest); color: var(--ultra-paper); border-bottom: 6px solid var(--ultra-yellow); }
+.ultra-page-back { display: inline-flex; margin-bottom: 26px; color: #c6d7cc !important; font-size: 13px; text-decoration: none; }
+.ultra-page-back:hover { color: var(--ultra-yellow) !important; }
+.ultra-page-heading .ultra-eyebrow { color: var(--ultra-yellow); margin-bottom: 14px; }
+.ultra-page-heading h1 { max-width: 950px; margin: 0 0 20px; font-size: clamp(36px, 5vw, 64px); }
+.ultra-page-lead { max-width: 720px; color: #c6d7cc; font-size: 18px; line-height: 1.7; margin: 0 !important; }
+.ultra-page-body { padding: 52px 0 72px; font-size: 16px; line-height: 1.8; }
+.ultra-page-body > .container { width: min(1200px, calc(100% - 80px)); max-width: none; padding: 0; margin-inline: auto; }
+.ultra-page-body .row { row-gap: 24px; margin-inline: 0; }
+.ultra-page-body :is(.mx-1, .mt-8) { margin-inline: 0 !important; }
+.ultra-page-body > .container > .row:first-child { margin-top: 0 !important; }
+.ultra-page-body :is(.heading, h2) { font-size: clamp(26px, 3vw, 36px); letter-spacing: -.7px; text-transform: none !important; margin-bottom: 24px; }
+.ultra-page-body h3 { font-size: 26px; letter-spacing: -.5px; margin-bottom: 18px; }
+.ultra-page-body :is(h4, h5) { font-size: 21px; color: var(--ultra-forest); font-weight: 800; letter-spacing: -.3px; line-height: 1.4; }
+.ultra-page-body p { color: var(--ultra-muted); }
+.ultra-page-body strong { color: var(--ultra-ink); }
+.ultra-page-body li { margin-bottom: 8px; }
+.ultra-page-body ul { padding-left: 22px; }
+.ultra-page-body .links { float: none !important; }
+.ultra-page-body a:not(.btn, .card, .v-btn) { color: var(--ultra-green); text-underline-offset: 4px; }
+.ultra-page-body :is(.card, .form) { background: var(--ultra-white); border: 1px solid var(--ultra-line); border-radius: var(--ultra-radius); overflow: hidden; }
+.ultra-page-body .card-body { padding: 26px; }
+.ultra-page-body .card-img-top { height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.ultra-page-body :is(.img-fluid, .ultra-result-table) { display: block; width: 100%; height: auto; border-radius: var(--ultra-radius) !important; }
+.ultra-page-body iframe { display: block; width: min(100%, 800px); height: auto; aspect-ratio: 16 / 9; border: 1px solid var(--ultra-line); border-radius: var(--ultra-radius); margin-block: 26px 46px; }
+.ultra-page-body .btn { border: 0 !important; border-radius: 8px; background: var(--ultra-green); color: white !important; padding: 16px 24px; font-weight: 800; font-size: 16px; margin-left: 0 !important; }
+.ultra-page-body .btn:hover { background: var(--ultra-forest); }
+.ultra-page-body .btn h4 { margin: 0; color: inherit; font-size: 16px; }
+.ultra-page-body .form { padding: clamp(24px, 4vw, 44px); margin: auto; box-shadow: 0 12px 32px #123e2e06; color: var(--ultra-ink); }
+.ultra-page-body .v-form { --v-theme-primary: 26, 149, 56; font-family: inherit; }
+.ultra-page-body .v-field { border-radius: 8px; background: #f9faf6; }
+.ultra-page-body .v-field__outline { color: #a2b3a7; }
+.ultra-page-body .v-field--focused .v-field__outline { color: var(--ultra-green); }
+.ultra-page-body .v-form .v-btn { background: var(--ultra-green); color: white; border-radius: 8px; box-shadow: none; height: 48px; text-transform: none; font-weight: 800; }
+.ultra-page-body .v-form .v-row { row-gap: 0; }
+.ultra-page-body .v-label { letter-spacing: 0; line-height: 1.5; }
+.ultra-page-body .regulamentos-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; width: 100%; }
+.ultra-page-body .regulamento-download { padding: 30px 20px; align-items: center; text-decoration: none; transition: border-color .2s, transform .2s; }
+.ultra-page-body .regulamento-download:hover { border-color: var(--ultra-green); transform: translateY(-4px); }
+.ultra-page-body .regulamento-download .card-body { width: 100%; padding: 22px 0 0; }
+.ultra-page-body .ultra-pdf-icon { font-size: 80px; color: var(--ultra-green); background: #eaf0e7; border-radius: 16px; padding: 16px; width: 112px; height: 112px; }
+.ultra-page-body .regulamento-download .card-title { text-transform: none !important; }
+.ultra-page-body .start-list { max-width: 900px; }
+.ultra-page-body .start-list ul { list-style: none; border: 1px solid var(--ultra-line); background: white; border-radius: 14px; padding: 20px 26px; margin-bottom: 24px; }
+.ultra-page-body .start-list li { border-bottom: 1px solid var(--ultra-line); padding: 8px 0; }
+.ultra-page-body .start-list li:last-child { border: 0; }
+.ultra-page-body .start-list p { font-size: 21px; color: var(--ultra-forest); }
+.ultra-page-body .ultra-result-table { max-width: 1000px; margin: 0 auto 28px; border: 1px solid var(--ultra-line); background: white; }
+.page-organizacao #organizacao > .row { border: 1px solid var(--ultra-line); padding: 32px 20px; border-radius: var(--ultra-radius); background: white; margin: 0 0 28px !important; }
+.page-organizacao .v-divider { display: none; }
+.page-organizacao .social { padding: 0; gap: 14px; }
+.page-cancelamento > .container > .row > div { max-width: 900px; flex: 0 0 100%; margin: auto; }
+.page-comochegar > .container > .row > div, .page-alojamento > .container > .row > div { flex: 0 0 100%; max-width: 100%; }
+.page-triopen .fundo-claro { background: white; border-color: var(--ultra-line); }
+.page-triopen .container > .mt-12 { margin-top: 0 !important; }
+.ultra-page-body :is(.col-lg-12, .col-12) > .mb-4:empty { display: none; }
+@media (max-width: 991px) {
+  .ultra-page-body > .container { width: calc(100% - 48px); }
+  .ultra-page-body .regulamentos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .ultra-page-heading { padding-top: 108px; padding-bottom: 32px; }
+  .ultra-page-lead { font-size: 16px; }
+  .ultra-page-body { padding: 32px 0 48px; }
+  .ultra-page-body > .container { width: calc(100% - 40px); }
+  .ultra-page-body .v-form .v-row { flex-direction: column; }
+  .ultra-page-body .v-form .v-col { width: 100%; flex-basis: auto; }
+  .ultra-page-body .regulamentos-grid { grid-template-columns: 1fr; }
+  .page-organizacao #organizacao > .row { padding: 24px 8px; }
+}
+
+/* Agenda: datas e horários com o mesmo padrão dos cards da Home. */
+.ultra-page-body .ultra-schedule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.ultra-schedule-list { display: grid; gap: 16px; }
+.ultra-schedule-card { padding: 24px; background: white; border: 1px solid var(--ultra-line); border-radius: 14px; }
+.ultra-page-body .ultra-schedule-card h3 { color: var(--ultra-forest); font-size: 20px; margin-bottom: 18px; }
+.ultra-schedule-event { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 14px; margin: 12px 0; }
+.ultra-schedule-time { display: inline-flex; padding: 4px 10px; background: #fcb60322; color: var(--ultra-forest); border-radius: 6px; font-size: 13px; font-weight: 800; white-space: nowrap; }
+.ultra-schedule-event p { flex: 1 1 230px; margin: 0; }
+.ultra-schedule-card .ultra-help { margin: 14px 0 0; }
+.ultra-schedule-info { margin-bottom: 38px; }
+.ultra-schedule-notice { padding: 16px 18px; border-left: 4px solid var(--ultra-yellow); background: #eaf0e7; border-radius: 0 8px 8px 0; font-size: 14px; margin: 18px 0 !important; }
+@media (max-width: 767px) { .ultra-page-body .ultra-schedule-grid { grid-template-columns: 1fr; gap: 30px; } }
+
+.ultra-page-body .v-selection-control .v-label { white-space: normal; overflow: visible; }
+
+/* Retratos da organização: mesma moldura, sem distorcer as imagens. */
+.ultra-page-body .ultra-team-photo { width: 200px; height: 200px; max-width: 100%; object-fit: cover; object-position: center; margin-inline: auto; }
+
+/* Galeria do alojamento reutiliza o carrossel compartilhado do site. */
+.ultra-alojamento-carousel { width: min(100%, 900px); height: clamp(260px, 48vw, 500px); margin: 30px auto; border: 1px solid var(--ultra-line); border-radius: var(--ultra-radius); overflow: hidden; background: var(--ultra-forest); }

@@ -20,26 +20,18 @@ const tabelas = [
 </script>
 
 <template>
-    
 
-    <div class="untree_co-section" >
-        <div class="container" id="comochegar" style="margin-top: 80px;">
-        
-            <div class="row mt-8 mx-1 text-justify">
-                <div class="col-12 text-center">
-                    <div class="mb-4" data-aos="fade-up" data-aos-delay="0">
-                        <h2 class="heading text-uppercase negrito">
-                            RESULTADOS POR MODALIDADE
-                        </h2>
-                    </div>
-                </div>
-            </div>
 
-            <div v-for="tabela in tabelas">
+    <div class="ultra-page-body page-resultados2025" >
+        <div class="container" id="resultados2025" >
+
+
+
+            <div v-for="(tabela, index) in tabelas" :key="tabela">
 
                     <div class="row mt-2 text-center">
-                        <div class="col-12"> 
-                            <img :src="tabela" style="width: 75%;" >
+                        <div class="col-12">
+                            <img :src="tabela" :alt="`Resultados 2025 — tabela ${index + 1}`" class="ultra-result-table" loading="lazy" />
                         </div>
                     </div>
             </div>
@@ -48,5 +40,5 @@ const tabelas = [
 
         </div>
 
-    </div>    
+    </div>
 </template>

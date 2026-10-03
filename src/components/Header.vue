@@ -1,113 +1,102 @@
 <script setup>
-import { RouterLink, useRouter } from "vue-router";
-import { themeColor, siteName, challengeInfo } from "../data/items";
-import ultraTriImg from "../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png";
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
+import { RouterLink, useRoute } from 'vue-router';
+import { themeColor } from '../data/items';
+import ultraTriImg from '../assets/images/LOGOS_ULTRA_TRI_sem_bixo_fino.png';
+import '../styles/layout.css';
 
+// A ordem também define a prioridade dos links que ficam fora do Mais.
+const links = [
+  { name: 'cronograma', label: 'Cronograma' },
+  { name: 'modalidades', label: 'Modalidades' },
+  { name: 'percurso', label: 'Percurso' },
+  { name: 'regulamentos', label: 'Regulamentos' },
+  { name: 'valores', label: 'Valores' },
+  { name: 'alojamento', label: 'Alojamento' },
+  { name: 'comochegar', label: 'Como chegar' },
+  { name: 'organizacao', label: 'Organização' },
+  { name: 'sobre', label: 'Sobre' },
+  { name: 'resultados2025', label: 'Resultados 2025' },
+  { name: 'contato', label: 'Contato' },
+];
+const route = useRoute();
+const header = ref(null);
+const espacoMenu = ref(null);
+const medidor = ref(null);
+const botaoMais = ref(null);
+const quantidadeVisivel = ref(0);
+const aberto = ref(false);
+const visiveis = computed(() => links.slice(0, quantidadeVisivel.value));
+const restantes = computed(() => links.slice(quantidadeVisivel.value));
+let observer;
+let ativo = true;
+
+const distribuir = () => {
+  if (!ativo || !espacoMenu.value || !medidor.value) return;
+  const largura = espacoMenu.value.clientWidth;
+  const itens = Array.from(medidor.value.querySelectorAll('[data-menu-item]'));
+  const gap = parseFloat(getComputedStyle(medidor.value).columnGap) || 0;
+  const larguras = itens.map(item => item.getBoundingClientRect().width);
+  const larguraMais = medidor.value.querySelector('[data-menu-more]').getBoundingClientRect().width;
+  const total = larguras.reduce((soma, valor) => soma + valor, 0) + gap * (links.length - 1);
+  if (total <= largura) {
+    quantidadeVisivel.value = links.length;
+    aberto.value = false;
+    return;
+  }
+  let ocupado = larguraMais;
+  let quantidade = 0;
+  for (const item of larguras) {
+    if (ocupado + gap + item > largura) break;
+    ocupado += gap + item;
+    quantidade++;
+  }
+  quantidadeVisivel.value = quantidade;
+};
+const fechar = () => { aberto.value = false; };
+const fora = evento => { if (!header.value?.contains(evento.target)) fechar(); };
+const teclado = evento => {
+  if (evento.key === 'Escape' && aberto.value) { fechar(); botaoMais.value?.focus(); }
+};
+watch(() => route.fullPath, fechar);
+onMounted(async () => {
+  await nextTick();
+  observer = new ResizeObserver(distribuir);
+  observer.observe(espacoMenu.value);
+  observer.observe(medidor.value);
+  distribuir();
+  document.fonts?.ready.then(distribuir);
+  document.addEventListener('pointerdown', fora);
+  document.addEventListener('keydown', teclado);
+});
+onUnmounted(() => {
+  ativo = false;
+  observer?.disconnect();
+  document.removeEventListener('pointerdown', fora);
+  document.removeEventListener('keydown', teclado);
+});
 </script>
 
 <template>
-  <nav class="site-nav dark js-site-navbar mb-5 site-navbar-target">
-    
-    <div class="container" id="header">
-      <div class="site-navigation">
-        <a class="logo m-0 float-left">
-          <RouterLink :to="{ name: 'home',  }"  class="nav-link">
-            <img class="mt-n2 ml-n4" :src="ultraTriImg" style="max-width: 100px; ;" >
-            
-          </RouterLink>
-        </a
-        >
-        <ul class="js-clone-nav d-none d-lg-inline-block site-menu float-left">
-          <li><a class="nav-link"><RouterLink :to="{ name: 'cronograma',  }" class="nav-link">Cronograma</RouterLink></a></li>
-          <!-- <li><a class="nav-link"><RouterLink :to="{ name: 'triopen',  }" class="nav-link">Tri Open</RouterLink></a></li> -->
-          <li><a class="nav-link"><RouterLink :to="{ name: 'modalidades',  }" class="nav-link">Modalidades</RouterLink></a></li>
-          <li><a class="nav-link"><RouterLink :to="{ name: 'percurso',  }" class="nav-link">Percurso</RouterLink></a></li>
-          <li><a class="nav-link"><RouterLink :to="{ name: 'regulamentos',  }" class="nav-link">Regulamentos</RouterLink></a></li>
-          <!-- <li><a class="nav-link" :href="challengeInfo.resultPage" target="_blank" style="color: black;"><span  class="nav-link ml-1">Resultados</span></a></li> -->
-          <!-- <li><a class="nav-link"><RouterLink :to="{ name: 'startlist',  }" class="nav-link">Start List</RouterLink></a></li> -->
-          <li class="dropdown">
-            <a class="nav-link dropdown-toggle hide-expanded" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Mais
-            </a>
-            <div 
-            style="background-color: #F0EFEB;"
-            :style="[
-              {
-                borderRadius: '10px'
-              }
-            ]" 
-              class="dropdown-menu" 
-              aria-labelledby="dropdownMenu2">
-              
-              <ul class="js-clone-nav d-none d-lg-inline-block site-menu float-left">
-                <!-- <li><a class="nav-link"><RouterLink :to="{ name: 'regulamentos',  }" class="nav-link">Regulamentos</RouterLink></a></li> -->
-                
-                <li><a class="nav-link"><RouterLink :to="{ name: 'valores',  }" class="nav-link">Valores</RouterLink></a></li>
-                <li><a class="nav-link"><RouterLink :to="{ name: 'alojamento',  }" class="nav-link">Alojamento</RouterLink></a></li>
-                <li><a class="nav-link"><RouterLink :to="{ name: 'comochegar',  }" class="nav-link">Como chegar</RouterLink></a></li>
-                <li><a class="nav-link"><RouterLink :to="{ name: 'organizacao',  }" class="nav-link">Organização</RouterLink></a></li>
-                <li><a class="nav-link"><RouterLink :to="{ name: 'sobre',  }" class="nav-link">Sobre</RouterLink></a></li>
-                <li style="text-wrap: nowrap;"><a class="nav-link"><RouterLink :to="{ name: 'resultados2025',  }" class="nav-link">Resultados 2025</RouterLink></a></li>              
-                <li><a class="nav-link"><RouterLink :to="{ name: 'contato',  }" class="nav-link">Contato</RouterLink></a></li>                
-              </ul>
-            </div>
-          </li>
-
-        </ul>
-        <ul
-          class="js-clone-nav d-none mt-1 d-lg-inline-block site-menu float-right"
-        >
-          <li class="cta-primary nav-link ml-2">
-            <RouterLink 
-              id="inscricao-link"
-              :style="[
-                { backgroundColor: themeColor },
-                {borderRadius: '15px'}
-                ]" 
-              :to="{ name: 'inscricao',  }"  
-              class="nav-link"
-            >
-              Inscreva-se
-            </RouterLink>
+  <header ref="header" class="ultra-site-header" :style="{'--header-green': themeColor}">
+    <div class="ultra-header-bar">
+      <RouterLink :to="{name:'home'}" class="ultra-header-logo" aria-label="Brasil Ultra Tri — página inicial" @click="fechar"><img :src="ultraTriImg" alt="Brasil Ultra Tri" /></RouterLink>
+      <nav ref="espacoMenu" class="ultra-nav-space" aria-label="Navegação principal">
+        <ul class="ultra-nav-list">
+          <li v-for="link in visiveis" :key="link.name"><RouterLink :to="{name:link.name}" class="ultra-nav-link" @click="fechar">{{ link.label }}</RouterLink></li>
+          <li v-if="restantes.length" class="ultra-nav-overflow">
+            <button ref="botaoMais" type="button" class="ultra-nav-link ultra-more-button" :aria-expanded="aberto" aria-controls="ultra-more-links" @click="aberto = !aberto">Mais <span aria-hidden="true">⌄</span></button>
+            <ul v-if="aberto" id="ultra-more-links" class="ultra-more-links">
+              <li v-for="link in restantes" :key="link.name"><RouterLink :to="{name:link.name}" class="ultra-nav-link" @click="fechar">{{ link.label }}</RouterLink></li>
+            </ul>
           </li>
         </ul>
-        <a
-          href="#"
-          class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block dark d-lg-none"
-          data-toggle="collapse"
-          data-target="#main-navbar"
-        >
-          <span></span>
-        </a>
-      </div>
+      </nav>
+      <RouterLink :to="{name:'inscricao'}" class="ultra-header-cta" @click="fechar">Inscreva-se</RouterLink>
+      <div class="ultra-nav-measure-clip" aria-hidden="true" inert><div ref="medidor" class="ultra-nav-measure">
+        <span v-for="link in links" :key="link.name" data-menu-item class="ultra-nav-link">{{ link.label }}</span>
+        <span data-menu-more class="ultra-nav-link ultra-more-button">Mais <span>⌄</span></span>
+      </div></div>
     </div>
-  </nav>
-  
+  </header>
 </template>
-
-<style>
-nav {
-  background-color: #fcb603 !important;
-}
-
-#inscricao-link:hover {
-  color: #fff;
-}
-
-#header .nav-link {
-  max-width: 150px;
-}
-
-#header .dropdown {
-  /* color: black !important; */
-}
-
-.dropdown .nav-link:hover{
-  opacity: 0.7;
-}
-
-.site-mobile-menu .hide-expanded {  
-  display: none !important;
-/* background-color: red; */
-}
-</style>

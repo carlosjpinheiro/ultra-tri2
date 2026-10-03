@@ -35,12 +35,12 @@ const socialJessica = [
 
 <template>
 
-<div class="untree_co-section">
-    <div class="container" id="organizacao" style="margin-top: 80px;">
+<div class="ultra-page-body page-organizacao">
+    <div class="container" id="organizacao" >
 
         <div class="row mb-5">
             <div class="col-lg-4 text-center mb-4">
-                <img :src="daniel1" alt="Daniel De Oliveira" class="img-fluid rounded-circle" style="max-height: 200px; max-width: 200px;">
+                <img :src="daniel1" alt="Daniel De Oliveira" class="img-fluid ultra-team-photo">
             </div>
             <div class="col-lg-8">
                 <h2>Daniel de Oliveira</h2>
@@ -57,23 +57,23 @@ const socialJessica = [
 
                     <div class="widget">
                         <ul class="list-unstyled social d-flex">
-    
+
                             <li v-for="item in socialDaniel" style="margin-right: 4px; font-size: 28px;" class="mr-4">
                                 <a :href="item.link" target="_blank">
-                                    <span :class="item.icon" 
+                                    <span :class="item.icon"
                                     :style="[
                                         { color: themeColor }
-                                    ]" 
+                                    ]"
                                 />
                                 </a>
                             </li>
-    
+
                         </ul>
                     </div>
                 </p>
-                
+
             </div>
-            
+
         </div>
 
         <VDivider/>
@@ -81,7 +81,7 @@ const socialJessica = [
         <!-- Seção Jessica Alba -->
         <div class="row">
             <div class="col-lg-4 text-center mb-4">
-                <img :src="jessica1" alt="Jessica Alba" class="img-fluid rounded-circle" style="max-height: 200px; max-width: 200px;">
+                <img :src="jessica1" alt="Jessica Alba" class="img-fluid ultra-team-photo">
             </div>
             <div class="col-lg-8">
                 <h2>Jessica Alba</h2>
@@ -96,23 +96,23 @@ const socialJessica = [
 
                     <div class="widget">
                         <ul class="list-unstyled social d-flex">
-    
+
                             <li v-for="item in socialJessica" style="margin-right: 4px; font-size: 28px;" class="mr-4">
                                 <a :href="item.link" target="_blank">
-                                    <span :class="item.icon" 
+                                    <span :class="item.icon"
                                     :style="[
                                         { color: themeColor }
-                                    ]" 
+                                    ]"
                                     />
                                 </a>
                             </li>
-    
+
                         </ul>
                     </div>
 
                 </p>
             </div>
-            
+
         </div>
 
     </div>

@@ -4,20 +4,13 @@
 
 <template>
 
-    <div class="untree_co-section" >
+    <div class="ultra-page-body page-startlist" >
 
-        <div class="container" style="margin-top: 80px;">
+        <div class="container" >
 
-            <div class="row mt-8 mx-1">
-                <div class="col-lg-12">
-                    <h2 class="heading text-uppercase negrito">
-                        ATLETAS CONFIRMADOS 2025
-                    </h2>
 
-                </div>
-            </div>
-                    
-            <div class="start-list mx-1" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="start-list mx-1"  >
                 <p style="font-weight: 600;">DECA CONTÍNUO</p>
                 <ul class="ml-1">
                     <li>1 - Roberto Stael – Brasil</li>
