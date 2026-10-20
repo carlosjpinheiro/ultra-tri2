@@ -11,7 +11,7 @@ const pages = {
   organizacao: ['Quem faz acontecer', 'Nossa organização.', 'Conheça as pessoas por trás do Brasil Ultra Tri.'],
   cancelamento: ['Informações para o atleta', 'Reembolso e cancelamento.', 'Políticas de inscrição, troca de modalidade e hospedagem.'],
   startlist: ['Nossa comunidade', 'Atletas confirmados 2025.', 'Conheça os atletas de cada modalidade.'],
-  resultados2025: ['Cada chegada, uma história', 'Resultados 2025.', 'Confira os resultados por modalidade da edição 2025.'],
+  resultados: ['Cada chegada, uma história', 'Resultados.', 'Explore as edições do Brasil Ultra Tri. Tempos, modalidades e recordes de cada ano.'],
   inscricao: ['Seu próximo passo começa aqui', 'Pré-inscrição 2027.', 'Preencha seus dados para participar do Brasil Ultra Tri.'],
   triopen: ['Brasil Tri Open 2025', 'O preview do Brasil Ultra Tri.', 'Informações e modalidades do Brasil Tri Open.'],
   inscricaotriopen: ['Brasil Tri Open · Outubro 2025', 'Faça sua pré-inscrição.', 'Preencha seus dados para participar do Brasil Tri Open.'],

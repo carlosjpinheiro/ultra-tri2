@@ -16,7 +16,7 @@ const links = [
   { name: 'comochegar', label: 'Como chegar' },
   { name: 'organizacao', label: 'Organização' },
   { name: 'sobre', label: 'Sobre' },
-  { name: 'resultados2025', label: 'Resultados 2025' },
+  { name: 'resultados', label: 'Resultados' },
   { name: 'contato', label: 'Contato' },
 ];
 const route = useRoute();
