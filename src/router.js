@@ -32,8 +32,7 @@ const routes = [
     { name: 'cancelamento', path: '/cancelamento', component: Cancelamento },
     { name: 'regulamentos', path: '/regulamentos', component: Regulamentos },
     { name: 'inscricao', path: '/inscricao', component: Inscricao },
-    { name: 'resultados', path: '/resultados', component: Resultados },
-    { name: 'resultados2025', path: '/resultados2025', redirect: { name: 'resultados' } },
+    { name: 'resultadosanteriores', path: '/resultadosanteriores', component: Resultados },
 ]
 
 const router = createRouter({

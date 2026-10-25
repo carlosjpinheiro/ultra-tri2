@@ -16,7 +16,7 @@ const links = [
   { name: 'comochegar', label: 'Como chegar' },
   { name: 'organizacao', label: 'Organização' },
   { name: 'sobre', label: 'Sobre' },
-  { name: 'resultados', label: 'Resultados' },
+  { name: 'resultadosanteriores', label: 'Resultados' },
   { name: 'contato', label: 'Contato' },
 ];
 const route = useRoute();
@@ -85,7 +85,7 @@ onUnmounted(() => {
         <ul class="ultra-nav-list">
           <li v-for="link in visiveis" :key="link.name"><RouterLink :to="{name:link.name}" class="ultra-nav-link" @click="fechar">{{ link.label }}</RouterLink></li>
           <li v-if="restantes.length" class="ultra-nav-overflow">
-            <button ref="botaoMais" type="button" class="ultra-nav-link ultra-more-button" :aria-expanded="aberto" aria-controls="ultra-more-links" @click="aberto = !aberto">Mais <span aria-hidden="true">⌄</span></button>
+            <button ref="botaoMais" type="button" class="ultra-nav-link ultra-more-button" :aria-expanded="aberto" aria-controls="ultra-more-links" @click="aberto = !aberto">Mais <span aria-hidden="true">▾</span></button>
             <ul v-if="aberto" id="ultra-more-links" class="ultra-more-links">
               <li v-for="link in restantes" :key="link.name"><RouterLink :to="{name:link.name}" class="ultra-nav-link" @click="fechar">{{ link.label }}</RouterLink></li>
             </ul>
@@ -95,7 +95,7 @@ onUnmounted(() => {
       <RouterLink :to="{name:'inscricao'}" class="ultra-header-cta" @click="fechar">Inscreva-se</RouterLink>
       <div class="ultra-nav-measure-clip" aria-hidden="true" inert><div ref="medidor" class="ultra-nav-measure">
         <span v-for="link in links" :key="link.name" data-menu-item class="ultra-nav-link">{{ link.label }}</span>
-        <span data-menu-more class="ultra-nav-link ultra-more-button">Mais <span>⌄</span></span>
+        <span data-menu-more class="ultra-nav-link ultra-more-button">Mais <span>▾</span></span>
       </div></div>
     </div>
   </header>
