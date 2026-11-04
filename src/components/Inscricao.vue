@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { VForm, VTextField, VBtn } from "vuetify/lib/components/index.mjs";
 import Loading from './Loading.vue'
 import axios from 'axios';
@@ -16,6 +16,8 @@ const getNewForm = () => {
         email: '',
         telefone: '',
         nacionalidade: '',
+        cpf: '',
+        estrangeiro: false,
         idade: '',
         dataNascimento: '',
         provasAnteriores: '',
@@ -34,7 +36,28 @@ const valid = ref(false);
 const carregando = ref(false)
 const formData = ref(getNewForm())
 const formInstance = ref(null)
+const cpfField = ref(null)
+const cpfRules = computed(() => formData.value.estrangeiro
+    ? []
+    : [value => !!String(value ?? '').trim() || 'Este campo é obrigatório'])
 const dataNascimento = ref(null)
+
+watch(() => formData.value.estrangeiro, (estrangeiro) => {
+    if (estrangeiro) {
+        cpfField.value?.resetValidation()
+    }
+}, { flush: 'post' })
+
+const mascaraCpf = (event) => {
+    const digitos = event.target.value.replace(/\D/g, '').slice(0, 11);
+    const valor = digitos
+        .replace(/^(\d{3})(\d)/, '$1.$2')
+        .replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3')
+        .replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
+
+    event.target.value = valor;
+    formData.value.cpf = valor;
+};
 
 const mascaraDataNascimento = (event) => {
     let valor = event.target.value.replace(/\D/g, '');
@@ -72,6 +95,7 @@ const submitForm = async() => {
             alert('Pré-inscrição enviada com sucesso! Aguarde o e-mail da organização do evento para efetivar a inscrição')
 
             formInstance.value.reset()
+            formData.value = getNewForm()
             // dataNascimento.value = null
         } catch (error) {
             alert('Erro ao enviar o formulário!')
@@ -154,6 +178,28 @@ const submitForm = async() => {
                                         variant="outlined"
                                         :rules="[requiredRule]"
                                         validate-on="input"
+                                    />
+                                </VCol>
+                            </VRow>
+
+                            <VRow>
+                                <VCol>
+                                    <VTextField
+                                        v-model="formData.cpf"
+                                        ref="cpfField"
+                                        :label="formData.estrangeiro ? 'CPF (opcional)' : '*CPF'"
+                                        :required="!formData.estrangeiro"
+                                        variant="outlined"
+                                        :rules="cpfRules"
+                                        validate-on="input"
+                                        inputmode="numeric"
+                                        maxlength="14"
+                                        @input="mascaraCpf"
+                                    />
+                                    <VCheckbox
+                                        v-model="formData.estrangeiro"
+                                        label="Estrangeiro"
+                                        hide-details
                                     />
                                 </VCol>
                             </VRow>
