@@ -30,9 +30,9 @@ jobs:
       - name: Deploy site API only
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.SITE_FTP_SERVER }}
-          username: ${{ secrets.SITE_FTP_USER }}
-          password: ${{ secrets.SITE_FTP_PASS }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
           protocol: ftps
           port: 21
           local-dir: ./site-api/
