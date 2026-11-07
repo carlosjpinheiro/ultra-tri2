@@ -5,7 +5,7 @@
 .ultra-page-back:hover { color: var(--ultra-yellow) !important; }
 .ultra-page-heading .ultra-eyebrow { color: var(--ultra-yellow); margin-bottom: 14px; }
 .ultra-page-heading h1 { max-width: 950px; margin: 0 0 20px; font-size: clamp(36px, 5vw, 64px); }
-.ultra-page-lead { max-width: 720px; color: #c6d7cc; font-size: 18px; line-height: 1.7; margin: 0 !important; }
+.ultra-page-lead { max-width: 760px; color: #c6d7cc; font-size: 18px; line-height: 1.7; margin: 0 !important; }
 .ultra-page-body { padding: 52px 0 72px; font-size: 16px; line-height: 1.8; }
 .ultra-page-body > .container { width: min(1200px, calc(100% - 80px)); max-width: none; padding: 0; margin-inline: auto; }
 .ultra-page-body .row { row-gap: 24px; margin-inline: 0; }

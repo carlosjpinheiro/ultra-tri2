@@ -12,8 +12,10 @@ import Percurso from './components/Percurso.vue'
 import TriOpen from './components/TriOpen.vue'
 import InscricaoTriOpen from './components/InscricaoTriOpen.vue'
 import Resultados from './components/Resultados.vue';
+import Staff from './components/Staff.vue';
 
 const routes = [
+    { name: 'staff', path: '/staff', component: Staff },
     { name: 'home', path: '/', meta: { name: 'home' }, component: Home, },
     { name: 'sobre', path: '/sobre', meta: { name: 'Sobre' }, redirect: { name: 'home', hash: '#sobre' } },
     { name: 'modalidades', path: '/modalidades', meta: { name: 'Modalidades' }, redirect: { name: 'home', hash: '#modalidades' } },

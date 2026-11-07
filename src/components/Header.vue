@@ -7,6 +7,7 @@ import '../styles/layout.css';
 
 // A ordem também define a prioridade dos links que ficam fora do Mais.
 const links = [
+  { name: 'staff', label: 'Seja Staff 2027' },
   { name: 'cronograma', label: 'Cronograma' },
   { name: 'modalidades', label: 'Modalidades' },
   { name: 'percurso', label: 'Percurso' },

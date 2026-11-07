@@ -1,5 +1,9 @@
 # ultra-tri2
 
+## Inscrição de staffs
+
+Página `/staff` e backend PHP/MySQL independente em `/site-api/`. Consulte [configuração, migrações e publicação](docs/staff-backend.md). O banco e as migrações são exclusivos do site, separados do ultra-finance.
+
 a fazer:
     - linkar ou exibir localização(google maps) do clube em ComoChegar
     - criar pagina de Galeria

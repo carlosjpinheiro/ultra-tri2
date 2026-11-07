@@ -3,20 +3,21 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 const route = useRoute();
 const pages = {
+  staff: ['Faça parte da equipe', 'Seja Staff 2027', 'Viva o Brasil Ultra Tri por dentro. Inscreva-se para fazer parte da nossa equipe em Búzios.'],
   cronograma: ['Prepare sua experiência', 'Cronograma 2027', 'Largadas, entrega de kits e premiação. Todos os momentos da sua prova.'],
-  percurso: ['O cenário da sua superação', 'Conheça o percurso.', 'Estrutura e circuitos do Clube Aretê Búzios.'],
-  regulamentos: ['Tudo para a sua prova', 'Regulamentos.', 'Consulte os documentos e prepare-se para o seu desafio.'],
-  alojamento: ['Planeje sua estadia', 'Alojamento da prova.', 'Opções para descansar e viver a experiência do Brasil Ultra Tri.'],
+  percurso: ['O cenário da sua superação', 'Conheça o percurso', 'Estrutura e circuitos do Clube Aretê Búzios.'],
+  regulamentos: ['Tudo para a sua prova', 'Regulamentos', 'Consulte os documentos e prepare-se para o seu desafio.'],
+  alojamento: ['Planeje sua estadia', 'Alojamento da prova', 'Opções para descansar e viver a experiência do Brasil Ultra Tri.'],
   comochegar: ['Seu destino é Búzios', 'Como chegar?', 'Conheça o local da prova e as opções de transporte e hospedagem.'],
-  organizacao: ['Quem faz acontecer', 'Nossa organização.', 'Conheça as pessoas por trás do Brasil Ultra Tri.'],
-  cancelamento: ['Informações para o atleta', 'Reembolso e cancelamento.', 'Políticas de inscrição, troca de modalidade e hospedagem.'],
-  startlist: ['Nossa comunidade', 'Atletas confirmados 2025.', 'Conheça os atletas de cada modalidade.'],
-  resultados: ['Cada chegada, uma história', 'Resultados.', 'Explore as edições do Brasil Ultra Tri. Tempos, modalidades e recordes de cada ano.'],
-  inscricao: ['Seu próximo passo começa aqui', 'Pré-inscrição 2027.', 'Preencha seus dados para participar do Brasil Ultra Tri.'],
-  triopen: ['Brasil Tri Open 2025', 'O preview do Brasil Ultra Tri.', 'Informações e modalidades do Brasil Tri Open.'],
-  inscricaotriopen: ['Brasil Tri Open · Outubro 2025', 'Faça sua pré-inscrição.', 'Preencha seus dados para participar do Brasil Tri Open.'],
+  organizacao: ['Quem faz acontecer', 'Nossa organização', 'Conheça as pessoas por trás do Brasil Ultra Tri.'],
+  cancelamento: ['Informações para o atleta', 'Reembolso e cancelamento', 'Políticas de inscrição, troca de modalidade e hospedagem.'],
+  startlist: ['Nossa comunidade', 'Atletas confirmados 2025', 'Conheça os atletas de cada modalidade.'],
+  resultadosanteriores: ['Cada chegada, uma história', 'Resultados', 'Explore as edições do Brasil Ultra Tri. Tempos, modalidades e recordes de cada ano.'],
+  inscricao: ['Seu próximo passo começa aqui', 'Pré-inscrição 2027', 'Preencha seus dados para participar do Brasil Ultra Tri.'],
+  triopen: ['Brasil Tri Open 2025', 'O preview do Brasil Ultra Tri', 'Informações e modalidades do Brasil Tri Open.'],
+  inscricaotriopen: ['Brasil Tri Open · Outubro 2025', 'Faça sua pré-inscrição', 'Preencha seus dados para participar do Brasil Tri Open.'],
 };
-const page = computed(() => pages[route.name] || ['Brasil Ultra Tri', 'Sua experiência Ultra.', '']);
+const page = computed(() => pages[route.name] || ['Brasil Ultra Tri', 'Sua experiência Ultra', '']);
 </script>
 <template>
   <main class="ultra-page" :class="`ultra-page-${route.name}`">

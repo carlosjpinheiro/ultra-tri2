@@ -25,3 +25,10 @@ jobs:
           protocol: ftp
           local-dir: dist/
           server-dir: public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            api/**
+            ultra-finance/**
+            site-api/**

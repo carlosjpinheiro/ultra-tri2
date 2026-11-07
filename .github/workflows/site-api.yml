@@ -1,0 +1,39 @@
+name: Site API
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site-api/**'
+      - 'database/site-migrations/**'
+      - 'scripts/*site*'
+      - 'tests/site-*'
+      - '.github/workflows/site-api.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: site-api-production
+  cancel-in-progress: false
+jobs:
+  validate-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: pdo_mysql, mbstring
+      - name: Validate PHP
+        run: find site-api scripts tests -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Test staff validation
+        run: php tests/site-validation.php
+      - name: Deploy site API only
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.SITE_FTP_SERVER }}
+          username: ${{ secrets.SITE_FTP_USER }}
+          password: ${{ secrets.SITE_FTP_PASS }}
+          protocol: ftps
+          port: 21
+          local-dir: ./site-api/
+          server-dir: public_html/site-api/
