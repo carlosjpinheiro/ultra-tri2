@@ -77,9 +77,9 @@ import { challengeInfo } from '../data/items';
                         <!-- Desconto e como reservar -->
                         <div class="row">
                             <div class="col-12">
-                                <h3>10% OFF na reserva</h3>
+                                <h3>20% OFF na reserva</h3>
                                 <p>
-                                    Para garantir o seu desconto de 10%, faça a reserva diretamente pelo site oficial do Hotel Aretê utilizando o cupom de desconto: <strong>{{ challengeInfo.areteCupom }}</strong>, ou reserve através do e-mail <strong>reservas@hotelarete.com.br</strong>, identificando-se como participante da competição.
+                                    Para garantir o seu desconto de 20%, faça a reserva diretamente pelo site oficial do Hotel Aretê utilizando o cupom de desconto: <strong>{{ challengeInfo.areteCupom }}</strong>, ou reserve através do e-mail <strong>reservas@hotelarete.com.br</strong>, identificando-se como participante da competição.
                                 </p>
                                 <p>
                                     ** Verifique com o Hotel o horário que será servido o café da manhã diariamente para que você possa chegar em tempo na prova!

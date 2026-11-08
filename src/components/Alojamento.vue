@@ -27,7 +27,7 @@ const fotos = [aloj1, aloj2, aloj3, aloj4].map((src, index) => ({ src, alt: `Alo
                             Os atletas podem optar por usar o alojamento da prova, alugar por conta própria um motorhome ou hospedar-se em hotel ou pousada de
                             sua preferência. Indicamos o <strong>Hotel Aretê</strong> como
                             acomodação mais próxima do local da prova. Atletas
-                            possuem 10% desconto utilizando o cupom <strong>{{ challengeInfo.areteCupom }}</strong>.
+                            possuem 20% desconto utilizando o cupom <strong>{{ challengeInfo.areteCupom }}</strong>.
                             Reservas podem ser feitas através do e-mail:
                             <a :href="'mailto:reservas@hotelarete.com.br'" style="color: black;">
                                 <span>reservas@hotelarete.com.br</span>
