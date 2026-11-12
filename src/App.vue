@@ -1,8 +1,10 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 const route = useRoute();
 const isHome = computed(() => route.name === 'home');
+const isAdmin = computed(() => route.meta.admin === true);
+watch(isAdmin, value => document.body.classList.toggle('ultra-admin-page', value), { immediate: true });
 
 import SitePage from './components/SitePage.vue';
 import './styles/theme.css';
@@ -27,18 +29,23 @@ window.gtranslateSettings = {
 
 <template>
   <div id="app" class="ultra-theme">
-    <div class="gtranslate_wrapper"/>
-    <Header />
+    <div v-show="!isAdmin" class="gtranslate_wrapper"/>
+    <Header v-if="!isAdmin" />
     <RouterView v-slot="{ Component }">
-      <component :is="Component" v-if="isHome" />
+      <component :is="Component" v-if="isHome || isAdmin" />
       <SitePage v-else><component :is="Component" /></SitePage>
     </RouterView>
-    <Footer />
+    <Footer v-if="!isAdmin" />
 </div>
 
 </template>
 
 <style>
+body.ultra-admin-page > #overlayer,
+body.ultra-admin-page > .loader {
+  display: none !important;
+}
+
 .img-border {
   border: 6px;
   border-color: #fcb603;

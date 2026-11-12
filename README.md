@@ -4,6 +4,10 @@
 
 Página `/staff` e backend PHP/MySQL independente em `/site-api/`. Consulte [configuração, migrações e publicação](docs/staff-backend.md). O banco e as migrações são exclusivos do site, separados do ultra-finance.
 
+## Administração
+
+Área `/admin` com autenticação, acesso exclusivo a administradores ativos e consulta das inscrições. Consulte [migração e criação do primeiro administrador](docs/admin.md) antes de publicar esta versão.
+
 a fazer:
     - linkar ou exibir localização(google maps) do clube em ComoChegar
     - criar pagina de Galeria

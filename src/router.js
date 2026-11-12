@@ -15,6 +15,7 @@ import Resultados from './components/Resultados.vue';
 import Staff from './components/Staff.vue';
 
 const routes = [
+    { name: 'admin', path: '/admin', component: () => import('./components/Admin.vue'), meta: { admin: true } },
     { name: 'staff', path: '/staff', component: Staff },
     { name: 'home', path: '/', meta: { name: 'home' }, component: Home, },
     { name: 'sobre', path: '/sobre', meta: { name: 'Sobre' }, redirect: { name: 'home', hash: '#sobre' } },

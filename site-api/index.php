@@ -13,6 +13,10 @@ function respond(int $status, array $body): never {
 }
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
+if (str_starts_with($path, '/site-api/v1/admin/')) {
+    require __DIR__ . '/src/Admin.php';
+    adminRoutes($path, $method);
+}
 if ($path === '/site-api/v1/health' && $method === 'GET') respond(200, ['status' => 'ok']);
 if ($path !== '/site-api/v1/staff-registrations') respond(404, ['message' => 'Rota não encontrada.']);
 if ($method !== 'POST') {
