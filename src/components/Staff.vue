@@ -2,6 +2,7 @@
 import { nextTick, ref } from 'vue';
 import { VTextField, VTextarea, VSelect } from 'vuetify/components';
 import fields from '../../site-api/schema/staff.json';
+import MessageDialog from './MessageDialog.vue';
 
 const fresh = () => Object.fromEntries(fields.map(f => [f.key, f.type === 'multiple' ? [] : f.type === 'confirm' ? false : '']));
 const data = ref(fresh());
@@ -50,6 +51,7 @@ async function scrollToFirstError() {
 async function submit() {
   if (sending.value) return;
   serverErrors.value = {};
+  confirmationOpen.value = false;
   message.value = '';
   if (!(await form.value.validate()).valid) {
     await scrollToFirstError();
@@ -74,24 +76,22 @@ async function submit() {
   } catch (error) {
     success.value = false;
     message.value = error instanceof SyntaxError || error instanceof TypeError ? 'Não foi possível conectar ao serviço de inscrições. Tente novamente mais tarde.' : error.message;
+    confirmationOpen.value = true;
   } finally {
     sending.value = false;
-    if (Object.keys(serverErrors.value).length) await scrollToFirstError();
   }
 }
 </script>
 
 <template>
   <div class="ultra-page-body page-staff">
-    <VDialog v-model="confirmationOpen" max-width="480" aria-labelledby="staff-confirmation-title">
-      <VCard>
-        <VCardTitle id="staff-confirmation-title" class="text-wrap">Inscrição recebida!</VCardTitle>
-        <VCardText>Sua inscrição para Staff Brasil Ultra Tri 2027 foi enviada com sucesso. A organização entrará em contato pelos dados informados.</VCardText>
-        <VCardActions>
-          <VBtn color="primary" @click="confirmationOpen = false">Entendi</VBtn>
-        </VCardActions>
-      </VCard>
-    </VDialog>
+    <MessageDialog
+      v-model="confirmationOpen"
+      :title="success ? 'Inscrição recebida!' : 'Não foi possível enviar'"
+      :message="message"
+      :type="success ? 'success' : 'error'"
+      @closed="Object.keys(serverErrors).length && scrollToFirstError()"
+    />
     <div class="container">
       <div class="staff-intro">
         <h2>Quer viver o Brasil Ultra Tri de um jeito completamente diferente?</h2>
@@ -112,7 +112,6 @@ async function submit() {
         <h2>Quer viver o ULTRA com a gente?</h2>
         <p>Estamos formando a equipe que estará conosco em Búzios entre 30 de abril e 16 de maio de 2027. Preencha as informações com atenção. Você não precisa ter experiência anterior em eventos. Buscamos pessoas responsáveis, comprometidas, proativas e dispostas a trabalhar em equipe.</p>
         <p>Campos marcados com * são obrigatórios.</p>
-        <VAlert v-if="message" :type="success ? 'success' : 'error'" class="mb-6" role="status">{{ message }}</VAlert>
         <VForm ref="form" validate-on="submit lazy" @submit.prevent="submit" :disabled="sending">
           <template v-for="field in fields" :key="field.key">
             <template v-if="visible(field)">

@@ -43,7 +43,7 @@
 .ultra-theme .site-footer .social a { background: var(--ultra-yellow); color: var(--ultra-forest) !important; }
 
 /* Abertura e fotografias. */
-.ultra-theme .ultra-hero { padding-top: 125px; background: var(--ultra-forest); color: var(--ultra-paper); overflow: hidden; }
+.ultra-theme .ultra-hero { padding-top: calc(var(--ultra-header-height, 61px) + 33px); background: var(--ultra-forest); color: var(--ultra-paper); overflow: hidden; }
 .ultra-theme .ultra-hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 55px; padding-bottom: 65px; }
 .ultra-theme .ultra-hero .ultra-eyebrow { color: #c9dece; font-size: 10px; letter-spacing: 1.8px; }
 .ultra-theme .ultra-dot { display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: var(--ultra-yellow); }
@@ -183,7 +183,7 @@
 }
 @media (max-width: 767px) {
   .ultra-theme .ultra-container { width: calc(100% - 40px); }
-  .ultra-theme .ultra-hero { padding-top: 118px; }
+  .ultra-theme .ultra-hero { padding-top: calc(var(--ultra-header-height, 54px) + 36px); }
   .ultra-theme .ultra-hero-grid { grid-template-columns: 1fr; gap: 40px; padding-bottom: 40px; }
   .ultra-theme .ultra-hero h1 { font-size: clamp(40px, 10vw, 62px); letter-spacing: -2px; line-height: 1.02; }
   .ultra-theme .ultra-hero-copy { max-width: 550px; }

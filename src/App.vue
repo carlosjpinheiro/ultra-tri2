@@ -41,6 +41,11 @@ window.gtranslateSettings = {
 </template>
 
 <style>
+.gtranslate_wrapper .gt_float_switcher {
+  transform: scale(0.65);
+  transform-origin: bottom right;
+}
+
 body.ultra-admin-page > #overlayer,
 body.ultra-admin-page > .loader {
   display: none !important;

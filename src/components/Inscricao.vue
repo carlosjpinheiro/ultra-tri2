@@ -2,11 +2,9 @@
 import { computed, ref, watch } from "vue";
 import { VForm, VTextField, VBtn } from "vuetify/lib/components/index.mjs";
 import Loading from './Loading.vue'
-import axios from 'axios';
+import MessageDialog from './MessageDialog.vue';
 import {requiredRule, emailRule, dataNascimentoRule} from '../utils/validators'
-import { initializeApp } from "firebase/app";
-import { firebaseConfig } from "../data/firebase";
-import { getFirestore, collection, addDoc } from 'firebase/firestore/lite';
+import { submitAthleteRegistration } from '../utils/athleteRegistration';
 import { modalidadesValores } from "../data/modalidades";
 
 const getNewForm = () => {
@@ -30,10 +28,12 @@ const getNewForm = () => {
         _subject: 'Nova inscrição Brasil Ultra Tri 2027'
     }
 }
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 const valid = ref(false);
 const carregando = ref(false)
+const dialogOpen = ref(false);
+const dialogTitle = ref('');
+const dialogMessage = ref('');
+const dialogType = ref('info');
 const formData = ref(getNewForm())
 const formInstance = ref(null)
 const cpfField = ref(null)
@@ -76,7 +76,7 @@ const mascaraDataNascimento = (event) => {
 };
 
 const submitForm = async() => {
-    axios.defaults.headers.post['Content-Type'] = 'application/json';
+    if (carregando.value) return;
 
     const validation = await formInstance.value.validate()
 
@@ -90,15 +90,23 @@ const submitForm = async() => {
         try {
             carregando.value = true
 
-            await addDoc(collection(db, "ultratri2027"), formData.value);
+            await submitAthleteRegistration(formData.value);
 
-            alert('Pré-inscrição enviada com sucesso! Aguarde o e-mail da organização do evento para efetivar a inscrição')
+            dialogTitle.value = 'Pré-inscrição recebida!';
+            dialogMessage.value = 'Pré-inscrição enviada com sucesso! Aguarde o e-mail da organização do evento para efetivar a inscrição.';
+            dialogType.value = 'success';
+            dialogOpen.value = true;
 
             formInstance.value.reset()
             formData.value = getNewForm()
             // dataNascimento.value = null
         } catch (error) {
-            alert('Erro ao enviar o formulário!')
+            dialogTitle.value = 'Não foi possível enviar';
+            dialogMessage.value = error instanceof TypeError
+                ? 'Não foi possível conectar ao serviço de inscrições. Tente novamente mais tarde.'
+                : error.message || 'Erro ao enviar o formulário. Tente novamente.';
+            dialogType.value = 'error';
+            dialogOpen.value = true;
             console.error('Erro ao enviar o formulário:', error);
         } finally {
             carregando.value = false
@@ -109,226 +117,203 @@ const submitForm = async() => {
 </script>
 
 <template>
-    <div class="ultra-page-body page-inscricao" >
-        <Loading
-            :carregando="carregando"
+    <div class="ultra-page-body page-inscricao">
+        <MessageDialog
+            v-model="dialogOpen"
+            :title="dialogTitle"
+            :message="dialogMessage"
+            :type="dialogType"
         />
+        <Loading :carregando="carregando" />
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 form">
+                    <p>Campos marcados com * são obrigatórios.</p>
+                    <VForm
+                        ref="formInstance"
+                        v-model="valid"
+                        validate-on="submit lazy"
+                        :disabled="carregando"
+                        @submit.prevent="submitForm"
+                    >
+                        <label for="athlete-nome" class="athlete-question">Nome *</label>
+                        <VTextField
+                            id="athlete-nome"
+                            v-model="formData.nome"
+                            variant="outlined"
+                            :rules="[requiredRule]"
+                            validate-on="input"
+                            class="mb-4"
+                        />
 
-        <div class="container" >
+                        <label for="athlete-sobrenome" class="athlete-question">Sobrenome *</label>
+                        <VTextField
+                            id="athlete-sobrenome"
+                            v-model="formData.sobrenome"
+                            variant="outlined"
+                            :rules="[requiredRule]"
+                            validate-on="input"
+                            class="mb-4"
+                        />
 
+                        <label for="athlete-email" class="athlete-question">E-mail *</label>
+                        <VTextField
+                            id="athlete-email"
+                            v-model="formData.email"
+                            type="email"
+                            variant="outlined"
+                            :rules="[requiredRule, emailRule]"
+                            validate-on="input"
+                            class="mb-4"
+                        />
 
-            <br>
+                        <label for="athlete-telefone" class="athlete-question">Telefone (opcional)</label>
+                        <VTextField
+                            id="athlete-telefone"
+                            v-model="formData.telefone"
+                            type="tel"
+                            variant="outlined"
+                            class="mb-4"
+                        />
 
-            <div>
-                <div class="row">
+                        <label for="athlete-nacionalidade" class="athlete-question">País / Nacionalidade *</label>
+                        <VTextField
+                            id="athlete-nacionalidade"
+                            v-model="formData.nacionalidade"
+                            variant="outlined"
+                            :rules="[requiredRule]"
+                            validate-on="input"
+                            class="mb-4"
+                        />
 
-                    <div class="col-lg-8 form">
+                        <label for="athlete-cpf" class="athlete-question">
+                            {{ formData.estrangeiro ? 'CPF (opcional)' : 'CPF *' }}
+                        </label>
+                        <VTextField
+                            id="athlete-cpf"
+                            ref="cpfField"
+                            v-model="formData.cpf"
+                            :required="!formData.estrangeiro"
+                            variant="outlined"
+                            :rules="cpfRules"
+                            validate-on="input"
+                            inputmode="numeric"
+                            maxlength="14"
+                            @input="mascaraCpf"
+                        />
+                        <VCheckbox
+                            v-model="formData.estrangeiro"
+                            label="Estrangeiro"
+                            hide-details
+                            class="mb-4"
+                        />
 
-                        <VForm validate-on="submit lazy" v-model="valid" ref="formInstance" @submit.prevent>
+                        <label for="athlete-idade" class="athlete-question">Idade *</label>
+                        <VTextField
+                            id="athlete-idade"
+                            v-model="formData.idade"
+                            type="number"
+                            variant="outlined"
+                            :rules="[requiredRule]"
+                            validate-on="input"
+                            class="mb-4"
+                        />
 
-                            <VRow>
-                                <VCol>
-                                    <VTextField
-                                        v-model="formData.nome"
-                                        label="*Nome"
-                                        variant="outlined"
-                                        :rules="[requiredRule]"
-                                        validate-on="input"
-                                    />
-                                </VCol>
-                                <VCol>
-                                    <VTextField
-                                        v-model="formData.sobrenome"
-                                        label="*Sobrenome"
-                                        variant="outlined"
-                                        :rules="[requiredRule]"
-                                        validate-on="input"
-                                    />
-                                </VCol>
+                        <label for="athlete-dataNascimento" class="athlete-question">Data de nascimento (dd/mm/aaaa) *</label>
+                        <VTextField
+                            id="athlete-dataNascimento"
+                            v-model="formData.dataNascimento"
+                            variant="outlined"
+                            :rules="[requiredRule, dataNascimentoRule]"
+                            validate-on="input"
+                            maxlength="10"
+                            @input="mascaraDataNascimento"
+                            class="mb-4"
+                        />
 
-                            </VRow>
+                        <label for="athlete-provasAnteriores" class="athlete-question">Cite as 3 provas mais importantes de triathlon que você já fez *</label>
+                        <VTextarea
+                            id="athlete-provasAnteriores"
+                            v-model="formData.provasAnteriores"
+                            rows="3"
+                            variant="outlined"
+                            :rules="[requiredRule]"
+                            validate-on="input"
+                            class="mb-4"
+                        />
 
-                            <VRow>
-                                <VCol>
-                                    <VTextField
-                                        v-model="formData.email"
-                                        label="*Email"
-                                        variant="outlined"
-                                        :rules="[requiredRule, emailRule]"
-                                        validate-on="input"
-                                    />
-                                </VCol>
-                            </VRow>
+                        <label for="athlete-restricaoAlimentar" class="athlete-question">Alguma restrição alimentar? *</label>
+                        <VTextarea
+                            id="athlete-restricaoAlimentar"
+                            v-model="formData.restricaoAlimentar"
+                            rows="2"
+                            variant="outlined"
+                            :rules="[requiredRule]"
+                            validate-on="input"
+                            class="mb-4"
+                        />
 
-                            <VRow>
-                                <VCol>
-                                    <VTextField
-                                        v-model="formData.telefone"
-                                        label="Telefone"
-                                        variant="outlined"
-                                    />
-                                </VCol>
-                            </VRow>
+                        <label for="athlete-tamanhoCamiseta" class="athlete-question">Tamanho de camiseta *</label>
+                        <VTextField
+                            id="athlete-tamanhoCamiseta"
+                            v-model="formData.tamanhoCamiseta"
+                            variant="outlined"
+                            :rules="[requiredRule]"
+                            validate-on="input"
+                            class="mb-4"
+                        />
 
-                            <VRow>
-                                <VCol>
-                                    <VTextField
-                                        v-model="formData.nacionalidade"
-                                        label="*País/Nacionalidade"
-                                        variant="outlined"
-                                        :rules="[requiredRule]"
-                                        validate-on="input"
-                                    />
-                                </VCol>
-                            </VRow>
+                        <label for="athlete-cupomDesconto" class="athlete-question">Cupom de desconto (opcional)</label>
+                        <VTextField
+                            id="athlete-cupomDesconto"
+                            v-model="formData.cupomDesconto"
+                            variant="outlined"
+                            class="mb-4"
+                        />
 
-                            <VRow>
-                                <VCol>
-                                    <VTextField
-                                        v-model="formData.cpf"
-                                        ref="cpfField"
-                                        :label="formData.estrangeiro ? 'CPF (opcional)' : '*CPF'"
-                                        :required="!formData.estrangeiro"
-                                        variant="outlined"
-                                        :rules="cpfRules"
-                                        validate-on="input"
-                                        inputmode="numeric"
-                                        maxlength="14"
-                                        @input="mascaraCpf"
-                                    />
-                                    <VCheckbox
-                                        v-model="formData.estrangeiro"
-                                        label="Estrangeiro"
-                                        hide-details
-                                    />
-                                </VCol>
-                            </VRow>
+                        <label for="athlete-modalidade" class="athlete-question">Modalidade de interesse *</label>
+                        <VSelect
+                            id="athlete-modalidade"
+                            v-model="formData.modalidade"
+                            :items="modalidadesValores"
+                            item-title="nome"
+                            item-value="nome"
+                            variant="outlined"
+                            :rules="[requiredRule]"
+                            validate-on="input"
+                            class="mb-4"
+                        />
 
-                            <VRow>
-                                <VCol>
-                                    <VTextField
-                                        v-model="formData.idade"
-                                        label="*Idade"
-                                        type="number"
-                                        variant="outlined"
-                                        :rules="[requiredRule]"
-                                        validate-on="input"
-                                    />
-                                </VCol>
-                            </VRow>
+                        <VCheckbox
+                            v-model="formData.concordaRegulamento"
+                            :rules="[v => !!v || 'Você deve concordar para continuar!']"
+                            validate-on="input"
+                            class="mb-4"
+                        >
+                            <template #label>
+                                <span>
+                                    Concordo com os
+                                    <RouterLink :to="{ name: 'regulamentos' }" target="_blank" @click.stop>
+                                        Regulamentos
+                                    </RouterLink>
+                                </span>
+                            </template>
+                        </VCheckbox>
 
-                            <VRow>
-                                <VCol>
-                                    <VTextField
-                                        v-model="formData.dataNascimento"
-                                        label="*Data de nascimento (dd/mm/aaaa)"
-                                        variant="outlined"
-                                        validate-on="input"
-                                        :rules="[requiredRule, dataNascimentoRule]"
-                                        maxlength="10"
-                                        @input="mascaraDataNascimento"
-                                    />
-                                    </VCol>
-                            </VRow>
-
-                            <VRow>
-                                <VCol>
-                                    <VTextarea
-                                        v-model="formData.provasAnteriores"
-                                        label="*Cite as 3 provas mais importantes de triathlon que você já fez:"
-                                        rows="3"
-                                        variant="outlined"
-                                        :rules="[requiredRule]"
-                                        validate-on="input"
-                                    />
-                                </VCol>
-                            </VRow>
-
-                            <VRow>
-                                <VCol>
-                                    <VTextarea
-                                        v-model="formData.restricaoAlimentar"
-                                        label="*Alguma restrição alimentar?"
-                                        rows="2"
-                                        variant="outlined"
-                                        :rules="[requiredRule]"
-                                        validate-on="input"
-                                    />
-                                </VCol>
-                            </VRow>
-
-                            <VRow>
-                                <VCol>
-                                    <VTextField
-                                        v-model="formData.tamanhoCamiseta"
-                                        label="*Tamanho de camiseta"
-                                        variant="outlined"
-                                        :rules="[requiredRule]"
-                                        validate-on="input"
-                                    />
-                                </VCol>
-                            </VRow>
-
-                            <VRow>
-                                <VCol>
-                                    <VTextField
-                                        v-model="formData.cupomDesconto"
-                                        label="Cupom de desconto:"
-                                        variant="outlined"
-                                    />
-                                </VCol>
-                            </VRow>
-                            <VSelect
-                                v-model="formData.modalidade"
-                                :items="modalidadesValores"
-                                item-title="nome"
-                                item-value="nome"
-                                label="*Modalidade de interesse"
-                                variant="outlined"
-                                :rules="[requiredRule]"
-                                validate-on="input"
-                            />
-
-                            <VCheckbox
-                                v-model="formData.concordaRegulamento"
-                                :rules="[v => !!v || 'Você deve concordar para continuar!']"
-                                validate-on="input"
-                            >
-                                <template #label>
-                                    <span>
-                                        Concordo com os
-                                        <RouterLink
-                                            :to="{ name: 'regulamentos' }"
-                                            target="_blank"
-                                            @click.stop
-                                        >
-                                            Regulamentos
-                                        </RouterLink>
-                                    </span>
-                                </template>
-                            </VCheckbox>
-
-                            <div style="width: 150px; margin: 0 auto;" class="">
-
-                                <VBtn
-                                    :loading="loading"
-                                    class="mt-2 px-6 "
-                                    text="Enviar"
-                                    block
-                                    @click="submitForm"
-                                    />
-                            </div>
-                        </VForm>
-
-                    </div>
+                        <VBtn type="submit" :loading="carregando" :disabled="carregando" block>
+                            Enviar
+                        </VBtn>
+                    </VForm>
                 </div>
             </div>
         </div>
     </div>
 </template>
 
-<style>
-.form {
-    color: black;
+<style scoped>
+.athlete-question {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 </style>

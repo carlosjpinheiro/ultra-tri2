@@ -1,8 +1,9 @@
 /* Estrutura compartilhada de navegação e rodapé. Cores da Home vêm de suas variáveis. */
 .ultra-site-header { position: fixed; inset: 0 0 auto; z-index: 1000; background: var(--ultra-paper, #fcb603); color: var(--ultra-ink, #163328); border-bottom: 1px solid var(--ultra-line, #e4ac18); }
-.ultra-header-bar { position: relative; display: flex; align-items: center; gap: 24px; width: min(1600px, calc(100% - 48px)); min-height: 92px; margin-inline: auto; }
-.ultra-header-logo { display: block; flex: 0 0 auto; }
-.ultra-header-logo img { display: block; width: 120px; height: auto; }
+.ultra-header-bar { --logo-width: 120px; position: relative; display: flex; align-items: center; gap: 24px; width: min(1600px, calc(100% - 48px)); padding-block: 5px; margin-inline: auto; }
+/* The image has 23 transparent pixels above its 165-pixel-tall visible logo. */
+.ultra-header-logo { display: block; flex: 0 0 auto; width: var(--logo-width); height: calc(var(--logo-width) * 165 / 400); overflow: hidden; }
+.ultra-header-logo img { display: block; width: 100%; height: auto; transform: translateY(-11.27451%); }
 .ultra-nav-space { flex: 1 1 auto; min-width: 0; }
 .ultra-nav-list, .ultra-more-links { list-style: none; padding: 0; margin: 0; }
 .ultra-nav-list, .ultra-nav-measure { display: flex; gap: 6px; align-items: center; }
@@ -31,8 +32,7 @@
 .ultra-footer-social a { display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--ultra-yellow, #fff3c3); color: var(--ultra-forest, #163328) !important; font-size: 17px; }
 .ultra-site-footer .ultra-footer-copyright { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid #ffffff26; text-align: center; font-size: 12px; line-height: 1.5; }
 @media (max-width: 767px) {
-  .ultra-header-bar { width: calc(100% - 32px); gap: 12px; min-height: 82px; }
-  .ultra-header-logo img { width: 105px; }
+  .ultra-header-bar { --logo-width: 105px; width: calc(100% - 32px); gap: 12px; }
   .ultra-nav-overflow { position: static; }
   .ultra-more-links { top: calc(100% - 2px); right: 0; min-width: min(300px, calc(100vw - 32px)); }
   .ultra-header-cta { padding: 10px 14px; font-size: 14px; }
@@ -41,7 +41,7 @@
   .ultra-footer-grid > div:first-child { grid-column: 1 / -1; }
 }
 @media (max-width: 359px) {
-  .ultra-header-bar { gap: 8px; }
-  .ultra-header-logo img { width: 88px; }
-  .ultra-header-cta { padding: 10px 11px; font-size: 13px; }
+  .ultra-header-bar { --logo-width: 88px; gap: 8px; }
+  .ultra-site-header .ultra-nav-link { padding-block: 6px; }
+  .ultra-header-cta { padding: 8px 11px; font-size: 13px; }
 }

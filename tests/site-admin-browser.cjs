@@ -6,7 +6,7 @@ module.exports = async function ({ base, origin }) {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
-    await page.route('**/site-api/v1/admin/**', async route => {
+    await page.route('**/site-api/v1/**', async route => {
       const url = new URL(route.request().url());
       const response = await route.fetch({ url: base + url.pathname + url.search });
       await route.fulfill({ response });
@@ -20,6 +20,21 @@ module.exports = async function ({ base, origin }) {
     await page.getByRole('heading', { name: 'Inscrições de staff' }).waitFor();
     await page.getByRole('button', { name: 'Ver inscrição de Staff Teste 25', exact: true }).waitFor();
     assert.equal(await page.locator('tbody tr').count(), 20);
+    const layout = await page.evaluate(() => {
+      const brand = document.querySelector('.admin-sidebar .admin-brand').getBoundingClientRect();
+      const heading = document.querySelector('.admin-heading-copy').getBoundingClientRect();
+      const count = document.querySelector('.admin-stat').getBoundingClientRect();
+      return { brandTop: brand.top, headingTop: heading.top, headingRight: heading.right, countLeft: count.left, rowHeight: document.querySelector('tbody tr').getBoundingClientRect().height };
+    });
+    assert.ok(Math.abs(layout.brandTop - layout.headingTop) < 1);
+    assert.ok(layout.countLeft > layout.headingRight);
+    assert.ok(layout.rowHeight < 48);
+    assert.equal(await page.locator('tbody small').count(), 0);
+    await page.getByRole('button', { name: 'Data de inscrição' }).click();
+    await page.waitForFunction(() => document.querySelector('tbody tr td')?.textContent === 'Staff Teste 1');
+    assert.equal(await page.locator('th[aria-sort]').getAttribute('aria-sort'), 'ascending');
+    await page.getByRole('button', { name: 'Data de inscrição' }).click();
+    await page.waitForFunction(() => document.querySelector('tbody tr td')?.textContent === 'Staff Teste 25');
     await page.screenshot({ path: 'tmp/admin-desktop.png' });
     await page.getByLabel('Buscar inscrição').fill('staff1@example.com');
     await page.getByRole('button', { name: 'Buscar', exact: true }).click();
@@ -29,6 +44,21 @@ module.exports = async function ({ base, origin }) {
     assert.equal(await page.locator('script').filter({ hasText: 'alert(1)' }).count(), 0);
     await page.screenshot({ path: 'tmp/admin-detail.png' });
     await page.getByRole('button', { name: 'Fechar', exact: true }).click();
+    await page.getByRole('link', { name: 'Inscrições de atletas', exact: false }).click();
+    await page.getByRole('heading', { name: 'Inscrições de atletas' }).waitFor();
+    await page.getByText('second@example.com', { exact: true }).waitFor();
+    assert.equal(await page.locator('tbody tr').count(), 2);
+    await page.getByLabel('Modalidade', { exact: true }).selectOption('DECA CONTINUOUS');
+    await page.waitForFunction(() => document.querySelectorAll('tbody tr').length === 1);
+    await page.getByText('atleta@example.com', { exact: true }).waitFor();
+    await page.getByLabel('Modalidade', { exact: true }).selectOption('');
+    await page.waitForFunction(() => document.querySelectorAll('tbody tr').length === 2);
+    await page.screenshot({ path: 'tmp/admin-athletes.png' });
+    await page.getByRole('button', { name: 'Ver inscrição de Atleta Teste Silva', exact: true }).first().click();
+    await page.getByRole('dialog').getByText('15/02/1990', { exact: true }).waitFor();
+    await page.getByRole('button', { name: 'Fechar', exact: true }).click();
+    await page.getByRole('link', { name: 'Inscrições de staff', exact: false }).click();
+    await page.getByRole('heading', { name: 'Inscrições de staff' }).waitFor();
     await page.reload();
     await page.getByRole('heading', { name: 'Inscrições de staff' }).waitFor();
     await page.setViewportSize({ width: 390, height: 844 });
@@ -37,7 +67,23 @@ module.exports = async function ({ base, origin }) {
     await page.getByRole('button', { name: 'Sair da conta' }).click();
     await page.getByRole('heading', { name: 'Entrar na administração' }).waitFor();
     assert.equal(await page.locator('tbody tr').count(), 0);
+    await page.goto(origin + '/inscricao');
+    const form = page.locator('form');
+    const inputs = form.locator('.v-text-field input');
+    const values = ['Atleta Navegador', 'Teste', 'browser@example.com', '21999999999', 'Brasil', '12345678909', '36', '15021990', 'M', ''];
+    for (let index = 0; index < values.length; index++) await inputs.nth(index).fill(values[index]);
+    await form.locator('textarea').nth(0).fill('Provas anteriores de teste');
+    await form.locator('textarea').nth(1).fill('Nenhuma');
+    await form.getByRole('combobox').click();
+    await page.getByRole('option', { name: 'DECA CONTINUOUS', exact: true }).click();
+    await form.getByRole('checkbox', { name: 'Concordo com os Regulamentos' }).check();
+    const submission = page.waitForResponse(response => response.url().includes('/site-api/v1/athlete-registrations') && response.request().method() === 'POST');
+    await form.getByRole('button', { name: 'Enviar', exact: true }).click();
+    assert.equal((await submission).status(), 201);
+    await page.getByRole('dialog', { name: 'Pré-inscrição recebida!' }).waitFor();
+    await page.getByRole('dialog').getByRole('button', { name: 'Entendi' }).click();
+    await page.waitForFunction(() => document.querySelector('.page-inscricao input')?.value === '');
     assert.deepEqual(errors, []);
-    console.log('Admin browser tests passed: login, table, search, escaped detail, session restore, mobile and logout.');
+    console.log('Browser tests passed: admin staff/athlete tables, details, login/logout and public athlete registration saved through PHP.');
   } finally { await browser.close(); }
 };

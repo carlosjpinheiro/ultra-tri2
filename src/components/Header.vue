@@ -34,6 +34,7 @@ let ativo = true;
 
 const distribuir = () => {
   if (!ativo || !espacoMenu.value || !medidor.value) return;
+  document.documentElement.style.setProperty('--ultra-header-height', `${header.value.getBoundingClientRect().height}px`);
   const largura = espacoMenu.value.clientWidth;
   const itens = Array.from(medidor.value.querySelectorAll('[data-menu-item]'));
   const gap = parseFloat(getComputedStyle(medidor.value).columnGap) || 0;
@@ -63,6 +64,7 @@ watch(() => route.fullPath, fechar);
 onMounted(async () => {
   await nextTick();
   observer = new ResizeObserver(distribuir);
+  observer.observe(header.value);
   observer.observe(espacoMenu.value);
   observer.observe(medidor.value);
   distribuir();

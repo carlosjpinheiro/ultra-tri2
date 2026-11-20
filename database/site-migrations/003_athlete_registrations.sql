@@ -1,0 +1,23 @@
+CREATE TABLE athlete_registrations (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    event_code VARCHAR(190) NOT NULL,
+    name VARCHAR(180) NOT NULL,
+    surname VARCHAR(180) NOT NULL,
+    email VARCHAR(254) NOT NULL,
+    phone VARCHAR(40) NOT NULL DEFAULT '',
+    nationality VARCHAR(180) NOT NULL,
+    cpf VARCHAR(14) NOT NULL DEFAULT '',
+    is_foreign TINYINT(1) NOT NULL DEFAULT 0,
+    age TINYINT UNSIGNED NOT NULL,
+    birth_date DATE NOT NULL,
+    previous_events TEXT NOT NULL,
+    dietary_restrictions TEXT NOT NULL,
+    shirt_size VARCHAR(40) NOT NULL,
+    modality VARCHAR(180) NOT NULL,
+    discount_code VARCHAR(100) NOT NULL DEFAULT '',
+    regulations_accepted TINYINT(1) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    KEY athlete_created_at (created_at, id),
+    KEY athlete_event (event_code),
+    KEY athlete_email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

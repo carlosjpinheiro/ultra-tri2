@@ -4,6 +4,8 @@
 
 ## Publicação e primeiro usuário
 
+Para habilitar inscrições de atletas, aplique `003_athlete_registrations.sql` no banco do site antes de publicar a API e o frontend. A seção **Inscrições de atletas** fica no menu de `/admin` e recebe os novos envios do formulário Ultra Tri. O nome enviado em `event` é a chave do evento, armazenada em `event_code`, sem lista de eventos permitidos nem regras específicas por evento. Para uma nova edição, altere a constante `event` em `src/utils/athleteRegistration.js`, atualmente `ultratri2027`. O histórico existente no Firestore será importado em uma etapa posterior.
+
 1. Faça backup e aplique **somente** `database/site-migrations/002_admin.sql` no banco do site pelo phpMyAdmin se a instalação inicial foi manual. Não reaplique a migração 001 nem use o banco financeiro. Se utiliza o executor com histórico, execute `php scripts/migrate-site.php`.
 2. Gere o hash da sua senha no computador: no PowerShell, execute `./scripts/site-password-hash.ps1`. PHP precisa estar disponível. A senha é solicitada de forma oculta e não é passada como argumento nem gravada em arquivo. Use uma senha única com pelo menos 12 caracteres. Copie o hash exibido, nunca a senha em texto puro.
 3. No phpMyAdmin do banco do site, insira o usuário:

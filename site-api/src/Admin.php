@@ -77,6 +77,15 @@ function adminLogin(PDO $db): never
     respond(200, ['user' => adminUser($db), 'csrf_token' => $_SESSION['csrf']]);
 }
 
+function adminSortDirection(): string
+{
+    $direction = $_GET['direction'] ?? 'desc';
+    if (!is_string($direction) || !in_array($direction, ['asc', 'desc'], true)) {
+        respond(400, ['message' => 'Ordenação inválida.']);
+    }
+    return $direction === 'asc' ? 'ASC' : 'DESC';
+}
+
 function adminRoutes(string $path, string $method): never
 {
     try {
@@ -99,7 +108,9 @@ function adminRoutes(string $path, string $method): never
         if (empty($_SESSION['admin_id'])) respond(401, ['message' => 'Entre para acessar a administração.']);
         $db = siteDatabase();
         adminUser($db);
+        adminAthletes($db, $path, $method);
         if ($path === '/site-api/v1/admin/staff' && $method === 'GET') {
+            $direction = adminSortDirection();
             $page = max(1, min(1000000, (int) ($_GET['page'] ?? 1)));
             $search = $_GET['search'] ?? '';
             if (!is_string($search) || mb_strlen($search) > 180) respond(400, ['message' => 'Busca inválida.']);
@@ -110,7 +121,7 @@ function adminRoutes(string $path, string $method): never
             $q->execute($params);
             $total = (int) $q->fetchColumn();
             $page = min($page, max(1, (int) ceil($total / 20)));
-            $q = $db->prepare('SELECT id, event_year, name, email, created_at, answers FROM staff_registrations' . $where . ' ORDER BY created_at DESC, id DESC LIMIT 20 OFFSET ' . (($page - 1) * 20));
+            $q = $db->prepare('SELECT id, event_year, name, email, created_at, answers FROM staff_registrations' . $where . " ORDER BY created_at $direction, id $direction LIMIT 20 OFFSET " . (($page - 1) * 20));
             $q->execute($params);
             $rows = [];
             foreach ($q->fetchAll() as $row) {

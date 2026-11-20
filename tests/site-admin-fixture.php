@@ -26,6 +26,19 @@ if ($action === 'setup') {
     exit;
 }
 $db->exec("USE `$name`");
+if ($action === 'verify-athlete-columns') {
+    $columns = $db->query('SHOW COLUMNS FROM athlete_registrations')->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($columns as $column) {
+        if ($column['Field'] === 'answers' || strtolower($column['Type']) === 'json') {
+            throw new RuntimeException('Athlete registration must use individual columns.');
+        }
+    }
+    $registration = $db->query('SELECT nationality, cpf, is_foreign, age, birth_date, previous_events, dietary_restrictions, shirt_size, discount_code, regulations_accepted FROM athlete_registrations WHERE id = 1')->fetch(PDO::FETCH_ASSOC);
+    if (!$registration || $registration['nationality'] !== 'Brasil' || $registration['discount_code'] !== 'TESTE' || $registration['birth_date'] !== '1990-02-15' || (int) $registration['is_foreign'] !== 0 || (int) $registration['regulations_accepted'] !== 1) {
+        throw new RuntimeException('Athlete columns did not preserve the submitted values.');
+    }
+    exit;
+}
 if ($action === 'disable') $db->exec('UPDATE site_admin_users SET active=0');
 elseif ($action === 'enable') $db->exec("UPDATE site_admin_users SET active=1, role='admin'");
 elseif ($action === 'restrict') $db->exec("UPDATE site_admin_users SET role='viewer'");

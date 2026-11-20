@@ -47,6 +47,30 @@ try {
   assert.ok(ready, 'PHP server started');
   assert.equal((await request('staff', { authenticated: false })).status, 401);
   assert.equal((await request('staff/1', { authenticated: false })).status, 401);
+  assert.equal((await request('athletes', { authenticated: false })).status, 401);
+  assert.equal((await request('athletes/1', { authenticated: false })).status, 401);
+  const athlete = {
+    event: 'ultratri2027', nome: 'Atleta Teste', sobrenome: 'Silva', email: 'atleta@example.com',
+    telefone: '(21) 99999-9999', nacionalidade: 'Brasil', cpf: '123.456.789-09', estrangeiro: false,
+    idade: '36', dataNascimento: '15/02/1990', provasAnteriores: 'Provas de triathlon',
+    restricaoAlimentar: 'Nenhuma', tamanhoCamiseta: 'M', modalidade: 'DECA CONTINUOUS',
+    concordaRegulamento: true, cupomDesconto: 'TESTE', dataInscricao: '2000-01-01',
+  };
+  async function registerAthlete(body) {
+    const response = await fetch(`${base}/site-api/v1/athlete-registrations`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
+    });
+    return { status: response.status, body: await response.json() };
+  }
+  assert.equal((await registerAthlete({ ...athlete, dataNascimento: '31/02/1990' })).status, 422);
+  assert.equal((await registerAthlete({ ...athlete, concordaRegulamento: false })).status, 422);
+  assert.equal((await registerAthlete({ ...athlete, cpf: '' })).status, 422);
+  assert.equal((await registerAthlete(athlete)).status, 201);
+  const otherEvent = { ...athlete, event: 'outro-evento', email: 'second@example.com', modalidade: 'MEIO TRIATHLON' };
+  assert.equal((await registerAthlete(otherEvent)).status, 201);
+  assert.equal((await registerAthlete({ ...athlete, event: 'ultratri2028', cpf: '' })).status, 422);
+  assert.equal((await registerAthlete({ ...athlete, event: 'ultratri2028', provasAnteriores: '' })).status, 422);
+  assert.equal((await fetch(`${base}/site-api/v1/athlete-registrations`)).status, 405);
   const session = await request('session');
   assert.equal(session.body.user, null);
   assert.match(session.headers.get('set-cookie'), /HttpOnly/i);
@@ -64,17 +88,54 @@ try {
   assert.match(list.headers.get('cache-control'), /no-store/);
   assert.ok(!('answers' in list.body.items[0]));
   assert.equal((await request('staff?page=2')).body.items.length, 5);
+  assert.equal(Number(list.body.items[0].id), 25);
+  assert.equal(Number((await request('staff?direction=asc')).body.items[0].id), 1);
+  assert.equal(Number((await request('staff?direction=asc&page=2')).body.items[0].id), 21);
+  assert.equal((await request('staff?direction=invalid')).status, 400);
   const found = await request('staff?search=staff1%40example.com');
   assert.equal(found.body.total, 1);
   assert.equal((await request('staff?search=' + encodeURIComponent("' OR 1=1 --"))).body.total, 0);
   assert.equal((await request('staff/1')).body.registration.answers.nome, 'Staff Teste 1');
   assert.equal((await request('staff/9999')).status, 404);
+  const athleteList = await request('athletes');
+  assert.equal(athleteList.status, 200);
+  assert.equal(athleteList.body.total, 2);
+  assert.equal(athleteList.body.items[0].name, 'Atleta Teste Silva');
+  assert.ok(!('answers' in athleteList.body.items[0]));
+  assert.deepEqual(athleteList.body.modalities, ['DECA CONTINUOUS', 'MEIO TRIATHLON']);
+  assert.equal(Number(athleteList.body.items[0].id), 2);
+  assert.equal(Number((await request('athletes?direction=asc')).body.items[0].id), 1);
+  assert.equal((await request('athletes?modality=MEIO%20TRIATHLON')).body.total, 1);
+  assert.equal((await request('athletes?modality=DECA%20CONTINUOUS&search=second%40example.com')).body.total, 0);
+  assert.equal((await request('athletes?modality=' + encodeURIComponent("' OR 1=1 --"))).body.total, 0);
+  assert.equal((await request('athletes?modality[]=invalid')).status, 400);
+  assert.equal((await request('athletes?direction=' + encodeURIComponent('asc; DROP TABLE athlete_registrations'))).status, 400);
+  assert.equal((await request('athletes?search=second%40example.com')).body.total, 1);
+  const athleteDetail = (await request('athletes/1')).body.registration;
+  assert.equal(athleteDetail.event_code, 'ultratri2027');
+  assert.equal(athleteDetail.answers.dataNascimento, '15/02/1990');
+  assert.equal(athleteDetail.answers.cupomDesconto, 'TESTE');
+  assert.equal(athleteDetail.answers.nacionalidade, 'Brasil');
+  assert.equal(athleteDetail.answers.cpf, '123.456.789-09');
+  assert.equal(athleteDetail.answers.estrangeiro, false);
+  assert.equal(athleteDetail.answers.idade, 36);
+  assert.equal(athleteDetail.answers.provasAnteriores, 'Provas de triathlon');
+  assert.equal(athleteDetail.answers.restricaoAlimentar, 'Nenhuma');
+  assert.equal(athleteDetail.answers.tamanhoCamiseta, 'M');
+  assert.equal(athleteDetail.answers.concordaRegulamento, true);
+  fixture('verify-athlete-columns');
+  assert.ok(!('dataInscricao' in athleteDetail.answers));
+  assert.ok(!athleteDetail.created_at.startsWith('2000-01-01'));
+  assert.equal((await request('athletes/2')).body.registration.event_code, 'outro-evento');
+  assert.equal((await request('athletes/9999')).status, 404);
   assert.equal((await request('logout', { method: 'POST', csrf: 'invalid', body: {} })).status, 403);
   fixture('restrict');
   assert.equal((await request('staff')).status, 403, 'Role revocation affects existing session');
+  assert.equal((await request('athletes')).status, 403);
   fixture('enable');
   fixture('disable');
   assert.equal((await request('staff/1')).status, 401, 'Disabled account cannot read detail');
+  assert.equal((await request('athletes/1')).status, 401);
   fixture('enable');
   await login();
   fixture('expire', { SITE_ADMIN_TEST_SESSION: cookie.split('=')[1] });

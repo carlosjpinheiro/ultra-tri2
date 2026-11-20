@@ -2,6 +2,7 @@
 declare(strict_types=1);
 require __DIR__ . '/src/Database.php';
 require __DIR__ . '/src/Validation.php';
+require __DIR__ . '/src/Athletes.php';
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
@@ -18,7 +19,7 @@ if (str_starts_with($path, '/site-api/v1/admin/')) {
     adminRoutes($path, $method);
 }
 if ($path === '/site-api/v1/health' && $method === 'GET') respond(200, ['status' => 'ok']);
-if ($path !== '/site-api/v1/staff-registrations') respond(404, ['message' => 'Rota não encontrada.']);
+if (!in_array($path, ['/site-api/v1/staff-registrations', '/site-api/v1/athlete-registrations'], true)) respond(404, ['message' => 'Rota não encontrada.']);
 if ($method !== 'POST') {
     header('Allow: POST');
     respond(405, ['message' => 'Método não permitido.']);
@@ -30,7 +31,8 @@ if (strlen($raw) > 32768) respond(413, ['message' => 'Formulário muito grande.'
 try { $input = json_decode($raw, true, 64, JSON_THROW_ON_ERROR); }
 catch (JsonException) { respond(400, ['message' => 'JSON inválido.']); }
 if (!is_array($input) || array_is_list($input)) respond(400, ['message' => 'Formulário inválido.']);
-[$data, $errors] = validateStaff($input);
+$athleteRegistration = $path === '/site-api/v1/athlete-registrations';
+[$data, $errors] = $athleteRegistration ? validateAthlete($input) : validateStaff($input);
 if ($errors) respond(422, ['message' => 'Revise os campos indicados.', 'errors' => $errors]);
 try {
     $db = siteDatabase();
@@ -45,6 +47,10 @@ try {
         respond(429, ['message' => 'Muitas tentativas. Aguarde antes de enviar novamente.']);
     }
     $db->exec('DELETE FROM site_request_limits WHERE bucket < ' . ($bucket - 24));
+    if ($athleteRegistration) {
+        saveAthlete($db, $data);
+        respond(201, ['message' => 'Pré-inscrição recebida.']);
+    }
     $statement = $db->prepare('INSERT INTO staff_registrations (event_year, name, email, birth_date, answers, specification_version) VALUES (2027, ?, ?, ?, ?, ?)');
     $statement->execute([$data['nome'], strtolower($data['email']), $data['dataNascimento'], json_encode($data, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR), 'staff-2027-v1']);
     respond(201, ['message' => 'Inscrição recebida.']);

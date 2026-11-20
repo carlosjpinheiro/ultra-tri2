@@ -14,8 +14,6 @@ const pages = {
   startlist: ['Nossa comunidade', 'Atletas confirmados 2025', 'Conheça os atletas de cada modalidade.'],
   resultadosanteriores: ['Cada chegada, uma história', 'Resultados', 'Explore as edições do Brasil Ultra Tri. Tempos, modalidades e recordes de cada ano.'],
   inscricao: ['Seu próximo passo começa aqui', 'Pré-inscrição 2027', 'Preencha seus dados para participar do Brasil Ultra Tri.'],
-  triopen: ['Brasil Tri Open 2025', 'O preview do Brasil Ultra Tri', 'Informações e modalidades do Brasil Tri Open.'],
-  inscricaotriopen: ['Brasil Tri Open · Outubro 2025', 'Faça sua pré-inscrição', 'Preencha seus dados para participar do Brasil Tri Open.'],
 };
 const page = computed(() => pages[route.name] || ['Brasil Ultra Tri', 'Sua experiência Ultra', '']);
 </script>
@@ -23,7 +21,6 @@ const page = computed(() => pages[route.name] || ['Brasil Ultra Tri', 'Sua exper
   <main class="ultra-page" :class="`ultra-page-${route.name}`">
     <section class="ultra-page-heading">
       <div class="ultra-container">
-        <RouterLink :to="{ name: 'home' }" class="ultra-page-back">← Página inicial</RouterLink>
         <p class="ultra-eyebrow">{{ page[0] }}</p>
         <h1>{{ page[1] }}</h1>
         <p class="ultra-page-lead">{{ page[2] }}</p>

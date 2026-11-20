@@ -1,0 +1,17 @@
+[
+  {"key":"nome","label":"Nome","max":180},
+  {"key":"sobrenome","label":"Sobrenome","max":180},
+  {"key":"email","label":"E-mail","max":254},
+  {"key":"telefone","label":"Telefone","max":40,"optional":true},
+  {"key":"nacionalidade","label":"País / Nacionalidade","max":180},
+  {"key":"cpf","label":"CPF","max":14,"optional":true},
+  {"key":"estrangeiro","label":"Estrangeiro","type":"boolean","optional":true},
+  {"key":"idade","label":"Idade","max":3},
+  {"key":"dataNascimento","label":"Data de nascimento","max":10},
+  {"key":"provasAnteriores","label":"Provas anteriores","max":4000,"optional":true},
+  {"key":"restricaoAlimentar","label":"Restrição alimentar","max":2000},
+  {"key":"tamanhoCamiseta","label":"Tamanho de camiseta","max":40},
+  {"key":"modalidade","label":"Modalidade","max":180},
+  {"key":"cupomDesconto","label":"Cupom de desconto","max":100,"optional":true},
+  {"key":"concordaRegulamento","label":"Concorda com o regulamento","type":"boolean"}
+]
