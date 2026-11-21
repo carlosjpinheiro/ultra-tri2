@@ -4,7 +4,7 @@ const siteName = 'Brasil Ultra Tri'
 const contactInfo = {
     address: '',
     phone: '5547988617772',
-    email: 'ultratri.brasil@gmail.com',
+    email: 'contato@ultratribrasil.com',
     website: ''
 }
 
